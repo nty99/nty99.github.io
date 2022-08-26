@@ -180,13 +180,6 @@
 
   
   <url>
-    <loc>http://pretcat.site/categories/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2022-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://pretcat.site/categories/Linux/</loc>
     <lastmod>2022-08-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -222,7 +215,7 @@
   </url>
   
   <url>
-    <loc>http://pretcat.site/categories/%E9%83%A8%E7%BD%B2/</loc>
+    <loc>http://pretcat.site/categories/%E5%90%8E%E7%AB%AF/</loc>
     <lastmod>2022-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -230,6 +223,13 @@
   
   <url>
     <loc>http://pretcat.site/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2022-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://pretcat.site/categories/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2022-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
