@@ -52,7 +52,9 @@
 
     <script src="/blog/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/blog/atom.xml" title="我的博客" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/blog/atom.xml" title="我的博客" type="application/atom+xml">
 </head>
 
 
@@ -172,7 +174,7 @@
         <div class="logo-name">我的博客</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            描述
             
         </div>
     </div>
@@ -332,6 +334,19 @@
 </header>
 
     
+<script src="/blog/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/blog/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -390,12 +405,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-26
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    287
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -406,7 +441,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、docker常用命令"><a href="#1、docker常用命令" class="headerlink" title="1、docker常用命令"></a>1、docker常用命令</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker pull 服务:tag  服务:版本（拉取服务，不加tag则默认最新版）</span><br><span class="line">docker  images 查看镜像</span><br><span class="line">docker save -o nginx.tar nginx:lastest  将nginx:latest镜像打包</span><br><span class="line">docker load -i nginx.tar  加载镜像</span><br><span class="line">docker rmi  删除镜像</span><br><span class="line">docker rm  删除容器 -f 删除运行的容器</span><br><span class="line">docker ps 查看运行容器状态 -a 则查看所有容器状态</span><br><span class="line">docker <span class="keyword">run</span><span class="language-bash"> --name  取名字  -p 80:80 -d  镜像  运行镜像，-p端口映射，-d后台运行</span></span><br><span class="line">docker logs mn 查看mn容器的日志 -f 动态查看</span><br><span class="line">docker exec -it mn bash  以bash命令进入mn容器</span><br><span class="line">docker stop mn  停止mn容器</span><br><span class="line">docker (un)pause （恢复）暂停镜像</span><br><span class="line">docker restart mn 重启mn容器</span><br></pre></td></tr></table></figure>
+                <h3 id="1、docker常用命令"><a href="#1、docker常用命令" class="headerlink" title="1、docker常用命令"></a>1、docker常用命令</h3><figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker pull 服务:tag  服务:版本（拉取服务，不加tag则默认最新版）</span><br><span class="line">docker  images 查看镜像</span><br><span class="line">docker save -o nginx.tar nginx:lastest  将nginx:latest镜像打包</span><br><span class="line">docker load -i nginx.tar  加载镜像</span><br><span class="line">docker rmi  删除镜像</span><br><span class="line">docker rm  删除容器 -f 删除运行的容器</span><br><span class="line">docker ps 查看运行容器状态 -a 则查看所有容器状态</span><br><span class="line">docker <span class="keyword">run</span><span class="language-bash"> --name  取名字  -p 80:80 -d  镜像  运行镜像，-p端口映射，-d后台运行</span></span><br><span class="line">docker logs mn 查看mn容器的日志 -f 动态查看</span><br><span class="line">docker exec -it mn bash  以bash命令进入mn容器</span><br><span class="line">docker stop mn  停止mn容器</span><br><span class="line">docker (un)pause （恢复）暂停镜像</span><br><span class="line">docker restart mn 重启mn容器</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="2、docker镜像结构"><a href="#2、docker镜像结构" class="headerlink" title="2、docker镜像结构"></a>2、docker镜像结构</h3><p>1、镜像是将应用程序及其需要的系统函数库、环境、配置、依赖打包而成。</p>
 <p>2、镜像是分成结构、每一层称为一个Layer</p>
@@ -818,6 +853,9 @@
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">23.5k</span>
+            
             
             
                 
@@ -840,9 +878,14 @@
             
             <br>
             
+                <span id="icp"><img src="/blog/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">浙ICP备2022018780号</a>
+            </span>
+            
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://gitee.com/nty99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1032,10 +1075,6 @@ $(function () {
     <!-- 鼠标星星特效 -->
     
 
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/blog/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
     <!-- Baidu Analytics -->
@@ -1065,6 +1104,25 @@ $(function () {
 
     
 
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "48a8c484"
+        });
+        daovoice('update');
+    </script>
     
 
     <!--腾讯兔小巢-->

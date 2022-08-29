@@ -53,7 +53,9 @@
 
     <script src="/blog/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/blog/atom.xml" title="我的博客" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/blog/atom.xml" title="我的博客" type="application/atom+xml">
 </head>
 
 
@@ -173,7 +175,7 @@
         <div class="logo-name">我的博客</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            描述
             
         </div>
     </div>
@@ -333,6 +335,19 @@
 </header>
 
     
+<script src="/blog/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/blog/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -382,12 +397,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-23
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    399
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -399,7 +434,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>十一、Mac</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">一、主机名：</span><br><span class="line">就是HostName。</span><br><span class="line">查看：scutil --get HostName</span><br><span class="line">修改：sudo scutil --set HostName 新的主机名</span><br><span class="line"></span><br><span class="line">二、计算机名：</span><br><span class="line">就是ComputerName。它在隔空投送中显示，</span><br><span class="line">查看：scutil --get ComputerName</span><br><span class="line">修改：</span><br><span class="line">方法一：在“设置”——“共享”下，修改“电脑名称”。</span><br><span class="line">方法二：sudo scutil --set ComputerName 新的计算机名</span><br><span class="line"></span><br><span class="line">三、本地主机名（即：本地局域网主机名）</span><br><span class="line">它在局域网中显示，可在finder下的网络查看。</span><br><span class="line">修改：</span><br><span class="line">在“设置”——“共享”下，再点下图中的“编辑”按钮，进去就可以修改了。</span><br><span class="line"></span><br><span class="line">四、修改xcode作者名</span><br><span class="line">修改：设置——用户与群组——点击左下角小锁，解锁——在当前用户上右键，点“高级选项”，修改“全名”，就可以了</span><br><span class="line"></span><br><span class="line">五、修改终端前缀</span><br><span class="line">macOS 的终端前缀默认是 PS1=&quot;%n@%m %1~ %# &quot;。</span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">n: 表示用户名称，这里是账户名称，可以在（设置——用户与群组——点击左下角小锁，解锁——在当前用户上右键，点“高级选项”，查看账户名称，这里是改不了的）</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">m: 主机名</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">1~: 所在的当前目录</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash"><span class="comment">#: 最后的分隔符号</span></span></span><br><span class="line">修改：</span><br><span class="line">1. 终端输入 open /etc</span><br><span class="line">2. 在打开的文件夹找到bashrc 或者zshrc（取决于你用的哪种终端命令），复制一份到桌面，打开桌面上的这份修改PS1，比如修改成PS1=&quot;%n %1~ %# &quot;，修改前最好把原命令注释一份，然后command+s保存</span><br><span class="line">3.删除 /etc/bashrc 或者/etc/zshrc，桌面上的那份复制或移动过来。</span><br><span class="line">4.终端执行source /etc/bashrc 或者source /etc/zshrc，让文件生效。 </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">一、主机名：</span><br><span class="line">就是HostName。</span><br><span class="line">查看：scutil --get HostName</span><br><span class="line">修改：sudo scutil --set HostName 新的主机名</span><br><span class="line"></span><br><span class="line">二、计算机名：</span><br><span class="line">就是ComputerName。它在隔空投送中显示，</span><br><span class="line">查看：scutil --get ComputerName</span><br><span class="line">修改：</span><br><span class="line">方法一：在“设置”——“共享”下，修改“电脑名称”。</span><br><span class="line">方法二：sudo scutil --set ComputerName 新的计算机名</span><br><span class="line"></span><br><span class="line">三、本地主机名（即：本地局域网主机名）</span><br><span class="line">它在局域网中显示，可在finder下的网络查看。</span><br><span class="line">修改：</span><br><span class="line">在“设置”——“共享”下，再点下图中的“编辑”按钮，进去就可以修改了。</span><br><span class="line"></span><br><span class="line">四、修改xcode作者名</span><br><span class="line">修改：设置——用户与群组——点击左下角小锁，解锁——在当前用户上右键，点“高级选项”，修改“全名”，就可以了</span><br><span class="line"></span><br><span class="line">五、修改终端前缀</span><br><span class="line">macOS 的终端前缀默认是 PS1="%n@%m %1~ %# "。</span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">n: 表示用户名称，这里是账户名称，可以在（设置——用户与群组——点击左下角小锁，解锁——在当前用户上右键，点“高级选项”，查看账户名称，这里是改不了的）</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">m: 主机名</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">1~: 所在的当前目录</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash"><span class="comment">#: 最后的分隔符号</span></span></span><br><span class="line">修改：</span><br><span class="line">1. 终端输入 open /etc</span><br><span class="line">2. 在打开的文件夹找到bashrc 或者zshrc（取决于你用的哪种终端命令），复制一份到桌面，打开桌面上的这份修改PS1，比如修改成PS1="%n %1~ %# "，修改前最好把原命令注释一份，然后command+s保存</span><br><span class="line">3.删除 /etc/bashrc 或者/etc/zshrc，桌面上的那份复制或移动过来。</span><br><span class="line">4.终端执行source /etc/bashrc 或者source /etc/zshrc，让文件生效。 </span><br></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -583,13 +618,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2022/08/23/%E5%AF%86%E7%A0%81/">
+                <a href="/blog/2022/08/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/11.jpg" class="responsive-img" alt="密码">
+                        <img src="/blog/medias/featureimages/17.jpg" class="responsive-img" alt="设计模式">
                         
-                        <span class="card-title">密码</span>
+                        <span class="card-title">设计模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -606,8 +641,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/%E5%AF%86%E7%A0%81/" class="post-category">
-                                    密码
+                            <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
                                 </a>
                             
                             
@@ -803,6 +838,9 @@
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">23.5k</span>
+            
             
             
                 
@@ -825,9 +863,14 @@
             
             <br>
             
+                <span id="icp"><img src="/blog/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">浙ICP备2022018780号</a>
+            </span>
+            
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://gitee.com/nty99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1017,10 +1060,6 @@ $(function () {
     <!-- 鼠标星星特效 -->
     
 
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/blog/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
     <!-- Baidu Analytics -->
@@ -1050,6 +1089,25 @@ $(function () {
 
     
 
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "48a8c484"
+        });
+        daovoice('update');
+    </script>
     
 
     <!--腾讯兔小巢-->
