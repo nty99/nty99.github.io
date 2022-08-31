@@ -262,7 +262,7 @@
         <li><div class="divider"></div></li>
         <li>
             <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
+                <i class="fab fa-github-square fa-fw"></i>Go to author source repository
             </a>
         </li>
         
@@ -319,7 +319,7 @@
 </style>
 
 <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
+   data-tooltip="Go to author source repository" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
@@ -407,21 +407,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-25
+                    2022-08-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -463,7 +463,23 @@
 <p>​        (2)安全模式</p>
 <p>3、行为型模式</p>
 <p>（1）用于描述类或对象之间怎样相互协作共同完成单个对象无法单独完成的任务，以及怎样分配职责。</p>
-
+<h5 id="7、享元模式"><a href="#7、享元模式" class="headerlink" title="7、享元模式"></a>7、享元模式</h5><p>​    1、结构</p>
+<p>​        (1)内部状态：不会随环境改变而改变的可共享的部分</p>
+<p>​        (2)外部状态：指随环境的改变而改变的不可共享的部分</p>
+<p>​    2、角色</p>
+<p>​        (1)抽象享元角色：通常是一个接口或抽象类，在抽象享元类中声明了具体享元类公共的方法，这些方法可以向外界提供享元对象的内部数据(内部状态)，同时也可以通过这些方法来设置外部数据(外部状态)。</p>
+<p>​        (2)具体享元角色：实现了抽象享元类，称为享元对象。在具体享元类中为内部状态提供了存储空间。通常我们可以结合单利模式来设计具体享元类，为每一个具体享元类提供唯一的享元对象。</p>
+<p>​        (3)非享元角色：并不是所有抽象享元类的子类需要被共享，不能被共享的子类可设计成非共享享元类。当需要非共享具体享元对象时候可以直接实例化创建。</p>
+<p>​        (4)享元工厂角色：负责创建和管理享元角色。当客户对象请求一个享元对象时候，享元工厂检查是否存在符合要求的享元对象，如果存在则提供，不存在则创建。</p>
+<h4 id="3、行为型模式"><a href="#3、行为型模式" class="headerlink" title="3、行为型模式"></a>3、行为型模式</h4><h5 id="1、模板方法模式"><a href="#1、模板方法模式" class="headerlink" title="1、模板方法模式"></a>1、模板方法模式</h5><p>​    1、角色</p>
+<p>​        (1)抽象类：负责给出一个算法的轮廓和骨架。它由一个模板方法和若干个基本方法构成。</p>
+<p>​            · 模板方法：定义了算法的骨架，按某种顺序调用其包含的基本方法</p>
+<p>​            · 基本方法：是实现算法各个步骤的方法，是模板方法的组成部分。基本方法也可以分为三种：</p>
+<p>​                · · 抽象方法：一个抽象方法由抽象类声明、由其具体子类实现</p>
+<p>​                · · 具体方法：一个具体方法由一个抽象类或具体类声明实现，其子类可以覆盖也可以直接继承</p>
+<p>​                · · 钩子方法：在抽象类中已经实现，包括用于判断的逻辑方法和需要子类重写的空方法。一般钩子方法是用于判断的逻辑方法，                                     这种方法名一般为isXxx，返回值是boolean类型。</p>
+<p>​        (2)具体子类：实现抽象类中定义的抽象方法和钩子方法，它们是一个顶级逻辑的的组成步骤</p>
+<h5 id="2、策略模式"><a href="#2、策略模式" class="headerlink" title="2、策略模式"></a>2、策略模式</h5><h5 id="3、命令模式"><a href="#3、命令模式" class="headerlink" title="3、命令模式"></a>3、命令模式</h5><h5 id="4、责任链模式"><a href="#4、责任链模式" class="headerlink" title="4、责任链模式"></a>4、责任链模式</h5><h5 id="5、状态模式"><a href="#5、状态模式" class="headerlink" title="5、状态模式"></a>5、状态模式</h5><h5 id="6、观察者模式"><a href="#6、观察者模式" class="headerlink" title="6、观察者模式"></a>6、观察者模式</h5><h5 id="7、中介者模式"><a href="#7、中介者模式" class="headerlink" title="7、中介者模式"></a>7、中介者模式</h5><h5 id="8、迭代器模式"><a href="#8、迭代器模式" class="headerlink" title="8、迭代器模式"></a>8、迭代器模式</h5><h5 id="9、访问者模式"><a href="#9、访问者模式" class="headerlink" title="9、访问者模式"></a>9、访问者模式</h5><h5 id="10、备忘录模式"><a href="#10、备忘录模式" class="headerlink" title="10、备忘录模式"></a>10、备忘录模式</h5><h5 id="11、解释器模式"><a href="#11、解释器模式" class="headerlink" title="11、解释器模式"></a>11、解释器模式</h5>
                 
             </div>
             <hr/>
@@ -589,6 +605,273 @@
     
 
     
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/blog/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/blog/libs/valine/av-min.js"></script>
+<script src="/blog/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'kZOs7VIi2LVbIZ87CGf52NFI-gzGzoHsz',
+        appKey: 'S0m9sltsLqSILUbRZEOXrMPk',
+        serverURLs: 'https://kzos7vii.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '畅所欲言'
+    });
+</script>
+
+<!--酷Q推送-->
+
 
     
 
@@ -865,7 +1148,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">23.5k</span>
+                        class="white-color">12.4k</span>
             
             
             
@@ -896,7 +1179,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://gitee.com/nty99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://gitee.com/nty99" class="tooltipped" target="_blank" data-tooltip="访问我的Gitee" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1137,6 +1420,10 @@ $(function () {
     
 
     <!--腾讯兔小巢-->
+    
+        <div style="position:fixed;bottom:125px;right:16px;cursor: pointer;">
+            <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/https://support.qq.com/product/428010"><i class="fa fa-comments fa-3x"  aria-hidden="true"></i></a>
+        </div>
     
     
 
