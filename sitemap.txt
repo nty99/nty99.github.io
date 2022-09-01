@@ -1,6 +1,5 @@
 http://nty99.gitee.io/2022/08/23/linux/
 http://nty99.gitee.io/2022/08/23/mac/
-http://nty99.gitee.io/aaa/
 http://nty99.gitee.io/2022/08/23/middleware/
 http://nty99.gitee.io/2022/08/23/database/
 http://nty99.gitee.io/2022/08/23/design/
@@ -17,8 +16,8 @@ http://nty99.gitee.io/tags/
 http://nty99.gitee.io/categories/
 http://nty99.gitee.io/
 http://nty99.gitee.io/tags/shell/
-http://nty99.gitee.io/categories/shell/
 http://nty99.gitee.io/categories/Linux/
+http://nty99.gitee.io/categories/shell/
 http://nty99.gitee.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/
 http://nty99.gitee.io/categories/Java/
 http://nty99.gitee.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
