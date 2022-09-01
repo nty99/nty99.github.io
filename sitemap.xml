@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/design/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/linux/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/deploy/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/middleware/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/base/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/database/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/database/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/design/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/frame/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/frame/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/linux/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/base/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/middleware/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/deploy/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/2022/08/23/mac/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/mac/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/404/</loc>
+    <loc>http://nty99.gitee.io/404/</loc>
     
     <lastmod>2022-08-26</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/about/</loc>
+    <loc>http://nty99.gitee.io/about/</loc>
     
     <lastmod>2022-08-26</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/contact/</loc>
+    <loc>http://nty99.gitee.io/contact/</loc>
     
     <lastmod>2022-08-26</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/friends/</loc>
+    <loc>http://nty99.gitee.io/friends/</loc>
     
     <lastmod>2022-08-26</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/links/</loc>
+    <loc>http://nty99.gitee.io/links/</loc>
     
     <lastmod>2022-08-23</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/repository/</loc>
+    <loc>http://nty99.gitee.io/repository/</loc>
     
     <lastmod>2022-08-23</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/tags/</loc>
+    <loc>http://nty99.gitee.io/tags/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/</loc>
+    <loc>http://nty99.gitee.io/categories/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -147,7 +147,7 @@
   
 
   <url>
-    <loc>https://nty99.gitee.io/blog</loc>
+    <loc>http://nty99.gitee.io/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -157,42 +157,42 @@
 
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/Linux/</loc>
+    <loc>http://nty99.gitee.io/categories/Linux/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <loc>http://nty99.gitee.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/Java/</loc>
+    <loc>http://nty99.gitee.io/categories/Java/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>http://nty99.gitee.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>http://nty99.gitee.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nty99.gitee.io/blog/categories/%E9%83%A8%E7%BD%B2/</loc>
+    <loc>http://nty99.gitee.io/categories/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2022-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
