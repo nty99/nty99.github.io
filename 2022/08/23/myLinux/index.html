@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mac常用命令, 我的博客">
-    <meta name="description" content="十一、Mac
-12345678910111213141516171819202122232425262728293031一、主机名：就是HostName。查看：scutil --get HostName修改：sudo scutil --se">
+    <meta name="keywords" content="Linux常用命令, 我的博客">
+    <meta name="description" content="七、Linux常用命令1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mac常用命令 | 我的博客</title>
+    <title>Linux常用命令 | 我的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -351,12 +350,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mac常用命令</h1>
+                    <h1 class="description center-align post-title">Linux常用命令</h1>
                 </div>
             </div>
         </div>
@@ -378,9 +377,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -388,8 +391,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/shell/" class="post-category">
-                                shell
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -415,14 +418,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    799
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -442,9 +445,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>十一、Mac</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">一、主机名：</span><br><span class="line">就是HostName。</span><br><span class="line">查看：scutil --get HostName</span><br><span class="line">修改：sudo scutil --set HostName 新的主机名</span><br><span class="line"></span><br><span class="line">二、计算机名：</span><br><span class="line">就是ComputerName。它在隔空投送中显示，</span><br><span class="line">查看：scutil --get ComputerName</span><br><span class="line">修改：</span><br><span class="line">方法一：在“设置”——“共享”下，修改“电脑名称”。</span><br><span class="line">方法二：sudo scutil --set ComputerName 新的计算机名</span><br><span class="line"></span><br><span class="line">三、本地主机名（即：本地局域网主机名）</span><br><span class="line">它在局域网中显示，可在finder下的网络查看。</span><br><span class="line">修改：</span><br><span class="line">在“设置”——“共享”下，再点下图中的“编辑”按钮，进去就可以修改了。</span><br><span class="line"></span><br><span class="line">四、修改xcode作者名</span><br><span class="line">修改：设置——用户与群组——点击左下角小锁，解锁——在当前用户上右键，点“高级选项”，修改“全名”，就可以了</span><br><span class="line"></span><br><span class="line">五、修改终端前缀</span><br><span class="line">macOS 的终端前缀默认是 PS1="%n@%m %1~ %# "。</span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">n: 表示用户名称，这里是账户名称，可以在（设置——用户与群组——点击左下角小锁，解锁——在当前用户上右键，点“高级选项”，查看账户名称，这里是改不了的）</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">m: 主机名</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">1~: 所在的当前目录</span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash"><span class="comment">#: 最后的分隔符号</span></span></span><br><span class="line">修改：</span><br><span class="line">1. 终端输入 open /etc</span><br><span class="line">2. 在打开的文件夹找到bashrc 或者zshrc（取决于你用的哪种终端命令），复制一份到桌面，打开桌面上的这份修改PS1，比如修改成PS1="%n %1~ %# "，修改前最好把原命令注释一份，然后command+s保存</span><br><span class="line">3.删除 /etc/bashrc 或者/etc/zshrc，桌面上的那份复制或移动过来。</span><br><span class="line">4.终端执行source /etc/bashrc 或者source /etc/zshrc，让文件生效。 </span><br></pre></td></tr></tbody></table></figure>
+                <h3 id="七、Linux常用命令"><a href="#七、Linux常用命令" class="headerlink" title="七、Linux常用命令"></a>七、Linux常用命令</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">1、进程端口查看</span><br><span class="line">查看进程：</span><br><span class="line">	ps -ef | grep (名称/进程id) 和(ps aux类似，其中ps -aux是显示x用户的进程)</span><br><span class="line">	如:ps -ef | grep java </span><br><span class="line">   	ps -ef | grep 进程pid </span><br><span class="line">查看端口：</span><br><span class="line">	(1) netstat -an|grep 8080</span><br><span class="line">	(2) lsof -i:8080</span><br><span class="line">2、压缩解压命令：</span><br><span class="line">	压缩：tar -czf all.tar.gz *.jpg</span><br><span class="line">	解压：tar -xzf all.tar.gz</span><br><span class="line">3、防火墙端口</span><br><span class="line">	 firewall-cmd --query-port=8848/tcp</span><br><span class="line">	 firewall-cmd --permanent --remove-port=8848/tcp</span><br><span class="line">  	 firewall-cmd --zone=public --add-port=8080-8090/tcp --permanent</span><br><span class="line">     systemctl restart firewalld.service</span><br><span class="line">     firewall-cmd --reload</span><br><span class="line">4、不挂断的运行命令</span><br><span class="line">	nohup ./test.sh &amp;</span><br><span class="line">5、查看当前后台运行的命令</span><br><span class="line">	(1)jobs用于查看当前终端后台运行的任务，换了终端就看不到了。</span><br><span class="line">	jobs</span><br><span class="line">	jobs -l 选项可显示当前终端所有任务的PID</span><br><span class="line">	(2)ps命令用于查看瞬间进程的动态，可以看到别的终端运行的后台进程。</span><br><span class="line">	ps -aux | grep "test.sh"    #a:显示所有程序  u:以用户为主的 x:显示所有程序，不以终端机来区分</span><br><span class="line">6、kill命令</span><br><span class="line">	(1)kill pid 正常停止该进程 = kill -15 pid = kill -s TERM</span><br><span class="line">	(2)kill -9 pid 强制杀死该进程 = kill -s SIGKILL pid</span><br><span class="line">	(3)kill -1 pid 重启该进程 = kill -s SIGHUP pid</span><br><span class="line">6、关闭当前后台运行的命令</span><br><span class="line">	(1)通过jobs命令查看jobnum，然后执行  kill %jobnum</span><br><span class="line">	(2)通过ps命令查看进程号PID，然后执行  kill PID</span><br><span class="line">	如果是前台进程的话，直接执行 Ctrl+c 就可以终止了</span><br><span class="line">7、前后台进程的切换与控制</span><br><span class="line">	(1)fg </span><br><span class="line">	功能：将后台中的命令调至前台继续运行 </span><br><span class="line">	如果后台中有多个命令，可以先用jobs查看jobnum，然后用fg %jobnum 将选中的命令调出。</span><br><span class="line">	(2)Ctrl+z</span><br><span class="line">	功能：将一个正在前台执行的命令放到后台，并且处于暂停状态</span><br><span class="line">	(3)bg</span><br><span class="line">	功能：将一个在后台暂停的命令，变成在后台继续执行</span><br><span class="line">	(4)watch</span><br><span class="line">	watch -n 10 sh  test.sh  &amp;  #每10s在后台执行一次test.sh脚本</span><br><span class="line">	(5)nohup </span><br><span class="line">	功能：如果让程序始终在后台执行，即使关闭当前的终端也执行（之前的&amp;做不到）</span><br><span class="line">	nohub ./test.sh &gt; r.log 2&gt;&amp;1 &amp;</span><br><span class="line">8、特殊符号</span><br><span class="line">	(1)运行jar包，并且置于后台执行，执行的日志重定向到当前默认的log.txt文件中</span><br><span class="line">	java -jar test.jar &gt; log.txt &amp; </span><br><span class="line">	(2)&amp;&amp; 表示前一条命令执行成功时，才执行后一条命令。</span><br><span class="line">	ls -l &amp;&amp; cd .. </span><br><span class="line">	(3)|| 表示上一条命令执行失败后，才执行下一条命令。</span><br><span class="line">	als -l || cd ..</span><br><span class="line"><span class="meta prompt_">	(4)&gt; </span><span class="language-bash">表示stdout标准输出信息重定向输出，覆盖写。</span></span><br><span class="line">	echo 'World' &gt; test.txt</span><br><span class="line"><span class="meta prompt_">	(5)&gt;</span><span class="language-bash">&gt; 表示内容追加写。</span></span><br><span class="line">	echo 'World' &gt;&gt; test.txt</span><br><span class="line">	(6)&amp;&gt; 表示stdout标准输出和stderr错误输出信息，重定向输出，覆盖写。</span><br><span class="line">	lll &amp;&gt; test.txt</span><br><span class="line"><span class="meta prompt_">	(7)2&gt;</span><span class="language-bash">&amp;1 表示把标准错误的输出重定向到标准输出1，&amp;指示不要把1当做普通文件，而是fd=1即标准输出处理。</span></span><br><span class="line"><span class="meta prompt_">	(8)2&gt;</span><span class="language-bash">1 表示把标准错误的输出重定向到1，但这个1不是标准输出，而是一个名为1的文件。</span></span><br></pre></td></tr></tbody></table></figure>
 
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
                 
             </div>
             <hr/>
@@ -470,7 +473,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://nty99.gitee.io/2022/08/23/mac/">http://nty99.gitee.io/2022/08/23/mac/</a>
+                    <a href="http://nty99.gitee.io/2022/08/23/myLinux/">http://nty99.gitee.io/2022/08/23/myLinux/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -507,7 +510,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -851,52 +858,9 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2022/08/23/mac/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Mac常用命令">
-                        
-                        <span class="card-title">Mac常用命令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/shell/" class="post-category">
-                                    shell
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2022/08/23/design/">
                     <div class="card-image">
@@ -914,6 +878,47 @@
                         
                     </div>
                     <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/23/middleware/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="中间件">
+                        
+                        <span class="card-title">中间件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
                             </span>
@@ -921,8 +926,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
+                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
                                 </a>
                             
                             

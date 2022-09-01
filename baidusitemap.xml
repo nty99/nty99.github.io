@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://nty99.gitee.io/2022/08/23/linux/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/myLinux/</loc>
     <lastmod>2022-09-01</lastmod>
   </url>
   <url>
-    <loc>http://nty99.gitee.io/2022/08/23/mac/</loc>
+    <loc>http://nty99.gitee.io/2022/08/23/myMac/</loc>
+    <lastmod>2022-09-01</lastmod>
+  </url>
+  <url>
+    <loc>http://nty99.gitee.io/2022/08/23/deploy/</loc>
     <lastmod>2022-09-01</lastmod>
   </url>
   <url>
@@ -26,10 +30,6 @@
   </url>
   <url>
     <loc>http://nty99.gitee.io/2022/08/23/base/</loc>
-    <lastmod>2022-09-01</lastmod>
-  </url>
-  <url>
-    <loc>http://nty99.gitee.io/2022/08/23/deploy/</loc>
     <lastmod>2022-09-01</lastmod>
   </url>
 </urlset> 
