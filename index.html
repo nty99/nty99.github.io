@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的博客">
-    <meta name="description" content="描述">
+    <meta name="keywords" content="一路生花">
+    <meta name="description" content="一路生花">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的博客</title>
+    <title>一路生花</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -91,7 +91,7 @@
 
 <meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="一路生花" type="application/atom+xml">
 </head>
 
 
@@ -104,7 +104,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">我的博客</span>
+                    <span class="logo-span">一路生花</span>
                 </a>
             </div>
             
@@ -208,10 +208,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">我的博客</div>
+        <div class="logo-name">一路生花</div>
         <div class="logo-desc">
             
-            描述
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -383,7 +383,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                主题
+                   
                 
             </div>
 
@@ -535,6 +535,18 @@
 
 
 
+
+<style>
+    #index-video { z-index: -1; position: absolute; top: 0; left: 0; height: 100vh; width: 100%; object-fit: cover;}
+    @media only screen and (max-width: 760px) { #index-video { display: none;}}
+    @media only screen and (min-width: 760px) { .bg-cover { background-image: none!important;}}
+</style>
+<video id="index-video" autoplay loop muted>
+
+    <source src="/medias/mv/crossYear.mp4">
+
+</video>
+
 <main class="content">
 
     
@@ -559,6 +571,93 @@
                     
 
                     
+                        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="music-player">
+    
+        <div class="title center-align">
+            <i class="fas fa-music"></i>&nbsp;&nbsp;听听音乐
+        </div>
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="8621068033"
+                   fixed='false'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='false'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+                        
+
+                    
+                        <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
+<div class="video-player">
+    
+    <div class="title center-align">
+        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;精彩视频
+    </div>
+    
+    <div class="row">
+		
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="dplayer" class="dplayer-video"
+                    ></div>
+        </div>
+		
+    </div>
+</div>
+
+<script src="/libs/dplayer/DPlayer.min.js"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: 'false' === 'true',
+            theme: '#42b983',
+            loop: 'false' === 'true',
+            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: 'auto',
+            volume: Number('0.7'),
+            video: {
+                url: '/medias/mv/crossYear.mp4',
+                pic: '',
+                thumbnails: ''
+            }
+        });
+    });
+</script>
 
                     
 
@@ -566,6 +665,39 @@
                     <div id="recommend-sections" class="recommend">
                         
 
+
+
+
+
+<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
+
+<div class="row">
+
+    
+    
+    <div class="col s12" >
+        
+            <div class="post-card" style="background-image: url('/medias/featureimages/17.jpg')">
+            
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                        
+                    
+                </div>
+                <a href="/2022/08/22/blogRecord/">
+                    <h3 class="post-title">博客更新记录</h3>
+                </a>
+                <p class="post-description">记录博客版本迭代信息</p>
+                <a href="/2022/08/22/blogRecord/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
 
 
                     </div>
@@ -585,33 +717,200 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/23/myMac/">
+                    <a href="/2022/09/11/log/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Mac常用命令">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Logback">
                             
-                            <span class="card-title">Mac常用命令</span>
+                            <span class="card-title">Logback</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                十一、Mac
-12345678910111213141516171819202122232425262728293031一、主机名：就是HostName。查看：scutil --get HostName修改：sudo scutil --se
+                                日志相关知识点
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/shell/" class="post-category">
-                                    shell
+                                <a href="/categories/%E6%97%A5%E5%BF%97/" class="post-category">
+                                    日志
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/09/11/ribbon/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Ribbon">
+                            
+                            <span class="card-title">Ribbon</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Ribbon相关知识点
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%99%A8/" class="post-category">
+                                    负载均衡器
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/09/11/nginx/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Nginx">
+                            
+                            <span class="card-title">Nginx</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                nginx相关知识点
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="post-category">
+                                    反向代理
+                                </a>
+                                
+                                <a href="/categories/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="post-category">
+                                    负载均衡
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/09/11/nacos/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Nacos">
+                            
+                            <span class="card-title">Nacos</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Nacos相关知识点
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" class="post-category">
+                                    注册中心
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/09/11/mybatis/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
+                            
+                            <span class="card-title">Mybatis</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Mybatis相关知识点
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    数据库框架
                                 </a>
                                 
                                 
@@ -640,7 +939,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、创建型模式123456789101112131415161718192021222324252627282930313233343536373839404142主要特点是将对象的创建和使用分离  (1)单例模式    饿汉式：类加载就会
+                                设计模式知识点
                             
                         </div>
                         <div class="publish-info">
@@ -681,7 +980,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                七、Linux常用命令1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859
+                                Linux相关知识点
                             
                         </div>
                         <div class="publish-info">
@@ -692,8 +991,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/shell/" class="post-category">
+                                    shell
                                 </a>
                                 
                                 
@@ -702,14 +1001,6 @@
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/shell/">
-                            <span class="chip bg-color">shell</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
               <!-- 隐藏某个文章 -->
@@ -717,20 +1008,20 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/23/middleware/">
+                    <a href="/2022/08/23/mq/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="中间件">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="RabbitMQ">
                             
-                            <span class="card-title">中间件</span>
+                            <span class="card-title">RabbitMQ</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                五、中间件5.1、RabbitMQ​        工作模式： 1 “Hello World!”、2 Work queues、3 Publish/Subscribe、4 Routing、5 Topics​        (1)1和2使用默认
+                                记录RabbitMQ相关知识点
                             
                         </div>
                         <div class="publish-info">
@@ -741,8 +1032,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                    中间件
+                                <a href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="post-category">
+                                    消息队列
                                 </a>
                                 
                                 
@@ -771,7 +1062,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、docker常用命令12345678910111213docker pull 服务:tag  服务:版本（拉取服务，不加tag则默认最新版）docker  images 查看镜像docker save -o nginx.tar ngin
+                                Docker相关知识点
                             
                         </div>
                         <div class="publish-info">
@@ -782,8 +1073,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E9%83%A8%E7%BD%B2/" class="post-category">
-                                    部署
+                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
+                                    云原生
                                 </a>
                                 
                                 
@@ -812,9 +1103,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、Mysql1、执行顺序​    1、执行where xx对全表数据做筛选，返回第1个结果集
-​    2、针对第1个结果集使用group by分组，返回第2个结果集
-​    3、针对第2个结果集中的每1组数据执行select xx，有
+                                常用数据库相关知识点
                             
                         </div>
                         <div class="publish-info">
@@ -855,9 +1144,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、SpringBoot1、bean的生命周期​    1、Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化
-​    2、Bean实例化后对将Bean的引入和值注入到Bean的属性中
-​    3、如果B
+                                整理日常开发中框架的知识
                             
                         </div>
                         <div class="publish-info">
@@ -868,8 +1155,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Java/" class="post-category">
-                                    Java
+                                <a href="/categories/Spring/" class="post-category">
+                                    Spring
                                 </a>
                                 
                                 
@@ -898,8 +1185,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、HashMap1、常见Map比较​    1、hashmap 线程不安全，只允许有一个key为null，允许多个value为null
-​    2、hashtable线程安全，用的是内置锁synchronized，不允许key或valu
+                                Java知识点
                             
                         </div>
                         <div class="publish-info">
@@ -930,71 +1216,41 @@
 </main>
 
 
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
 
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">nty</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1002,7 +1258,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.4k</span>
+                        class="white-color">13.4k</span>
             
             
             
@@ -1023,6 +1279,60 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "09";
+                        var startDate = "09";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
@@ -1218,6 +1528,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->

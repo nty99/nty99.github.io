@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基础, 我的博客">
-    <meta name="description" content="一、HashMap1、常见Map比较​    1、hashmap 线程不安全，只允许有一个key为null，允许多个value为null
-​    2、hashtable线程安全，用的是内置锁synchronized，不允许key或valu">
+    <meta name="keywords" content="基础, 一路生花">
+    <meta name="description" content="Java知识点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基础 | 我的博客</title>
+    <title>基础 | 一路生花</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -55,7 +54,7 @@
 
 <meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="一路生花" type="application/atom+xml">
 </head>
 
 
@@ -68,7 +67,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">我的博客</span>
+                    <span class="logo-span">一路生花</span>
                 </a>
             </div>
             
@@ -172,10 +171,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">我的博客</div>
+        <div class="logo-name">一路生花</div>
         <div class="logo-desc">
             
-            描述
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -408,21 +407,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -437,66 +436,58 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、HashMap"><a href="#一、HashMap" class="headerlink" title="一、HashMap"></a>一、HashMap</h4><h5 id="1、常见Map比较"><a href="#1、常见Map比较" class="headerlink" title="1、常见Map比较"></a>1、常见Map比较</h5><p>​    1、hashmap 线程不安全，只允许有一个key为null，允许多个value为null</p>
-<p>​    2、hashtable线程安全，用的是内置锁synchronized，不允许key或value为null</p>
-<p>​    3、linkedhashmap 能保留put 键值对的顺序</p>
-<p>​    4、treemap实现sortmap接口能默认对put的键值对进行key排序</p>
+                <h4 id="一、HashMap"><a href="#一、HashMap" class="headerlink" title="一、HashMap"></a>一、HashMap</h4><h5 id="1、常见Map比较"><a href="#1、常见Map比较" class="headerlink" title="1、常见Map比较"></a>1、常见Map比较</h5><p>​    1、hashmap 线程不安全，只允许有一个key为null，允许多个value为null。</p>
+<p>​    2、hashtable线程安全，用的是内置锁synchronized，不允许key或value为null。</p>
+<p>​    3、linkedhashmap 能保留put 键值对的顺序。</p>
+<p>​    4、treemap实现sortmap接口能默认对put的键值对进行key排序。</p>
 <h5 id="2、ConcurrentHashMap"><a href="#2、ConcurrentHashMap" class="headerlink" title="2、ConcurrentHashMap"></a>2、ConcurrentHashMap</h5><p>​    1、concurentHashMap与hashmap本质上并没有什么区别，只是concurrenthashMap是线程安全的</p>
-<p>​    2、jdk1.7 采用了Segment分段锁，锁住几个槽位</p>
-<p>​    3、jdk1.8则采用 Node +CAS+synchronized来保证并发安全，锁的粒度下降了</p>
-<h5 id="3、hashmap是线程不安全"><a href="#3、hashmap是线程不安全" class="headerlink" title="3、hashmap是线程不安全"></a>3、hashmap是线程不安全</h5><p>​    1、多线程下对hashmap进行添加，删除，修改都可能会造成数据覆盖</p>
-<p>​    2、jdk1.7扩容时容易导致死循环</p>
-<h5 id="4、putIfAbsent"><a href="#4、putIfAbsent" class="headerlink" title="4、putIfAbsent"></a>4、putIfAbsent</h5><p>​    1、map.putIfAbsent(key,value)，如果map中存在这个key，则返回key对应的值，如果不存在则返回null然后将值插入进去</p>
-<h4 id="二、比较器"><a href="#二、比较器" class="headerlink" title="二、比较器"></a>二、比较器</h4><p>　　Comparable是排序接口，若一个类实现了Comparable接口，就意味着“该类支持排序”。而Comparator是比较器，我们若需要控制</p>
-<p>某个类的次序，可以建立一个“该类的比较器”来进行排序。</p>
-<p>​        两种方法各有优劣， 用Comparable 简单， 只要实现Comparable 接口的对象直接就成为一个可以比较的对象，但是需要修改源代</p>
-<p>码。 用Comparator 的好处是不需要修改源代码， 而是另外实现一个比较器， 当某个自定义的对象需要作比较的时候，把比较器和对象</p>
-<p>一起传递过去就可以比大小了， 并且在Comparator 里面用户可以自己实现复杂的可以通用的逻辑，使其可以匹配一些比较简单的对象，</p>
-<p>那样就可以节省很多重复劳动了。</p>
+<p>​    2、jdk1.7 采用了Segment分段锁，锁住几个槽位。</p>
+<p>​    3、jdk1.8则采用 Node +CAS+synchronized来保证并发安全，锁的粒度下降了。</p>
+<h5 id="3、hashmap是线程不安全"><a href="#3、hashmap是线程不安全" class="headerlink" title="3、hashmap是线程不安全"></a>3、hashmap是线程不安全</h5><p>​    1、多线程下对hashmap进行添加，删除，修改都可能会造成数据覆盖。</p>
+<p>​    2、jdk1.7扩容时容易导致死循环。</p>
+<h5 id="4、putIfAbsent"><a href="#4、putIfAbsent" class="headerlink" title="4、putIfAbsent"></a>4、putIfAbsent</h5><p>​    1、map.putIfAbsent(key,value)，如果map中存在这个key，则返回key对应的值，如果不存在则返回null然后将值插入进去。</p>
+<h4 id="二、比较器"><a href="#二、比较器" class="headerlink" title="二、比较器"></a>二、比较器</h4><p>　　Comparable是排序接口，若一个类实现了Comparable接口，就意味着“该类支持排序”。而Comparator是比较器，我们若需要控制某个类的次序，可以建立一个“该类的比较器”来进行排序。两种方法各有优劣， 用Comparable 简单， 只要实现Comparable 接口的对象直接就成为一个可以比较的对象，但是需要修改源代码。 用Comparator 的好处是不需要修改源代码， 而是另外实现一个比较器， 当某个自定义的对象需要作比较的时候，把比较器和对象一起传递过去就可以比大小了， 并且在Comparator 里面用户可以自己实现复杂的可以通用的逻辑，使其可以匹配一些比较简单的对象，那样就可以节省很多重复劳动了。</p>
 <h4 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h4><h4 id="四、Cookie和Session"><a href="#四、Cookie和Session" class="headerlink" title="四、Cookie和Session"></a>四、Cookie和Session</h4><h5 id="1、存储位置"><a href="#1、存储位置" class="headerlink" title="1、存储位置"></a>1、存储位置</h5><p>​    1、cookie存储在客户端，session存储在服务器</p>
-<h5 id="2、生成方式"><a href="#2、生成方式" class="headerlink" title="2、生成方式"></a>2、生成方式</h5><p>​    1、第一次访问服务端时候，会创建一个session对象，并指定id为Jsessionid（Tomcat），然后响应给客户端，后续访问cookie里携带</p>
-<p>Jsessionid，服务端识别，判断是不是上次会话，如果是则不会创建session对象</p>
+<h5 id="2、生成方式"><a href="#2、生成方式" class="headerlink" title="2、生成方式"></a>2、生成方式</h5><p>​    1、第一次访问服务端时候，会创建一个session对象，并指定id为Jsessionid（Tomcat），然后响应给客户端，后续访问cookie里携带Jsessionid，服务端识别，判断是不是上次会话，如果是则不会创建session对象。</p>
 <h4 id="五、线程"><a href="#五、线程" class="headerlink" title="五、线程"></a>五、线程</h4><h5 id="1、进程、线程、协程"><a href="#1、进程、线程、协程" class="headerlink" title="1、进程、线程、协程"></a>1、进程、线程、协程</h5><h5 id="2、线程的地址空间"><a href="#2、线程的地址空间" class="headerlink" title="2、线程的地址空间"></a>2、线程的地址空间</h5><h5 id="3、线程池的七个参数"><a href="#3、线程池的七个参数" class="headerlink" title="3、线程池的七个参数"></a>3、线程池的七个参数</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>​    1、ThreadLocal、ThreadLocalMap、Thread区别</p>
-<p>​        (1)ThreadLocal内部类ThreadLocalMap，ThreadLocalMap的内部类Entry，Entry存储的键是ThreadLocal，值是调用ThreadLocal</p>
-<p>的set方法设置的值Thread有个成员变量ThreadLocalMap， ThreadLocal.ThreadLocalMap threadLocals = null</p>
+<p>​        (1)ThreadLocal内部类ThreadLocalMap，ThreadLocalMap的内部类Entry，Entry存储的键是ThreadLocal，值是调用ThreadLocal的set方法设置的值Thread有个成员变量ThreadLocalMap， ThreadLocal.ThreadLocalMap threadLocals = null。</p>
 <p>​    2、多线程哪些内存是共享的，哪些不是共享的</p>
-<p>​        (1)Java虚拟机在执行Java程序的时候会把它管理的内存划分为5个不同的区域，其中方法区和堆是线程共享的，而虚拟机栈、程序计</p>
-<p>数器、本地方法栈是线程不共享的</p>
+<p>​        (1)Java虚拟机在执行Java程序的时候会把它管理的内存划分为5个不同的区域，其中方法区和堆是线程共享的，而虚拟机栈、程序计数器、本地方法栈是线程不共享的。</p>
 <p>​    3、一个线程能访问到另一个线程的局部变量吗</p>
 <p>​    4、synchronized和volatile区别 </p>
-<h4 id="六、Http"><a href="#六、Http" class="headerlink" title="六、Http"></a>六、Http</h4><h5 id="1、三次握手"><a href="#1、三次握手" class="headerlink" title="1、三次握手"></a>1、三次握手</h5><p>​    1、第一次握手：第一次握手是客户端发送同步报文到服务端，这个时候客户端是知道自己具备发送数据的能力的，但是不知道服务端</p>
-<p>是否有接收和发送数据的能力。</p>
-<p>​    2、第二次握手：当服务端接收到同步报文后，回复确认同步报文，此时服务端是知道客户端具有发送报文的能力，并且知道自己具有</p>
-<p>接收和发送数据的能力，但是并不知道客户端是否有接收数据的能力。</p>
-<p>​    3、第三次握手：当客户端收到服务端的确认报文后，知道服务端具备接收和发送数据的能力，但是此时服务端并不知道自己具有接收</p>
-<p>的能力，所以还需要发送一个确认报文，告知服务端自己是具有接收能力的。</p>
-<h5 id="2、四次挥手"><a href="#2、四次挥手" class="headerlink" title="2、四次挥手"></a>2、四次挥手</h5><p>​    1、第一次挥手客户端发起关闭连接的请求给服务端</p>
-<p>​    2、第二次挥手：服务端收到关闭请求的时候可能这个时候数据还没发送完，所以服务端会先回复一个确认报文，表示自己知道客户端</p>
-<p>想要关闭连接了，但是因为数据还没传输完，所以还需要等待。</p>
-<p>​    3、第三次挥手：当数据传输完了，服务端会主动发送一个 FIN 报文，告诉客户端，表示数据已经发送完了，服务端这边准备关闭连接</p>
-<p>了。</p>
+<h4 id="六、Http"><a href="#六、Http" class="headerlink" title="六、Http"></a>六、Http</h4><h5 id="1、三次握手"><a href="#1、三次握手" class="headerlink" title="1、三次握手"></a>1、三次握手</h5><p>​    1、第一次握手：第一次握手是客户端发送同步报文到服务端，这个时候客户端是知道自己具备发送数据的能力的，但是不知道服务端是否有接收和发送数据的能力。</p>
+<p>​    2、第二次握手：当服务端接收到同步报文后，回复确认同步报文，此时服务端是知道客户端具有发送报文的能力，并且知道自己具有接收和发送数据的能力，但是并不知道客户端是否有接收数据的能力。</p>
+<p>​    3、第三次握手：当客户端收到服务端的确认报文后，知道服务端具备接收和发送数据的能力，但是此时服务端并不知道自己具有接收的能力，所以还需要发送一个确认报文，告知服务端自己是具有接收能力的。</p>
+<h5 id="2、四次挥手"><a href="#2、四次挥手" class="headerlink" title="2、四次挥手"></a>2、四次挥手</h5><p>​    1、第一次挥手客户端发起关闭连接的请求给服务端。</p>
+<p>​    2、第二次挥手：服务端收到关闭请求的时候可能这个时候数据还没发送完，所以服务端会先回复一个确认报文，表示自己知道客户端想要关闭连接了，但是因为数据还没传输完，所以还需要等待。</p>
+<p>​    3、第三次挥手：当数据传输完了，服务端会主动发送一个 FIN 报文，告诉客户端，表示数据已经发送完了，服务端这边准备关闭连接了。</p>
 <p>​    4、第四次挥手：当客户端收到服务端的 FIN 报文过后，会回复一个 ACK 报文，告诉服务端自己`知道了，再等待一会就关闭连接。</p>
 <h5 id="3、Http状态码"><a href="#3、Http状态码" class="headerlink" title="3、Http状态码"></a>3、Http状态码</h5><h5 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h5><p>​    1、为什么握手要三次，挥手却要四次呢</p>
-<p>​        那是因为握手的时候并没有数据传输，所以服务端的 SYN 和 ACK 报文可以一起发送，但是挥手的时候有数据在传输，所以 ACK 和 </p>
-<p>FIN 报文不能同时发送，需要分两步，所以会比握手多一步。</p>
+<p>​            那是因为握手的时候并没有数据传输，所以服务端的 SYN 和 ACK 报文可以一起发送，但是挥手的时候有数据在传输，所以 ACK 和 FIN 报文不能同时发送，需要分两步，所以会比握手多一步。</p>
 <p>​    2、为什么客户端在第四次挥手后还会等待 2MSL</p>
-<p>​        等待2MSL是因为保证服务端接收到了ACK报文，因为网络是复杂了，很有可能ACK报文丢失了，如果服务端没接收到ACK报文的</p>
-<p>话，会重新发送FIN报文，只有当客户端等待了2MSL都没有收到重发的FIN报文时就表示服务端是正常收到了ACK报文，那么这个时候客</p>
-<p>户端就可以关闭了。</p>
+<p>​            等待2MSL是因为保证服务端接收到了ACK报文，因为网络是复杂了，很有可能ACK报文丢失了，如果服务端没接收到ACK报文的话，会重新发送FIN报文，只有当客户端等待了2MSL都没有收到重发的FIN报文时就表示服务端是正常收到了ACK报文，那么这个时候客户端就可以关闭了。</p>
 <p>​    3、浏览器输入一个url发生了什么</p>
-<p>​        输入网址、解析域名、建立Tcp连接、发送请求报文、响应数据报文、关闭Tcp连接、渲染页面</p>
+<p>​            输入网址、解析域名、建立Tcp连接、发送请求报文、响应数据报文、关闭Tcp连接、渲染页面。</p>
 <p>​    4、get和post区别</p>
-<p>​        (1)GET在浏览器回退时是无害的，而POST会再次提交请求数据</p>
-<p>​        (2)GET参数通过URL传递，POST放在Request body中</p>
-<p>​        (3)GET请求会被浏览器主动缓存，而POST不会，除非手动设置</p>
-<p>​        (4)GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留</p>
-<p>​        (5)GET请求在URL中传送的参数是有长度限制的，而POST没有</p>
-<p>​        (6)最大区别，get请求发送一个tcp数据包，post请求发送两个tcp数据包</p>
+<p>​            (1)GET在浏览器回退时是无害的，而POST会再次提交请求数据</p>
+<p>​            (2)GET参数通过URL传递，POST放在Request body中</p>
+<p>​            (3)GET请求会被浏览器主动缓存，而POST不会，除非手动设置</p>
+<p>​            (4)GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留</p>
+<p>​            (5)GET请求在URL中传送的参数是有长度限制的，而POST没有</p>
+<p>​            (6)最大区别，get请求发送一个tcp数据包，post请求发送两个tcp数据包</p>
 <h4 id="七、GC"><a href="#七、GC" class="headerlink" title="七、GC"></a>七、GC</h4><h4 id="八、数据在内存中存放的位置"><a href="#八、数据在内存中存放的位置" class="headerlink" title="八、数据在内存中存放的位置"></a>八、数据在内存中存放的位置</h4><h4 id="九、BIO、NIO、AIO"><a href="#九、BIO、NIO、AIO" class="headerlink" title="九、BIO、NIO、AIO"></a>九、BIO、NIO、AIO</h4><h4 id="十、对称加密和非对称加密"><a href="#十、对称加密和非对称加密" class="headerlink" title="十、对称加密和非对称加密"></a>十、对称加密和非对称加密</h4><h4 id="十一、final、finally、finalize"><a href="#十一、final、finally、finalize" class="headerlink" title="十一、final、finally、finalize"></a>十一、final、finally、finalize</h4><p>1、final 可以用来修饰类、方法、变量，分别有不同的意义，final 修饰的 class 代表不可以继承扩展，比如 String 类</p>
 <p>2、final 的变量是不可以修改的；Java 里用 final 修饰符去修饰一个方法的唯一正确用途就是表达：这个方法原本是一个虚方法，现在通</p>
 <p>过 final 来声明这个方法不允许在派生类中进一步被覆写（override）。</p>
@@ -511,21 +502,38 @@
 <p>3、default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。</p>
 <p>4、private : 在同一类内可见。使用对象：变量、方法。 <strong>注意：不能修饰类（外部类）</strong></p>
 <h4 id="十三、枚举"><a href="#十三、枚举" class="headerlink" title="十三、枚举"></a>十三、枚举</h4><p>1、每个枚举 其实都是class，且所有的枚举值都是 public static final 的，可用javap xxx.class查看。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Color</span>{</span><br><span class="line">    RED, GREEN, BLUE;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">通过javap ./Color.class查看</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">com</span>.qz.nty.model.enums.Color <span class="keyword">extends</span> <span class="title class_">java</span>.lang.Enum&lt;com.qz.nty.model.enums.Color&gt; {</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> com.qz.nty.model.enums.Color RED;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> com.qz.nty.model.enums.Color GREEN;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> com.qz.nty.model.enums.Color BLUE;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> com.qz.nty.model.enums.Color[] values();</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> com.qz.nty.model.enums.Color <span class="title function_">valueOf</span><span class="params">(java.lang.String)</span>;</span><br><span class="line">  <span class="keyword">static</span> {};</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">values(), ordinal() 和 valueOf() 方法</span><br><span class="line"><span class="keyword">enum</span> 定义的枚举类默认继承了 java.lang.Enum 类，并实现了 java.lang.Serializable 和 java.lang.Comparable 两个接口。</span><br><span class="line"></span><br><span class="line">values(), ordinal() 和 valueOf() 方法位于 java.lang.Enum 类中：</span><br><span class="line"></span><br><span class="line">values() 返回枚举类中所有的值。</span><br><span class="line">ordinal()方法可以找到每个枚举常量的索引，就像数组索引一样。</span><br><span class="line">valueOf()方法返回指定字符串值的枚举常量。</span><br><span class="line">枚举类中的抽象方法实现，需要枚举类中的每个对象都对其进行实现。</span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Color</span><span class="token punctuation">{</span>
+    RED<span class="token punctuation">,</span> GREEN<span class="token punctuation">,</span> BLUE<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<h4 id="十四、序列化"><a href="#十四、序列化" class="headerlink" title="十四、序列化"></a>十四、序列化</h4><h4 id="十五、SPI、factories"><a href="#十五、SPI、factories" class="headerlink" title="十五、SPI、factories"></a>十五、SPI、factories</h4><h5 id="1、SPI介绍"><a href="#1、SPI介绍" class="headerlink" title="1、SPI介绍"></a>1、SPI介绍</h5><p>​        SPI（Service Provider Interface），是JDK内置的一种服务提供发现机制，可以用来启用框架扩展和替换组件。JDK的spi机制提供了 </p>
-<p>ServiceLoader 类用于加载、解析spi接口的配置文件，ServiceLoader实现了Iterable接口，可迭代，但只能以迭代器的方式进行操作。</p>
-<p>使用 hasNext() 时才会加载解析 META-INF/services 下对应的接口配置文件，使用 next() 时才会通过实现类的 Class 对象newInstance() </p>
-<p>方法（实质是通过反射调用无参构造器）创建实例。</p>
-<h5 id="2、使用教程"><a href="#2、使用教程" class="headerlink" title="2、使用教程"></a>2、使用教程</h5><p>​        在模块本身的resources下新建目录 META-INF/services，services目录下新建文件，以服务接口的全限定接口名作为文件名，文件中</p>
-<p>指定该服务接口要使用的具体实现类。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServiceLoader.load(Class&lt;S&gt; service,ClassLoader loader)</span><br></pre></td></tr></tbody></table></figure>
+通过javap <span class="token punctuation">.</span>/<span class="token class-name">Color</span><span class="token punctuation">.</span><span class="token keyword">class</span>查看
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Color</span> <span class="token keyword">extends</span> <span class="token class-name">Enum</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Color</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Color</span> RED<span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Color</span> GREEN<span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Color</span> BLUE<span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Color</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Color</span> <span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>String</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<h5 id="3、Spring-factories"><a href="#3、Spring-factories" class="headerlink" title="3、Spring factories"></a>3、Spring factories</h5><h5 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h5><p>​    factories可以看做是spring结合自身需要提供的一种spi机制，设计思想和jdk的spi机制差不多。factories机制在spring家族中广泛使用spring、springboot、springcloud中都大量使用了factories机制。spring体系的很多扩展配置都是通过spring.factories 指定的，比如应用初始化器 ApplicationContextInitializer、应用监听器ApplicationListener。注解本质是一种特殊接口，也可以用 factories 指定实现类，比如springboot中的 @EnableAutoConfiguration 注解就使用了factories指定要应用的实现类。</p>
-<h5 id="4、使用教程"><a href="#4、使用教程" class="headerlink" title="4、使用教程"></a>4、使用教程</h5><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SpringFactoriesLoader.loadFactories(Class&lt;T&gt; factoryType, <span class="meta">@Nullable</span> ClassLoader classLoader)</span><br><span class="line">SpringFactoriesLoader.loadFactoryNames(Class&lt;T&gt; factoryType, <span class="meta">@Nullable</span> ClassLoader classLoader)</span><br></pre></td></tr></tbody></table></figure>
+<span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>和<span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法
+<span class="token keyword">enum</span> 定义的枚举类默认继承了<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Enum</span>类，并实现了<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Serializable</span>和<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Comparable</span>两个接口。
 
-<h5 id="5、区别"><a href="#5、区别" class="headerlink" title="5、区别"></a>5、区别</h5><p>​        jdk的spi机制，一个配置文件只能指定一个接口要使用的实现类；spring的factories机制，一个配置文件可以指定多个接口要使用的</p>
-<p>实现类。</p>
+<span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 和 <span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 方法位于<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Enum</span> 类中：
+<span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span>返回枚举类中所有的值。
+<span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法可以找到每个枚举常量的索引，就像数组索引一样。
+<span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法返回指定字符串值的枚举常量。
+枚举类中的抽象方法实现，需要枚举类中的每个对象都对其进行实现。</code></pre>
+
+<h4 id="十四、序列化"><a href="#十四、序列化" class="headerlink" title="十四、序列化"></a>十四、序列化</h4><h4 id="十五、SPI、factories"><a href="#十五、SPI、factories" class="headerlink" title="十五、SPI、factories"></a>十五、SPI、factories</h4><h5 id="1、SPI介绍"><a href="#1、SPI介绍" class="headerlink" title="1、SPI介绍"></a>1、SPI介绍</h5><p>​        SPI（Service Provider Interface），是JDK内置的一种服务提供发现机制，可以用来启用框架扩展和替换组件。JDK的spi机制提供了 ServiceLoader 类用于加载、解析spi接口的配置文件，ServiceLoader实现了Iterable接口，可迭代，但只能以迭代器的方式进行操作。使用 hasNext() 时才会加载解析 META-INF/services 下对应的接口配置文件，使用 next() 时才会通过实现类的 Class 对象newInstance() 方法（实质是通过反射调用无参构造器）创建实例。</p>
+<h5 id="2、使用教程"><a href="#2、使用教程" class="headerlink" title="2、使用教程"></a>2、使用教程</h5><p>​        在模块本身的resources下新建目录 META-INF/services，services目录下新建文件，以服务接口的全限定接口名作为文件名，文件中指定该服务接口要使用的具体实现类。</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">ServiceLoader</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">S</span><span class="token punctuation">&gt;</span></span> service<span class="token punctuation">,</span><span class="token class-name">ClassLoader</span> loader<span class="token punctuation">)</span></code></pre>
+
+<h5 id="3、Spring-factories"><a href="#3、Spring-factories" class="headerlink" title="3、Spring factories"></a>3、Spring factories</h5><h5 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h5><p>​        factories可以看做是spring结合自身需要提供的一种spi机制，设计思想和jdk的spi机制差不多。factories机制在spring家族中广泛使用spring、springboot、springcloud中都大量使用了factories机制。spring体系的很多扩展配置都是通过spring.factories 指定的，比如应用初始化器 ApplicationContextInitializer、应用监听器ApplicationListener。注解本质是一种特殊接口，也可以用 factories 指定实现类，比如springboot中的 @EnableAutoConfiguration 注解就使用了factories指定要应用的实现类。</p>
+<h5 id="4、使用教程"><a href="#4、使用教程" class="headerlink" title="4、使用教程"></a>4、使用教程</h5><pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">SpringFactoriesLoader</span><span class="token punctuation">.</span><span class="token function">loadFactories</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> factoryType<span class="token punctuation">,</span> <span class="token annotation punctuation">@Nullable</span> <span class="token class-name">ClassLoader</span> classLoader<span class="token punctuation">)</span>
+<span class="token class-name">SpringFactoriesLoader</span><span class="token punctuation">.</span><span class="token function">loadFactoryNames</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> factoryType<span class="token punctuation">,</span> <span class="token annotation punctuation">@Nullable</span> <span class="token class-name">ClassLoader</span> classLoader<span class="token punctuation">)</span></code></pre>
+
+<h5 id="5、区别"><a href="#5、区别" class="headerlink" title="5、区别"></a>5、区别</h5><p>​        jdk的spi机制，一个配置文件只能指定一个接口要使用的实现类；spring的factories机制，一个配置文件可以指定多个接口要使用的实现类。</p>
 <h4 id="十六、数据类型"><a href="#十六、数据类型" class="headerlink" title="十六、数据类型"></a>十六、数据类型</h4><p>1、基本类型(四类八种)</p>
 <p>​    1、byte：占一个字节，一个字节占八位，所以范围按2*位算，例如byte最小值-2^7，最大值2^7-1</p>
 <p>​    2、short：两个字节</p>
@@ -535,10 +543,73 @@
 <p>​    6、double：八个字节，采用双精度存储，精度是float的2倍，绝大部分应用程序采用float类型。</p>
 <p>​    7、char：UTF-8编码，一个字符占两个字节，GBK编码，一个字符占三个字节</p>
 <p>​        (1)example：字节和字符转换</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">97</span>;</span><br><span class="line">System.out.println((<span class="type">char</span>)a); <span class="comment">// a</span></span><br><span class="line">System.out.println(<span class="type">byte</span>(<span class="string">'a'</span>)); <span class="comment">// 97</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">byte</span> a <span class="token operator">=</span> <span class="token number">97</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// a</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">(</span><span class="token char">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 97</span></code></pre>
 
 <p>​    8、boolean：Java虚拟机规范给出4个字节，1个字节、4个字节都是有可能的。这其实是运算效率和存储空间之间的博弈，两者都⾮常的重要。</p>
 <p>2、引用类型</p>
+<h4 id="十七、多肽"><a href="#十七、多肽" class="headerlink" title="十七、多肽"></a>十七、多肽</h4><h5 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h5><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dad</span><span class="token punctuation">{</span>
+  
+  <span class="token keyword">public</span> <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"父"</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"父类"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">ownName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"名称"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+   <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token function">getI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+  
+   <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token number">10</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Dad</span><span class="token punctuation">{</span>
+  
+  <span class="token keyword">public</span> <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"子"</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"子类"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">ownName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"名称"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Dad</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Son</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+d<span class="token punctuation">.</span><span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出子类</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出父</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出子</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">ownName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出名称子</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">getNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//输出30</span></code></pre>
+
+<p>​    1、d对象只能调用父类中的方法，如果子类中重写过该方法，则调用子类的方法</p>
+<p>​    2、子类成员变量和父类相同时，d.name输出父类定义的名称，d.getName()优先输出子类的名称，因为getName()方法重写了</p>
+<p>​    3、d.ownName()输出名称子，方法中的name优先选择自己类中的变量</p>
+<p>​    4、d.getNum()输出30，先调用父类getNum()，然后调用子类getI()</p>
 
                 
             </div>
@@ -565,7 +636,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://nty99.gitee.io/2022/08/23/base/">http://nty99.gitee.io/2022/08/23/base/</a>
+                    <a href="https://nty99.gitee.io/2022/08/23/base/">https://nty99.gitee.io/2022/08/23/base/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -962,7 +1033,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            整理日常开发中框架的知识
                         
                     </div>
                     <div class="publish-info">
@@ -973,8 +1044,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/Spring/" class="post-category">
+                                    Spring
                                 </a>
                             
                             
@@ -988,41 +1059,36 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/23/base/">
+                <a href="/2022/08/22/blogRecord/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="基础">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="博客更新记录">
                         
-                        <span class="card-title">基础</span>
+                        <span class="card-title">博客更新记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            记录博客版本迭代信息
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            nty
                             
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1033,10 +1099,50 @@
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 一路生花<br />'
+            + '文章作者: nty<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
 
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -1045,8 +1151,6 @@
 
 
 <!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
@@ -1141,71 +1245,27 @@
 </main>
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">nty</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1213,7 +1273,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.4k</span>
+                        class="white-color">13.4k</span>
             
             
             
@@ -1234,6 +1294,60 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "09";
+                        var startDate = "09";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
@@ -1429,6 +1543,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->

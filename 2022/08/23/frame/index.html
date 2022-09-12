@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="框架, 我的博客">
-    <meta name="description" content="一、SpringBoot1、bean的生命周期​    1、Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化
-​    2、Bean实例化后对将Bean的引入和值注入到Bean的属性中
-​    3、如果B">
+    <meta name="keywords" content="框架, 一路生花">
+    <meta name="description" content="整理日常开发中框架的知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>框架 | 我的博客</title>
+    <title>框架 | 一路生花</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -56,7 +54,7 @@
 
 <meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="一路生花" type="application/atom+xml">
 </head>
 
 
@@ -69,7 +67,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">我的博客</span>
+                    <span class="logo-span">一路生花</span>
                 </a>
             </div>
             
@@ -173,10 +171,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">我的博客</div>
+        <div class="logo-name">一路生花</div>
         <div class="logo-desc">
             
-            描述
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -389,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/Spring/" class="post-category">
+                                Spring
                             </a>
                         
                     </div>
@@ -409,21 +407,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    6 分
                 </div>
                 
 
@@ -438,7 +436,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -479,23 +485,46 @@
 <p>​    （7）@Configuration 注解类上的 @PropertySource 指定的配置文件</p>
 <p>​    （8）通过SpringApplication.setDefaultProperties 指定的默认属性</p>
 <p>​    2、配置文件优先级</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><img src="/Applications/Typora.app/Contents/image/springboot配置文件加载顺序.png" alt="springboot配置优先级"></h1><h5 id="4、Gateway"><a href="#4、Gateway" class="headerlink" title="4、Gateway"></a>4、Gateway</h5><p>​        GatewayFilter Factories中有30种过滤器，spring  gateway网关中过滤器执行顺序按照order的值执行，值越小，优先级越高</p>
-<p>globalFilter的order值由我们自己指定，defaultFilter和路由filter由spring声明式指定，如果值一样，则执行defaultFilter、路由</p>
-<p>filter、globalFilter。defaultFilter和路由filter类型是GatewayFilter，globalFilter经过GatewayFilterAdapter转换成GatewayFilter</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><img src="/medias/typora/springboot_config_load_order.png"></h1><h5 id="4、Gateway"><a href="#4、Gateway" class="headerlink" title="4、Gateway"></a>4、Gateway</h5><p>​        GatewayFilter Factories中有30种过滤器，spring  gateway网关中过滤器执行顺序按照order的值执行，值越小，优先级越高globalFilter的order值由我们自己指定，defaultFilter和路由filter由spring声明式指定，如果值一样，则执行defaultFilter、路由filter、globalFilter。defaultFilter和路由filter类型是GatewayFilter，globalFilter经过GatewayFilterAdapter转换成GatewayFilter。</p>
 <h5 id="5、AOP"><a href="#5、AOP" class="headerlink" title="5、AOP"></a>5、AOP</h5><p>​    1、不存在环绕通知执行顺序：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> before执行</span><br><span class="line"><span class="number">2</span> 方法执行</span><br><span class="line"><span class="number">3</span> AfterThrow执行</span><br><span class="line"><span class="number">4</span> After执行</span><br></pre></td></tr></tbody></table></figure>
-
+<p>​            before执行、目标方法执行、AfterThrow执行、After执行。</p>
 <p>​    2、存在环绕通知@Around执行顺序：</p>
-   <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Before("point()")</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">before</span><span class="params">(JoinPoint joinPoint)</span>{</span><br><span class="line">    System.out.println(<span class="string">"2 before执行"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta">@After("point()")</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">after</span><span class="params">(JoinPoint joinPoint)</span>{</span><br><span class="line">    System.out.println(<span class="string">"5 After执行"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterReturning("point()")</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterReturning</span><span class="params">(JoinPoint joinPoint)</span>{</span><br><span class="line">    System.out.println(<span class="string">"4 AfterReturning执行"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterThrowing(pointcut = "point()")</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterThrowing</span><span class="params">(JoinPoint joinPoint)</span>{</span><br><span class="line">    System.out.println(<span class="string">"4 AfterThrow执行"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="meta">@Around("point()")</span></span><br><span class="line"><span class="keyword">public</span> Object <span class="title function_">test</span><span class="params">(ProceedingJoinPoint joinPoint)</span> <span class="keyword">throws</span> Throwable {</span><br><span class="line">    System.out.println(<span class="string">"1 around前执行"</span>);</span><br><span class="line">    <span class="comment">//3、目标方法执行 Controller层方法</span></span><br><span class="line">  	<span class="comment">//6、切点执行</span></span><br><span class="line">    <span class="type">Object</span> <span class="variable">proceed</span> <span class="operator">=</span> joinPoint.proceed();</span><br><span class="line">    System.out.println(<span class="string">"7 around后执行"</span>);</span><br><span class="line">    <span class="keyword">return</span> proceed;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+   <pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Before</span><span class="token punctuation">(</span><span class="token string">"point()"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">before</span><span class="token punctuation">(</span><span class="token class-name">JoinPoint</span> joinPoint<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"2 before执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@After</span><span class="token punctuation">(</span><span class="token string">"point()"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">after</span><span class="token punctuation">(</span><span class="token class-name">JoinPoint</span> joinPoint<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"5 After执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@AfterReturning</span><span class="token punctuation">(</span><span class="token string">"point()"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterReturning</span><span class="token punctuation">(</span><span class="token class-name">JoinPoint</span> joinPoint<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"4 AfterReturning执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@AfterThrowing</span><span class="token punctuation">(</span>pointcut <span class="token operator">=</span> <span class="token string">"point()"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterThrowing</span><span class="token punctuation">(</span><span class="token class-name">JoinPoint</span> joinPoint<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"4 AfterThrow执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Around</span><span class="token punctuation">(</span><span class="token string">"point()"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token class-name">ProceedingJoinPoint</span> joinPoint<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"1 around前执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//3、目标方法执行 Controller层方法</span>
+  	<span class="token comment">//6、切点执行</span>
+    <span class="token class-name">Object</span> proceed <span class="token operator">=</span> joinPoint<span class="token punctuation">.</span><span class="token function">proceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"7 around后执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> proceed<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 
 <h5 id="6、加载顺序"><a href="#6、加载顺序" class="headerlink" title="6、加载顺序"></a>6、加载顺序</h5><p>​    1、同一个类中加载顺序</p>
-<p>​        Constructor &gt;&gt; @Autowired &gt;&gt;@ PostConstruct&gt;&gt;@Bean，跟Bean生命周期有关</p>
+<p>​            Constructor &gt;&gt; @Autowired &gt;&gt;@ PostConstruct&gt;&gt;@Bean，跟Bean生命周期有关。</p>
 <p>​    2、@Order注解并不能改变Bean加载<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BC%98%E5%85%88%E7%BA%A7&amp;spm=1001.2101.3001.7020">优先级</a>，@Order注解用于设置装载到list中Bean的顺序，用于比较多的是</p>
-<ul>
-<li>控制AOP的类的加载顺序，也就是被@Aspect标注的类</li>
-<li>控制ApplicationListener实现类的加载顺序</li>
-<li>控制CommandLineRunner实现类的加载顺序</li>
-</ul>
+<p>​        （1）控制AOP的类的加载顺序，也就是被@Aspect标注的类</p>
+<p>​        （2）控制ApplicationListener实现类的加载顺序</p>
+<p>​        （3）控制CommandLineRunner实现类的加载顺序</p>
 <p>​    3、@AutoConfigureBefore、@AutoConfigureAfter、@AutoConfigureOrder这三个注解是给Springboot自动配置类排序使用的，注</p>
 <p>意是自动配置类(META_INF下的spring.factories配置文件)，并非是普通的配置类。</p>
 <p>​    4、@DependsOn注解可以用来控制bean的创建顺序，该注解用于声明当前bean依赖于另外一个bean。所依赖的bean会被容器确保</p>
@@ -508,72 +537,22 @@
 <h5 id="8、校验"><a href="#8、校验" class="headerlink" title="8、校验"></a>8、校验</h5><p>​    1、官方提供：@NotBlank、@Size等。tips(除了@NotNull、@NotBlank外，其它的不会对null进行校验)</p>
 <p>​    2、自定义: 需在自定义注解上使用元注解@Constraint(validatedBy = xxx.class)，xxx.class实现ConstraintValidator接口进行处理</p>
 <h5 id="9、条件注解"><a href="#9、条件注解" class="headerlink" title="9、条件注解"></a>9、条件注解</h5><p>​    1、@ConditionalOnProperty两个属性matchIfMissing、havingValue</p>
-<p>​            (1)没有havingValue属性时候，matchIfMissing为true时，配置文件缺少字段也会注入成功，为false时有配置信息则可以注入，没有则不会注入</p>
-<p>​            (2)有havingValue时候，havingValue值必须和配置值相同才会注入成功，不管matchIfMissing的值</p>
+<p>​        （1）没有havingValue属性时候，matchIfMissing为true时，配置文件缺少字段也会注入成功，为false时有配置信息则可以注入，没有则不会注入。</p>
+<p>​        （2）有havingValue时候，havingValue值必须和配置值相同才会注入成功，不管matchIfMissing的值。</p>
 <h5 id="10、依赖注入"><a href="#10、依赖注入" class="headerlink" title="10、依赖注入"></a>10、依赖注入</h5><p>​    1、通过构造方法注入</p>
-<p>​        (1)采用构造方法上带有@Autowired注解注入</p>
-<p>​        (2)无@Autowired时候，若有无参构造则采用无参构造，无则采用其它构造方法</p>
-<p>​    2、setter注入</p>
-<p>​        (1)在需要注入的setter方法上加@Autored、@Resource注解</p>
-<p>​        (2)只要setter方法上有@Autored、@Resource注解则一定会执行此注入方式，不管有无构造注入、字段注入</p>
-<h4 id="二、Mybatis"><a href="#二、Mybatis" class="headerlink" title="二、Mybatis"></a>二、Mybatis</h4><h5 id="1、问题"><a href="#1、问题" class="headerlink" title="1、问题"></a>1、问题</h5><p>​        (1)mapper层使用Integer、String等做参数时候，出现There is no getter for property named ‘xxx’ in ‘class java.lang.String’</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1、在mapper层使用@Param映射</span><br><span class="line">2、使用_parameter、value做参数</span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"test"</span> <span class="attr">resultType</span>=<span class="string">"java.lang.Integer"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		...</span><br><span class="line">        <span class="comment">&lt;!--字符串比较加toString()-&gt;</span></span><br><span class="line"><span class="comment">		&lt;choose&gt;</span></span><br><span class="line"><span class="comment">			&lt;when test="param == '0'.toString()"&gt;</span></span><br><span class="line"><span class="comment">				...</span></span><br><span class="line"><span class="comment">			&lt;/when&gt;</span></span><br><span class="line"><span class="comment">            -------</span></span><br><span class="line"><span class="comment">			&lt;when test="_parameter == '0'.toString()"&gt;</span></span><br><span class="line"><span class="comment">				...</span></span><br><span class="line"><span class="comment">			&lt;/when&gt;</span></span><br><span class="line"><span class="comment">		&lt;/choose&gt;  </span></span><br><span class="line"><span class="comment">	&lt;/select&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>​        （1）采用构造方法上带有@Autowired注解注入。</p>
+<p>​        （2）无@Autowired时候，若有无参构造则采用无参构造，无则采用其它构造方法。</p>
+<p>​    2、Setter注入</p>
+<p>​        （1）在需要注入的setter方法上加@Autored、@Resource注解。</p>
+<p>​        （2）只要setter方法上有@Autored、@Resource注解则一定会执行此注入方式，不管有无构造注入、字段注入。</p>
+<h5 id="11、热部署"><a href="#11、热部署" class="headerlink" title="11、热部署"></a>11、热部署</h5><p>​        JRebel &amp; XRebel</p>
+<h4 id="二、Spring"><a href="#二、Spring" class="headerlink" title="二、Spring"></a>二、Spring</h4><h5 id="1、容器接口"><a href="#1、容器接口" class="headerlink" title="1、容器接口"></a>1、容器接口</h5><p>​    （1）容器顶级父接口：BeanFactory规范容器中的对象是延时加载的。</p>
+<p>​    （2）ApplicationContext接口：规范容器中的bean对象时非延时加载的，即创建容器对象的时候就对bean对象进行初始化，并存到容器中。</p>
+<h5 id="2、核心对象"><a href="#2、核心对象" class="headerlink" title="2、核心对象"></a>2、核心对象</h5><p>​    1、BeanDefinition：封装bean对象。</p>
+<p>​    2、BeanDefinitionReader：解析配置文件的中的bean元素，封装成BeanDefinition对象。</p>
+<p>​    3、BeanDefinitionRegistry：存储bean名称和对应的BeanDefinition对象，存储中Map里面。</p>
+<h5 id="3、创建容器"><a href="#3、创建容器" class="headerlink" title="3、创建容器"></a>3、创建容器</h5><p>​        ClassPathXmlApplicationContext对bean配置资源的载入从调用父类的refresh()方法开始。refresh()是模版方法，规定了IOC容器的启动流程，有些逻辑需要交给子类实现。</p>
 
-<h5 id="2、-和-区别"><a href="#2、-和-区别" class="headerlink" title="2、#和$区别"></a>2、#和$区别</h5><p>​        (1)使用#{param}，是经过预编译的，会将传递过来的参数换转换成“param”</p>
-<p>​        (2)使用${param}，是未经过预编译的，仅仅是取变量的值，是非安全的，存在SQL注入问题。</p>
-<h5 id="3、一、二级缓存"><a href="#3、一、二级缓存" class="headerlink" title="3、一、二级缓存"></a>3、一、二级缓存</h5><p>​        (1)spring结合mybatis后，在未开启事物的情况之下，每次查询，spring都会关闭旧的sqlSession而创建新的sqlSession,因此此时的</p>
-<p>一级缓存是没有启作用的。在开启事物的情况之下，spring使用threadLocal获取当前资源绑定同一个sqlSession，因此此时一级缓存是</p>
-<p>有效的。</p>
-<p>​        (2)查出的数据都会被默认先放在一级缓存中。只有会话提交或者关闭以后，一级缓存中的数据才会转移到二级缓存中</p>
-<p>​        (3)一级缓存：sqlSession级别的缓存。（相当于一个方法内的缓存）每一次会话都对应自己的一级缓存，作用范围比较小，一旦会话</p>
-<p>关闭就查询不到了；一级缓存默认是一直开启的，是SqlSession级别的一个Map；与数据库同一次会话期间查询到的数据会放在本地缓存</p>
-<p>中。</p>
-<p>​    (4)基于namespace名称空间级别的缓存：一个namespace对应一个二级缓存，一个会话，查询一条数据，这个数据就会被放在当前会</p>
-<p>话的一级缓存中。</p>
-<p>​    (5)如果会话关闭；一级缓存中的数据会被保存到二级缓存中；新的会话查询信息，就可以参照二级缓存中的内容。</p>
-<h5 id="4、二级缓存开启"><a href="#4、二级缓存开启" class="headerlink" title="4、二级缓存开启"></a>4、二级缓存开启</h5><p>​        (1)开启全局二级缓存配置：<setting name="cacheEnabled" value="true"></setting></p>
-<p>​        (2)去mapper.xml中配置使用二级缓存：<cache></cache></p>
-<p>​        (3)我们的POJO需要实现序列化接口</p>
-<h5 id="5、一级缓存失效原因"><a href="#5、一级缓存失效原因" class="headerlink" title="5、一级缓存失效原因"></a>5、一级缓存失效原因</h5><p>​        (1)不同的会话对象</p>
-<p>​        (2)会话对象相同，查询不在缓存中的内容</p>
-<p>​        (3)两次查询期间进行了增删改的操作</p>
-<p>​        (4)会话完成后手动清空缓存    </p>
-<h5 id="6、缓存执行顺序"><a href="#6、缓存执行顺序" class="headerlink" title="6、缓存执行顺序"></a>6、缓存执行顺序</h5><p>​        (1)先判断二级缓存是否开启，如果没开启，再判断一级缓存是否开启，如果没开启，直接查数据库</p>
-<p>​        (2)如果一级缓存关闭，即使二级缓存开启也没有数据，因为二级缓存的数据从一级缓存获取</p>
-<p>​        (3)一般不会关闭一级缓存</p>
-<p>​        (4)二级缓存默认不开启</p>
-<p>​        (5)如果二级缓存关闭，直接判断一级缓存是否有数据，如果没有就查数据库</p>
-<p>​        (6)如果二级缓存开启，先判断二级缓存有没有数据，如果有就直接返回；如果没有，就查询一级缓存，如果有就返回，没有就查询数</p>
-<p>据库。</p>
-<h4 id="三、Nacos"><a href="#三、Nacos" class="headerlink" title="三、Nacos"></a>三、Nacos</h4><p>​    1、负载均衡策略：配置同集群访问后，优先随机访问同集群，当本集群的实例宕机了再访问其他集群的实例，此时会有警告产生，跨</p>
-<p>集群访问</p>
-<p>​    2、服务默认为临时实例，配置服务为非临时实例时，Nacos主动询问实例是否健康，若服务宕机后会立即pull给消费者，且Nacos不会</p>
-<p>剔除服务。</p>
-<p>​    3、配置namespace环境隔离，则不同环境的服务不能通信</p>
-<h4 id="四、Nginx"><a href="#四、Nginx" class="headerlink" title="四、Nginx"></a>四、Nginx</h4><p>​    1、在nginx中配置proxy_pass时，如果在proxy_pass后面的url加/，相当于是绝对根路径，则nginx不会把location中匹配的路径部分代理走。如果没有/，则会把匹配的路径部分给代理走。比如访问：127.0.0.1/a/index.html</p>
-<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /a {</span><br><span class="line">	  <span class="attribute">proxy_pass</span>  http://127.0.0.1/</span><br><span class="line">}</span><br><span class="line">相当于http://127.0.0.1/index.html</span><br><span class="line">location /a {</span><br><span class="line">      <span class="attribute">proxy_pass</span>  http://127.0.0.1</span><br><span class="line">}</span><br><span class="line">相当于http://127.0.0.1/a/index.html</span><br><span class="line"></span><br><span class="line">location /a {</span><br><span class="line">      <span class="attribute">proxy_pass</span>  http://127.0.0.1/linux/</span><br><span class="line">}</span><br><span class="line">相当于http://127.0.0.1/linux/index.html</span><br><span class="line"></span><br><span class="line">location /a {</span><br><span class="line">      <span class="attribute">proxy_pass</span>  http://127.0.0.1/linux</span><br><span class="line">}</span><br><span class="line">相当于http://127.0.0.1/linuxindex.html</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="五、Ribbon"><a href="#五、Ribbon" class="headerlink" title="五、Ribbon"></a>五、Ribbon</h4><h5 id="1、原理"><a href="#1、原理" class="headerlink" title="1、原理"></a>1、原理</h5><p>​    (1)发送请求被RibbonLoadBalancerClient拦截</p>
-<p>​    (2)获取请求中的服务名称</p>
-<p>​    (3)交给DynamicServerListLoadBalancer去注册中心拉去服务地址</p>
-<p>​    (4)返回服务列表给DynamicServerListLoadBalancer，匹配IRule定义的策略选择服务</p>
-<p>​    (5)用服务地址替换原来的地址发送请求</p>
-<h5 id="2、负载均衡策略"><a href="#2、负载均衡策略" class="headerlink" title="2、负载均衡策略"></a>2、负载均衡策略</h5><p>​    (1)Bean方式，全局</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> IRule <span class="title function_">randomRule</span><span class="params">()</span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RandomRule</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>​    (2)配置方式，局部、灵活</p>
-<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">服务名称:</span></span><br><span class="line">	<span class="attr">ribbon:</span></span><br><span class="line">		<span class="attr">NFLoadBalancerRuleClassName:</span> <span class="string">com.netflix.loadbalancer.RandomRule</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h5 id="3、Ribbon加载方式"><a href="#3、Ribbon加载方式" class="headerlink" title="3、Ribbon加载方式"></a>3、Ribbon加载方式</h5><p>​    默认采用懒加载所以第一次调用时间会长，可以配置采用饥饿加载，服务启动就把服务地址缓存在DynamicServerListLoadBalancer</p>
-<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ribbon:</span></span><br><span class="line">  <span class="attr">eager-load:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment"># 开启饥饿加载</span></span><br><span class="line">    <span class="attr">clients:</span> <span class="comment"># 指定饥饿加载的服务名称</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">userservice</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="六、Logback"><a href="#六、Logback" class="headerlink" title="六、Logback"></a>六、Logback</h4><h5 id="1、日志两大规范"><a href="#1、日志两大规范" class="headerlink" title="1、日志两大规范"></a>1、日志两大规范</h5><p>​    (1)Commons Logging  (JCL)</p>
-<p>​    (2)Simple Logging Facade for JAVA (slf4j)</p>
-<p>​    由于log4j性能问题，采用logback替代log4j</p>
-<h5 id="2、日志级别"><a href="#2、日志级别" class="headerlink" title="2、日志级别"></a>2、日志级别</h5><p>​    (1)级别程度是：TRACE&lt;DEBUG&lt;INFO&lt;WARN&lt;ERROR</p>
-<pre><code> (2)默认级别debug，只能输出级别大于或者等于此级别的信息，例如设置为INFO，则只能输出INFO、WARN、ERROR的日志信息
-</code></pre>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3>
                 
             </div>
             <hr/>
@@ -599,7 +578,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://nty99.gitee.io/2022/08/23/frame/">http://nty99.gitee.io/2022/08/23/frame/</a>
+                    <a href="https://nty99.gitee.io/2022/08/23/frame/">https://nty99.gitee.io/2022/08/23/frame/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -996,7 +975,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            常用数据库相关知识点
                         
                     </div>
                     <div class="publish-info">
@@ -1037,7 +1016,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Java知识点
                         
                     </div>
                     <div class="publish-info">
@@ -1066,10 +1045,50 @@
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 一路生花<br />'
+            + '文章作者: nty<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
 
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -1078,8 +1097,6 @@
 
 
 <!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
@@ -1174,71 +1191,27 @@
 </main>
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">nty</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1246,7 +1219,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.4k</span>
+                        class="white-color">13.4k</span>
             
             
             
@@ -1267,6 +1240,60 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "09";
+                        var startDate = "09";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
@@ -1462,6 +1489,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->

@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据库, 我的博客">
-    <meta name="description" content="1、Mysql1、执行顺序​    1、执行where xx对全表数据做筛选，返回第1个结果集
-​    2、针对第1个结果集使用group by分组，返回第2个结果集
-​    3、针对第2个结果集中的每1组数据执行select xx，有">
+    <meta name="keywords" content="数据库, 一路生花">
+    <meta name="description" content="常用数据库相关知识点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库 | 我的博客</title>
+    <title>数据库 | 一路生花</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -56,7 +54,7 @@
 
 <meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="一路生花" type="application/atom+xml">
 </head>
 
 
@@ -69,7 +67,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">我的博客</span>
+                    <span class="logo-span">一路生花</span>
                 </a>
             </div>
             
@@ -173,10 +171,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">我的博客</div>
+        <div class="logo-name">一路生花</div>
         <div class="logo-desc">
             
-            描述
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -409,14 +407,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.4k
                 </div>
                 
 
@@ -438,7 +436,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -487,24 +493,423 @@
 <p>​        (1)SELECT * FROM USER_RECYCLEBIN</p>
 <p>​        (2)FLASHBACK TABLE TABLE_NAME TO BEFORE DROP;</p>
 <p>​    3、删除Table不进入Recycle的方法：DROP TABLE TABLE_NAME PURGE 即永</p>
-<h4 id="3、Redis"><a href="#3、Redis" class="headerlink" title="3、Redis"></a>3、Redis</h4><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">hash双链集合，set、zset、list单链集合</span><br><span class="line">exists key 查看key是否存在</span><br><span class="line">incr/decr key (key的值增加/减少1)</span><br><span class="line">incrby/decrby key n (key的值增加/减少n)  单个命令实现的所有Redis操作都是原子的，包括对更复杂数据结构的操作。因此，当您使用修改某些值的 Redis 命令时，您不必考虑并发访问。</span><br><span class="line">set key value ex time 设置键的过期时间</span><br><span class="line">ttl key 查看键的过期时间 -1 永久 -2 失效 20 20秒后失效</span><br><span class="line">persist key 移除key的过期时间</span><br><span class="line"></span><br><span class="line">列表：list</span><br><span class="line">llen key 查看列表长度</span><br><span class="line">lpush / rpush  key value（向列表头 / 尾插入信息）</span><br><span class="line">lrange key 0 -1 （遍历从头到尾的值）</span><br><span class="line">lange key 0 -2  （遍历从头到倒数第二个值）</span><br><span class="line">lpop / rpop 删除头 / 尾的key，并把删除的值返回</span><br><span class="line">lpush / rpush  key value1,value2 向列表插入多个值，返回列表长度</span><br><span class="line"></span><br><span class="line">集合：set</span><br><span class="line">sadd key value... 向集合中添加一个或多个元素</span><br><span class="line">smembers key 遍历集合元素</span><br><span class="line">srem key value 删除指定元素，存在返回1，不存在返回0</span><br><span class="line">sismember key value 查看值是否存在，存在返回1，不存在返回0</span><br><span class="line">sunion key1 key2 组合多个集合并返回所有元素</span><br><span class="line">spop key n 随机删除n个元素并返回，默认返回一个</span><br><span class="line">srandmember key n 随机返回集合中的n个元素，不写默认返回一个</span><br><span class="line">sdiff key1 key2返回两个集合的差别</span><br><span class="line"></span><br><span class="line">集合：zset</span><br><span class="line">zadd key_namae score value... 向有序集合添加一个或多个值(可修改指定值的分数)</span><br><span class="line">zrange key_name start end 获取指定范围内按score排序的集合</span><br><span class="line">zrange key start end withscores  打印所有的value，并带有分数</span><br><span class="line">zscore key value 获取指定value的score</span><br><span class="line"></span><br><span class="line">哈希：hash</span><br><span class="line">hset key filed filed 添加一个或多个键值对</span><br><span class="line">hget key filed 获取某个键值对</span><br><span class="line">hgetall key  获取所有键值对</span><br><span class="line">hincrby key filed n 给字段key增加n个整数值</span><br><span class="line">hdel key filed  删除字段的值  </span><br><span class="line">hlen、hkeys、hvals key  打印键值对长度、所有的key、所有的值</span><br><span class="line"></span><br><span class="line">redis两种持久化方案：</span><br><span class="line">RDB: </span><br><span class="line">	save 900 1</span><br><span class="line">	save 300 10</span><br><span class="line">	save 60 10000  （60秒后有10000条数据发生变化则进行持久化）</span><br><span class="line">	</span><br><span class="line">AOF: 开启appendonly 为yes </span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">appendfsync always  （每次操作进行一次持久化）</span></span><br><span class="line">	appendfsync everysec  （每秒进行一次持久化）</span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">appendfsync no</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="3、Redis"><a href="#3、Redis" class="headerlink" title="3、Redis"></a>3、Redis</h4><pre class="language-bash" data-language="bash"><code class="language-bash">hash双链集合，set、zset、list单链集合
+exists key 查看key是否存在
+incr/decr key <span class="token punctuation">(</span>key的值增加/减少1<span class="token punctuation">)</span>
+incrby/decrby key n <span class="token punctuation">(</span>key的值增加/减少n<span class="token punctuation">)</span>  单个命令实现的所有Redis操作都是原子的，包括对更复杂数据结构的操作。因此，当您使用修改某些值的 Redis 命令时，您不必考虑并发访问。
+<span class="token builtin class-name">set</span> key value ex <span class="token function">time</span> 设置键的过期时间
+ttl key 查看键的过期时间 -1 永久 -2 失效 <span class="token number">20</span> <span class="token number">20</span>秒后失效
+persist key 移除key的过期时间
 
-<h4 id="4、ES"><a href="#4、ES" class="headerlink" title="4、ES"></a>4、ES</h4><h5 id="1、配置ES开发环境"><a href="#1、配置ES开发环境" class="headerlink" title="1、配置ES开发环境"></a>1、配置ES开发环境</h5><figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="language-bash"> -d \</span></span><br><span class="line"><span class="language-bash">	--name es \</span></span><br><span class="line"><span class="language-bash">	-e <span class="string">"ES_JAVA_OPTS=-Xms512m -Xmx512m"</span> \</span></span><br><span class="line"><span class="language-bash">	-e <span class="string">"discovery.type=single-node"</span> \</span></span><br><span class="line"><span class="language-bash">	-v es-data:/usr/share/elasticsearch/data \</span></span><br><span class="line"><span class="language-bash">	-v es-plugins:/usr/share/elasticsearch/plugins \</span></span><br><span class="line"><span class="language-bash">	--privileged \</span></span><br><span class="line"><span class="language-bash">	--network es-net \</span></span><br><span class="line"><span class="language-bash">	-p 9200:9200 \</span></span><br><span class="line"><span class="language-bash">	-p 9300:9300 \</span></span><br><span class="line"><span class="language-bash">elasticsearch:7.12.1</span></span><br><span class="line"></span><br><span class="line">docker <span class="keyword">run</span><span class="language-bash"> -d \</span></span><br><span class="line"><span class="language-bash">	--name kibana \</span></span><br><span class="line"><span class="language-bash">	-e ELASTICSEARCH_HOSTS=http://es:9200 \</span></span><br><span class="line"><span class="language-bash">	--network es-net \</span></span><br><span class="line"><span class="language-bash">	-p 5601:5601 \</span></span><br><span class="line"><span class="language-bash">kibana:7.12.1</span></span><br></pre></td></tr></tbody></table></figure>
+列表：list
+llen key 查看列表长度
+lpush / rpush  key value（向列表头 / 尾插入信息）
+lrange key <span class="token number">0</span> -1 （遍历从头到尾的值）
+lange key <span class="token number">0</span> -2  （遍历从头到倒数第二个值）
+lpop / rpop 删除头 / 尾的key，并把删除的值返回
+lpush / rpush  key value1,value2 向列表插入多个值，返回列表长度
+
+集合：set
+sadd key value<span class="token punctuation">..</span>. 向集合中添加一个或多个元素
+smembers key 遍历集合元素
+srem key value 删除指定元素，存在返回1，不存在返回0
+sismember key value 查看值是否存在，存在返回1，不存在返回0
+sunion key1 key2 组合多个集合并返回所有元素
+spop key n 随机删除n个元素并返回，默认返回一个
+srandmember key n 随机返回集合中的n个元素，不写默认返回一个
+<span class="token function">sdiff</span> key1 key2返回两个集合的差别
+
+集合：zset
+zadd key_namae score value<span class="token punctuation">..</span>. 向有序集合添加一个或多个值<span class="token punctuation">(</span>可修改指定值的分数<span class="token punctuation">)</span>
+zrange key_name start end 获取指定范围内按score排序的集合
+zrange key start end withscores  打印所有的value，并带有分数
+zscore key value 获取指定value的score
+
+哈希：hash
+hset key filed filed 添加一个或多个键值对
+hget key filed 获取某个键值对
+hgetall key  获取所有键值对
+hincrby key filed n 给字段key增加n个整数值
+hdel key filed  删除字段的值  
+hlen、hkeys、hvals key  打印键值对长度、所有的key、所有的值
+
+redis两种持久化方案：
+RDB: 
+	save <span class="token number">900</span> <span class="token number">1</span>
+	save <span class="token number">300</span> <span class="token number">10</span>
+	save <span class="token number">60</span> <span class="token number">10000</span>  （60秒后有10000条数据发生变化则进行持久化）
+	
+AOF: 开启appendonly 为yes 
+	<span class="token comment"># appendfsync always  （每次操作进行一次持久化）</span>
+	appendfsync everysec  （每秒进行一次持久化）
+	<span class="token comment"># appendfsync no</span></code></pre>
+
+<h4 id="4、ES"><a href="#4、ES" class="headerlink" title="4、ES"></a>4、ES</h4><h5 id="1、配置ES开发环境"><a href="#1、配置ES开发环境" class="headerlink" title="1、配置ES开发环境"></a>1、配置ES开发环境</h5><pre class="language-docker" data-language="docker"><code class="language-docker">docker run -d \
+	--name es \
+	-e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+	-e "discovery.type=single-node" \
+	-v es-data:/usr/share/elasticsearch/data \
+	-v es-plugins:/usr/share/elasticsearch/plugins \
+	--privileged \
+	--network es-net \
+	-p 9200:9200 \
+	-p 9300:9300 \
+elasticsearch:7.12.1
+
+docker run -d \
+	--name kibana \
+	-e ELASTICSEARCH_HOSTS=http://es:9200 \
+	--network es-net \
+	-p 5601:5601 \
+kibana:7.12.1</code></pre>
 
 <h5 id="2、DSL语句"><a href="#2、DSL语句" class="headerlink" title="2、DSL语句"></a>2、DSL语句</h5><p>​    1、索引库操作</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#查看索引库</span><br><span class="line">GET /hotel</span><br><span class="line"></span><br><span class="line">#删除索引库</span><br><span class="line">DELETE /hotel</span><br><span class="line"></span><br><span class="line">#修改索引库 只能增添字段</span><br><span class="line">PUT /hotel/_mapping</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"properties"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"age"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"type"</span><span class="punctuation">:</span><span class="string">"integer"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"># 建立索引库hotel  type数据类型 analyzer分词器</span><br><span class="line">PUT /hotel</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"mappings"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"properties"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"id"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"keyword"</span> </span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"text"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"analyzer"</span><span class="punctuation">:</span> <span class="string">"ik_max_word"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"copy_to"</span><span class="punctuation">:</span> <span class="string">"all"</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"address"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"text"</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">       <span class="attr">"price"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"integer"</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"all"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"text"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"analyzer"</span><span class="punctuation">:</span> <span class="string">"ik_max_word"</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-json" data-language="json"><code class="language-json">#查看索引库
+GET /hotel
+
+#删除索引库
+DELETE /hotel
+
+#修改索引库 只能增添字段
+PUT /hotel/_mapping
+<span class="token punctuation">{</span>
+  <span class="token property">"properties"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">"age"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"integer"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+# 建立索引库hotel  type数据类型 analyzer分词器
+PUT /hotel
+<span class="token punctuation">{</span>
+  <span class="token property">"mappings"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"id"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"keyword"</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"name"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
+        <span class="token property">"analyzer"</span><span class="token operator">:</span> <span class="token string">"ik_max_word"</span><span class="token punctuation">,</span>
+        <span class="token property">"copy_to"</span><span class="token operator">:</span> <span class="token string">"all"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"address"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"text"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+       <span class="token property">"price"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"integer"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"all"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
+        <span class="token property">"analyzer"</span><span class="token operator">:</span> <span class="token string">"ik_max_word"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
 <p>​    2、文档操作</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#新增文档id为<span class="number">1</span>的数据</span><br><span class="line">POST /hotel/_doc/<span class="number">1</span></span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"id"</span><span class="punctuation">:</span><span class="string">"1"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span><span class="string">"test"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"address"</span><span class="punctuation">:</span><span class="string">"test"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"price"</span><span class="punctuation">:</span><span class="number">11</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#查询id为<span class="number">1</span>的数据</span><br><span class="line">GET /hotel/_doc/<span class="number">1</span></span><br><span class="line"></span><br><span class="line">#删除id为<span class="number">1</span>的数据</span><br><span class="line">DELETE /hotel/_doc/<span class="number">1</span></span><br><span class="line"></span><br><span class="line">#修改数据 全量修改 如果数据不存在则创建</span><br><span class="line">PUT /hotel/_doc/<span class="number">1</span></span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"id"</span><span class="punctuation">:</span><span class="string">"1"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span><span class="string">"test"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"address"</span><span class="punctuation">:</span><span class="string">"test"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"price"</span><span class="punctuation">:</span><span class="number">11</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#修改数据 增量修改字段</span><br><span class="line">POST /hotel/_update/<span class="number">1</span></span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"doc"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"address"</span><span class="punctuation">:</span><span class="string">"杭州"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"price"</span><span class="punctuation">:</span><span class="number">10000000</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-json" data-language="json"><code class="language-json">#新增文档id为<span class="token number">1</span>的数据
+POST /hotel/_doc/<span class="token number">1</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span><span class="token string">"test"</span><span class="token punctuation">,</span>
+  <span class="token property">"address"</span><span class="token operator">:</span><span class="token string">"test"</span><span class="token punctuation">,</span>
+  <span class="token property">"price"</span><span class="token operator">:</span><span class="token number">11</span>
+<span class="token punctuation">}</span>
+
+#查询id为<span class="token number">1</span>的数据
+GET /hotel/_doc/<span class="token number">1</span>
+
+#删除id为<span class="token number">1</span>的数据
+DELETE /hotel/_doc/<span class="token number">1</span>
+
+#修改数据 全量修改 如果数据不存在则创建
+PUT /hotel/_doc/<span class="token number">1</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span><span class="token string">"test"</span><span class="token punctuation">,</span>
+  <span class="token property">"address"</span><span class="token operator">:</span><span class="token string">"test"</span><span class="token punctuation">,</span>
+  <span class="token property">"price"</span><span class="token operator">:</span><span class="token number">11</span>
+<span class="token punctuation">}</span>
+
+#修改数据 增量修改字段
+POST /hotel/_update/<span class="token number">1</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"doc"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"address"</span><span class="token operator">:</span><span class="token string">"杭州"</span><span class="token punctuation">,</span>
+    <span class="token property">"price"</span><span class="token operator">:</span><span class="token number">10000000</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
 <p>​    3、查询操作</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><span class="line">#全文搜索</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"match_all"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#单字段查询 all 多个字段整合</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">   <span class="attr">"match"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">     <span class="attr">"all"</span><span class="punctuation">:</span> <span class="string">"如家商圈"</span></span><br><span class="line">   <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#多字段查询</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span><span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"multi_match"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"query"</span><span class="punctuation">:</span> <span class="string">"如家商圈"</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"fields"</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">"brand"</span><span class="punctuation">,</span><span class="string">"name"</span><span class="punctuation">,</span><span class="string">"business"</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#精确查询</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"term"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"city"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"value"</span><span class="punctuation">:</span> <span class="string">"上海"</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#精确查询 范围查询 带e表示包含等于</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"range"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"price"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"gte"</span><span class="punctuation">:</span> <span class="number">1000</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"lte"</span><span class="punctuation">:</span> <span class="number">2000</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#位置查询 geo_distance和geo_bounding_box</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"geo_distance"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"distance"</span><span class="punctuation">:</span><span class="string">"10km"</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"location"</span><span class="punctuation">:</span><span class="string">"31.20, 121.30"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#function_score查询 会修改最后得分 query_score和function_score来决定分数</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"function_score"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"match"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"酒店"</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"functions"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"filter"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"term"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">              <span class="attr">"brand"</span><span class="punctuation">:</span> <span class="string">"7天酒店"</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">          <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"weight"</span><span class="punctuation">:</span> <span class="number">10</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"boost_mode"</span><span class="punctuation">:</span> <span class="string">"sum"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#bool查询  must_not和filter不会修改算分</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"bool"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"must"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"match"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"如家"</span></span><br><span class="line">          <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"must_not"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"range"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"price"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">              <span class="attr">"gt"</span><span class="punctuation">:</span> <span class="number">500</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">          <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"filter"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"geo_distance"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"distance"</span><span class="punctuation">:</span> <span class="string">"10km"</span><span class="punctuation">,</span> </span><br><span class="line">            <span class="attr">"location"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">              <span class="attr">"lat"</span><span class="punctuation">:</span> <span class="number">39.945106</span><span class="punctuation">,</span></span><br><span class="line">              <span class="attr">"lon"</span><span class="punctuation">:</span> <span class="number">116.353827</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">          <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#sort排序 会放弃打分</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"match_all"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"sort"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"score"</span><span class="punctuation">:</span> <span class="string">"asc"</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"price"</span><span class="punctuation">:</span> <span class="string">"desc"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#sort排序 按地理位置排序</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"match_all"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"sort"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"_geo_distance"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"location"</span><span class="punctuation">:</span> <span class="string">"10.10,10.10"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"order"</span><span class="punctuation">:</span> <span class="string">"asc"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"unit"</span><span class="punctuation">:</span> <span class="string">"km"</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#分页查询 结果集(from+size)不能超过<span class="number">10000</span> 还可以写成search after(需排序<span class="punctuation">,</span>记录上次查询的最后一个文档<span class="punctuation">,</span>查询下一页数据)</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"match_all"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"sort"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"price"</span><span class="punctuation">:</span> <span class="string">"desc"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span> </span><br><span class="line">  <span class="attr">"from"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span> </span><br><span class="line">  <span class="attr">"size"</span><span class="punctuation">:</span> <span class="number">10</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#高亮</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"match"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"all"</span><span class="punctuation">:</span> <span class="string">"如家"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"highlight"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"fields"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"require_field_match"</span><span class="punctuation">:</span> <span class="string">"false"</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-json" data-language="json"><code class="language-json">#全文搜索
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">"match_all"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#单字段查询 all 多个字段整合
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+   <span class="token property">"match"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token property">"all"</span><span class="token operator">:</span> <span class="token string">"如家商圈"</span>
+   <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#多字段查询
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">"multi_match"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"query"</span><span class="token operator">:</span> <span class="token string">"如家商圈"</span><span class="token punctuation">,</span>
+      <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"brand"</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"business"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+#精确查询
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"term"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"city"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"上海"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#精确查询 范围查询 带e表示包含等于
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"range"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"price"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"gte"</span><span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+        <span class="token property">"lte"</span><span class="token operator">:</span> <span class="token number">2000</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#位置查询 geo_distance和geo_bounding_box
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"geo_distance"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"distance"</span><span class="token operator">:</span><span class="token string">"10km"</span><span class="token punctuation">,</span>
+      <span class="token property">"location"</span><span class="token operator">:</span><span class="token string">"31.20, 121.30"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+#function_score查询 会修改最后得分 query_score和function_score来决定分数
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"function_score"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"match"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"酒店"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"functions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"filter"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"term"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"brand"</span><span class="token operator">:</span> <span class="token string">"7天酒店"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"weight"</span><span class="token operator">:</span> <span class="token number">10</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"boost_mode"</span><span class="token operator">:</span> <span class="token string">"sum"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#bool查询  must_not和filter不会修改算分
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"bool"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"must"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"match"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"如家"</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"must_not"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"range"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"price"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"gt"</span><span class="token operator">:</span> <span class="token number">500</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"filter"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"geo_distance"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"distance"</span><span class="token operator">:</span> <span class="token string">"10km"</span><span class="token punctuation">,</span> 
+            <span class="token property">"location"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"lat"</span><span class="token operator">:</span> <span class="token number">39.945106</span><span class="token punctuation">,</span>
+              <span class="token property">"lon"</span><span class="token operator">:</span> <span class="token number">116.353827</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#sort排序 会放弃打分
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"match_all"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"sort"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"score"</span><span class="token operator">:</span> <span class="token string">"asc"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"price"</span><span class="token operator">:</span> <span class="token string">"desc"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+#sort排序 按地理位置排序
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"match_all"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"sort"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"_geo_distance"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"location"</span><span class="token operator">:</span> <span class="token string">"10.10,10.10"</span><span class="token punctuation">,</span>
+        <span class="token property">"order"</span><span class="token operator">:</span> <span class="token string">"asc"</span><span class="token punctuation">,</span>
+        <span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"km"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+#分页查询 结果集(from+size)不能超过<span class="token number">10000</span> 还可以写成search after(需排序<span class="token punctuation">,</span>记录上次查询的最后一个文档<span class="token punctuation">,</span>查询下一页数据)
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"match_all"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"sort"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"price"</span><span class="token operator">:</span> <span class="token string">"desc"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span> 
+  <span class="token property">"from"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+  <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">10</span>
+<span class="token punctuation">}</span>
+
+#高亮
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"match"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"all"</span><span class="token operator">:</span> <span class="token string">"如家"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"highlight"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"require_field_match"</span><span class="token operator">:</span> <span class="token string">"false"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
 <p>​    4、聚合查询</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#聚合查询bucket  <span class="number">200</span>元以下的酒店按品牌分组后的数量升序展示<span class="number">10</span>条数据</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"query"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"range"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"price"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"lte"</span><span class="punctuation">:</span> <span class="number">200</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span> </span><br><span class="line">  <span class="attr">"size"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"aggs"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"brandAggs"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"terms"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"field"</span><span class="punctuation">:</span> <span class="string">"brand"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"size"</span><span class="punctuation">:</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"order"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"_count"</span><span class="punctuation">:</span> <span class="string">"asc"</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">#聚合查询 bucket+metrics  对分组后的品牌按平均分进行降序排序</span><br><span class="line">GET /hotel/_search</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"size"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"aggs"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"brandAggs"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"terms"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"field"</span><span class="punctuation">:</span> <span class="string">"brand"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"size"</span><span class="punctuation">:</span> <span class="number">5</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"order"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"scoreAggs.avg"</span><span class="punctuation">:</span> <span class="string">"desc"</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"aggs"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"scoreAggs"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"stats"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"field"</span><span class="punctuation">:</span> <span class="string">"score"</span></span><br><span class="line">          <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-json" data-language="json"><code class="language-json">#聚合查询bucket  <span class="token number">200</span>元以下的酒店按品牌分组后的数量升序展示<span class="token number">10</span>条数据
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"range"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"price"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"lte"</span><span class="token operator">:</span> <span class="token number">200</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+  <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"aggs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"brandAggs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"terms"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"brand"</span><span class="token punctuation">,</span>
+        <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+        <span class="token property">"order"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"_count"</span><span class="token operator">:</span> <span class="token string">"asc"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+#聚合查询 bucket+metrics  对分组后的品牌按平均分进行降序排序
+GET /hotel/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"aggs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"brandAggs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"terms"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"brand"</span><span class="token punctuation">,</span>
+        <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+        <span class="token property">"order"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"scoreAggs.avg"</span><span class="token operator">:</span> <span class="token string">"desc"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"aggs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"scoreAggs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"stats"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"score"</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
 <p>​    5、自定义分词器</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#创建分词器和搜索分词器不能混用 因为有可能词汇汉字不一样但是拼音一样导致搜索结果达不到预期效果</span><br><span class="line">PUT /test</span><br><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"settings"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"analysis"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"analyzer"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"my_analyzer"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"tokenizer"</span><span class="punctuation">:</span> <span class="string">"ik_max_word"</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"filter"</span><span class="punctuation">:</span> <span class="string">"py"</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"filter"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"py"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">          <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"pinyin"</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"keep_full_pinyin"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"keep_joined_full_pinyin"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"keep_original"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"limit_first_letter_length"</span><span class="punctuation">:</span> <span class="number">16</span><span class="punctuation">,</span> </span><br><span class="line">          <span class="attr">"remove_duplicated_term"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">"none_chinese_pinyin_tokenize"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">      <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<pre class="language-json" data-language="json"><code class="language-json">#创建分词器和搜索分词器不能混用 因为有可能词汇汉字不一样但是拼音一样导致搜索结果达不到预期效果
+PUT /test
+<span class="token punctuation">{</span>
+  <span class="token property">"settings"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"analysis"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"analyzer"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"my_analyzer"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"tokenizer"</span><span class="token operator">:</span> <span class="token string">"ik_max_word"</span><span class="token punctuation">,</span>
+          <span class="token property">"filter"</span><span class="token operator">:</span> <span class="token string">"py"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"filter"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"py"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"pinyin"</span><span class="token punctuation">,</span>
+          <span class="token property">"keep_full_pinyin"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token property">"keep_joined_full_pinyin"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">"keep_original"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">"limit_first_letter_length"</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span> 
+          <span class="token property">"remove_duplicated_term"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">"none_chinese_pinyin_tokenize"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3>
                 
@@ -532,7 +937,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://nty99.gitee.io/2022/08/23/database/">http://nty99.gitee.io/2022/08/23/database/</a>
+                    <a href="https://nty99.gitee.io/2022/08/23/database/">https://nty99.gitee.io/2022/08/23/database/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -929,7 +1334,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Docker相关知识点
                         
                     </div>
                     <div class="publish-info">
@@ -940,8 +1345,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%83%A8%E7%BD%B2/" class="post-category">
-                                    部署
+                            <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
+                                    云原生
                                 </a>
                             
                             
@@ -970,7 +1375,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            整理日常开发中框架的知识
                         
                     </div>
                     <div class="publish-info">
@@ -981,8 +1386,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/Spring/" class="post-category">
+                                    Spring
                                 </a>
                             
                             
@@ -999,10 +1404,50 @@
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 一路生花<br />'
+            + '文章作者: nty<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
 
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -1011,8 +1456,6 @@
 
 
 <!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
@@ -1107,71 +1550,27 @@
 </main>
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">nty</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1179,7 +1578,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.4k</span>
+                        class="white-color">13.4k</span>
             
             
             
@@ -1200,6 +1599,60 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "09";
+                        var startDate = "09";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
@@ -1395,6 +1848,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式, 我的博客">
-    <meta name="description" content="1、创建型模式123456789101112131415161718192021222324252627282930313233343536373839404142主要特点是将对象的创建和使用分离  (1)单例模式    饿汉式：类加载就会">
+    <meta name="keywords" content="设计模式, 一路生花">
+    <meta name="description" content="设计模式知识点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>设计模式 | 我的博客</title>
+    <title>设计模式 | 一路生花</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -54,7 +54,7 @@
 
 <meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="一路生花" type="application/atom+xml">
 </head>
 
 
@@ -67,7 +67,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">我的博客</span>
+                    <span class="logo-span">一路生花</span>
                 </a>
             </div>
             
@@ -171,10 +171,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">我的博客</div>
+        <div class="logo-name">一路生花</div>
         <div class="logo-desc">
             
-            描述
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -407,21 +407,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    12 分
                 </div>
                 
 
@@ -436,50 +436,264 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1、创建型模式"><a href="#1、创建型模式" class="headerlink" title="1、创建型模式"></a>1、创建型模式</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">主要特点是将对象的创建和使用分离</span><br><span class="line">  </span><br><span class="line">(<span class="number">1</span>)单例模式</span><br><span class="line">    饿汉式：类加载就会导致该实例对象被创建</span><br><span class="line">    懒汉式：首次使用该对象才会创建</span><br><span class="line">    推荐方式：</span><br><span class="line">    	枚举方式</span><br><span class="line">    	双重检查锁+<span class="keyword">volatile</span>关键字</span><br><span class="line">    	静态类部类方式</span><br><span class="line">    破坏单例：</span><br><span class="line">    	序列化：解决方案:在序列化的类中新增readResolve()方法,ObjectInputStream会判断有无这个方法，有就执行</span><br><span class="line">    	反射：解决方案：通过构造方法创建对象时候，添加判断---(多线程环境加上同步代码块)</span><br><span class="line">(<span class="number">2</span>)工厂方法模式</span><br><span class="line">(<span class="number">3</span>)抽象工厂模式</span><br><span class="line">     抽象工厂模式是工厂模式的升级，工厂模式只生产同一等级的产品，抽象工厂可生产多个等级的产品</span><br><span class="line">     使用场景：</span><br><span class="line">        <span class="number">1</span>、当创建的对象是一系列相互关联或相互依赖的产品族，如电器工厂的洗衣机、电视剧、冰箱</span><br><span class="line">        <span class="number">2</span>、系统中有多个产品族，但每次只使用某一族产品。如穿不同品牌的衣服、鞋子</span><br><span class="line">        <span class="number">3</span>、系统中提供了产品的类库，且所有产品接口相同，客户端不依赖产品实例的创建细节和内部结构</span><br><span class="line">      如输入法皮肤更换等等。</span><br><span class="line">(<span class="number">4</span>)原型模式：用一个已经创建的实例作原型，通过复制该原型对象来创建一个和原型对象相同的新对象</span><br><span class="line">      角色：</span><br><span class="line">        <span class="number">1</span>、抽象原型类：规定了具体原型对象必须实现的clone()方法</span><br><span class="line">        <span class="number">2</span>、具体原型类：实现抽象原型类的clone方法，它是可被复制的对象</span><br><span class="line">        <span class="number">3</span>、访问类：使用具体原型类的clone方法复制新对象</span><br><span class="line">      使用场景:</span><br><span class="line">				<span class="number">1</span>、对象创建复杂，可使用原型模式快速克隆</span><br><span class="line">        <span class="number">2</span>、性能和安全要求比较高</span><br><span class="line">        浅克隆：Object的clone方法是浅克隆，克隆的新对象属性和原对象相同，对于非基本类型属性，克隆对象属性内存地址指向原有对象属性</span><br><span class="line">        深克隆：克隆出新对象，原对象属性中的其它对象也会被克隆，不再指向原对象属性内存地址</span><br><span class="line">(<span class="number">5</span>)建造者模式</span><br><span class="line">       将一个复杂对象的构建与表示分离，使得同样的构建过程可以创建不同的表示</span><br><span class="line">       使用场景：</span><br><span class="line">          <span class="number">1</span>、创建的对象较复杂，由多个部件构成，各部门面临复杂的变化，但是部件间的构造顺序的稳定的</span><br><span class="line">          <span class="number">2</span>、产品构建和装配方式是分离的，即产品的构建过程和最终的表示是相互独立的</span><br><span class="line">创建型模式对比：</span><br><span class="line">          <span class="number">1</span>、工厂方法模式VS建造者模式</span><br><span class="line">          		工厂方法模式注重于整体对象的创建</span><br><span class="line">          		建造者模式注重于部件的构建过程，意在通过一步步的精确构建出一个复杂的对象</span><br><span class="line">          <span class="number">2</span>、抽象工厂模式VS建造者模式</span><br><span class="line">          		抽象工厂模式实现对产品家族的创建，一个产品家族是这样一系列产品；具有不同分类维度的产品组合，采用抽象工厂模式不需要关心构建过程，只关心什么产品由什么工厂生产</span><br><span class="line">          		建造者模式主要目的是通过组装零配件产生一个新产品</span><br></pre></td></tr></tbody></table></figure>
+                <h4 id="1、创建型模式"><a href="#1、创建型模式" class="headerlink" title="1、创建型模式"></a>1、创建型模式</h4><p>​        主要特点是将对象的创建和使用分离。</p>
+<h5 id="1、单例模式"><a href="#1、单例模式" class="headerlink" title="1、单例模式"></a>1、单例模式</h5><p>​    1、分类</p>
+<p>​        （1）饿汉式：类加载就会导致该实例对象被创建</p>
+<p>​        （2）懒汉式：首次使用该对象才会创建</p>
+<p>​    2、实现方式</p>
+<p>​        （1）双重检查锁+volatile关键字</p>
+<p>​        （2）静态类部类方式</p>
+<p>​        （3）枚举方式，推荐</p>
+<p>​    3、破坏方法</p>
+<p>​        （1）序列化：解决方案:在序列化的类中新增readResolve()方法,ObjectInputStream会判断有无这个方法，有就执行</p>
+<p>​        （2）反射：解决方案：通过构造方法创建对象时候，添加判断(多线程环境加上同步代码块)</p>
+<h5 id="2、工厂方法模式"><a href="#2、工厂方法模式" class="headerlink" title="2、工厂方法模式"></a>2、工厂方法模式</h5><p>​    1、分类</p>
+<p>​        （1）简单工厂模式</p>
+<p>​        （2）抽象工厂模式</p>
+<p>​    2、抽象工厂使用场景</p>
+<p>​        （1）当创建的对象是一系列相互关联或相互依赖的产品族，如电器工厂的洗衣机、电视剧、冰箱。</p>
+<p>​        （2）系统中有多个产品族，但每次只使用某一族产品。如穿不同品牌的衣服、鞋子。</p>
+<p>​        （3）系统中提供了产品的类库，且所有产品接口相同，客户端不依赖产品实例的创建细节和内部结构，如输入法皮肤更换等等。</p>
+<h5 id="3、原型模式"><a href="#3、原型模式" class="headerlink" title="3、原型模式"></a>3、原型模式</h5><p>​    1、介绍</p>
+<p>​            用一个已经创建的实例作原型，通过复制该原型对象来创建一个和原型对象相同的新对象</p>
+<p>​    2、角色</p>
+<p>​        （1）抽象原型类：规定了具体原型对象必须实现的clone()方法</p>
+<p>​        （2）具体原型类：实现抽象原型类的clone方法，它是可被复制的对象</p>
+<p>​        （3）访问类：使用具体原型类的clone方法复制新对象</p>
+<p>​    3、使用场景</p>
+<p>​        （1）对象创建复杂，可使用原型模式快速克隆</p>
+<p>​        （2）性能和安全要求比较高</p>
+<p>​    4、解释</p>
+<p>​        （1）浅克隆：Object的clone方法是浅克隆，克隆的新对象属性和原对象相同，对于非基本类型属性，克隆对象属性内存地址指向原有对象属性。</p>
+<p>​        （2）深克隆：克隆出新对象，原对象属性中的其它对象也会被克隆，不再指向原对象属性内存地址</p>
+<h5 id="4、建造者模式"><a href="#4、建造者模式" class="headerlink" title="4、建造者模式"></a>4、建造者模式</h5><p>​    1、介绍</p>
+<p>​            将一个复杂对象的构建与表示分离，使得同样的构建过程可以创建不同的表示，不必通过构造方法根据参数创建对象，可以自己指定对象的属性。</p>
+<p>​    2、使用场景</p>
+<p>​        （1）创建的对象较复杂，由多个部件构成，各部门面临复杂的变化，但是部件间的构造顺序的稳定的。</p>
+<p>​        （2）产品构建和装配方式是分离的，即产品的构建过程和最终的表示是相互独立的。</p>
+<p>​    3、代码</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Worker</span> worker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"xxx"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">age</span><span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">sex</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<h4 id="2、结构型模式"><a href="#2、结构型模式" class="headerlink" title="2、结构型模式"></a>2、结构型模式</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   用于描述如何将对象按照某种布局组成更大的结构，分为类结构模式和对象结构型模式，前者采用继承机制来组织接口和类，后者采用组合或聚合来组合对象。后者耦合度低，满足"合成复用原则",所以对象型结构模式比类结构型模式更灵活。</span><br><span class="line">(1)代理模式</span><br><span class="line">(2)适配器模式</span><br><span class="line">(2)装饰者模式</span><br><span class="line">(2)桥接模式</span><br><span class="line">(2)外观模式</span><br><span class="line">(2)组合模式</span><br><span class="line">(2)享元模式</span><br></pre></td></tr></tbody></table></figure>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Worker</span> <span class="token punctuation">{</span>
 
-<h5 id="1、代理模式"><a href="#1、代理模式" class="headerlink" title="1、代理模式"></a>1、代理模式</h5><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）动态代理</span><br><span class="line">  </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">TrainStation</span> <span class="variable">station</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TrainStation</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">SellTicket</span> <span class="variable">proxyInstance</span> <span class="operator">=</span> (SellTicket) Proxy.newProxyInstance(station.getClass().getClassLoader(), 				        station.getClass().getInterfaces(), <span class="keyword">new</span> <span class="title class_">InvocationHandler</span>() {</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable {</span><br><span class="line">                System.out.println(<span class="string">"增强"</span>);</span><br><span class="line">                <span class="keyword">return</span> method.invoke(station, args);</span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line">proxyInstance.sellTicket();</span><br><span class="line"></span><br><span class="line">原理:</span><br><span class="line">	<span class="number">1</span>、调用proxyInstance.sellTicket()，根据多肽会执行动态代理动态生成的$Proxy0的sellTicket()方法</span><br><span class="line">  <span class="number">2</span>、根据构造方法生成$Proxy0对象，会将自定义的<span class="keyword">new</span> <span class="title class_">InvocationHandler</span>(){}传递给父类Proxy的构造方法，复制给父类的成员变量InvocationHandler</span><br><span class="line">  <span class="number">3</span>、执行<span class="built_in">super</span>.h.invoke(<span class="built_in">this</span>, m3, (Object[])<span class="literal">null</span>)方法会调用自己的invoke方法</span><br><span class="line">  <span class="number">4</span>、invoke方法中会通过反射调用真实对象的Proxy0的sellTicket()方法</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">$Proxy0</span> <span class="keyword">extends</span> <span class="title class_">Proxy</span> <span class="keyword">implements</span> <span class="title class_">SellTicket</span> {</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler var1) <span class="keyword">throws</span>  {</span><br><span class="line">        <span class="built_in">super</span>(var1);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">sellTicket</span><span class="params">()</span> <span class="keyword">throws</span>  {</span><br><span class="line">        <span class="built_in">super</span>.h.invoke(<span class="built_in">this</span>, m3, (Object[])<span class="literal">null</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> {</span><br><span class="line">        m3 = Class.forName(<span class="string">"com.study.nty.design.proxy.SellTicket"</span>).getMethod(<span class="string">"sellTicket"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">（<span class="number">2</span>）CGLIB代理</span><br><span class="line">  </span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">TrainStation</span> <span class="variable">station</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TrainStation</span>();</span><br><span class="line">  </span><br><span class="line">   <span class="type">Enhancer</span> <span class="variable">enhancer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Enhancer</span>();</span><br><span class="line">   enhancer.setSuperclass(TrainStation.class);</span><br><span class="line">   enhancer.setCallback(</span><br><span class="line">     	<span class="keyword">new</span> <span class="title class_">MethodInterceptor</span>() {</span><br><span class="line">   		<span class="meta">@Override</span></span><br><span class="line">   		<span class="keyword">public</span> Object <span class="title function_">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable {</span><br><span class="line">          System.out.println(<span class="string">"动态增强"</span>);</span><br><span class="line">          <span class="keyword">return</span> method.invoke(station,args);</span><br><span class="line">   		}</span><br><span class="line">   });</span><br><span class="line">   <span class="type">TrainStation</span> <span class="variable">proxy</span> <span class="operator">=</span> (TrainStation) enhancer.create();</span><br><span class="line">   proxy.sellTicket();</span><br><span class="line"></span><br><span class="line">原理:</span><br><span class="line">	<span class="number">1</span>、执行proxy.sellTicket()方法会执行MethodInterceptor对象的intercept方法</span><br><span class="line">  Cglib底层采用ASM字节码生成框架，使用字节码技术生成代理类，Cglib不能对<span class="keyword">final</span>修饰的类或方法进行代理，因为Cglib动态生产的类是目标对象的子类。</span><br><span class="line">    </span><br><span class="line">动态代理和静态代理区别</span><br><span class="line">    动态代理会将接口或类中的方法集中在处理器的方法中执行，这样在目标对象的方法比较多的时候能灵活处理，不用像静态代理那样在每个方法都重写、处理。</span><br><span class="line"></span><br><span class="line">代理模式优缺点</span><br><span class="line">    优点</span><br><span class="line">    	· 代理模式中客户端和目标对象之间提供中介和保护作用</span><br><span class="line">    	· 可以对象目标对象的功能进行增强</span><br><span class="line">      · 使客户端和目标对象分离，降低系统耦合度</span><br><span class="line">    缺点</span><br><span class="line">      · 增加系统复杂度</span><br></pre></td></tr></tbody></table></figure>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> sex<span class="token punctuation">;</span>
 
-<h5 id="2、适配器模式"><a href="#2、适配器模式" class="headerlink" title="2、适配器模式"></a>2、适配器模式</h5><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">定义：将一个类的接口转换成客户希望的另外的接口，使得原本不能兼容的东西变成兼容。分为类适配器和对象适配器，前者耦合度比较高，应用少</span><br><span class="line">结构：</span><br><span class="line">	· 目标接口（Target）：当前系统业务所期待的接口</span><br><span class="line">	· 适配者（Adaptee）：被访问和适配现存组件的接口</span><br><span class="line">	· 适配器（Adapter）：转换器，通过继承或引用适配者对象，把适配者接口转换成目标接口，让客户按目标接口的格式访问适配者</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+    <span class="token keyword">private</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token class-name">Builder</span> builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> builder<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> builder<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> builder<span class="token punctuation">.</span>sex<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+       <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Builder</span><span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token class-name">String</span> sex<span class="token punctuation">;</span>
+
+        <span class="token class-name">Builder</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token class-name">Builder</span> <span class="token function">age</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token class-name">Builder</span> <span class="token function">sex</span><span class="token punctuation">(</span><span class="token class-name">String</span> sex<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">Worker</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+<h5 id="5、模式对比"><a href="#5、模式对比" class="headerlink" title="5、模式对比"></a>5、模式对比</h5><p>​    1、工厂方法模式VS建造者模式<br>​            工厂方法模式注重于整体对象的创建，建造者模式注重于部件的构建过程，意在通过一步步的精确构建出一个复杂的对象。<br>​      2、抽象工厂模式VS建造者模式<br>​            抽象工厂模式实现对产品家族的创建，一个产品家族是这样一系列产品；具有不同分类维度的产品组合，采用抽象工厂模式不需要关心构建过程，只关心什么产品由什么工厂生产。建造者模式主要目的是通过组装零配件产生一个新产品。</p>
+<h4 id="2、结构型模式"><a href="#2、结构型模式" class="headerlink" title="2、结构型模式"></a>2、结构型模式</h4><p>​        用于描述如何将对象按照某种布局组成更大的结构，分为类结构模式和对象结构型模式，前者采用继承机制来组织接口和类，后者采用组合或聚合来组合对象。后者耦合度低，满足”合成复用原则”,所以对象型结构模式比类结构型模式更灵活。</p>
+<h5 id="1、代理模式"><a href="#1、代理模式" class="headerlink" title="1、代理模式"></a>1、代理模式</h5><p>​    1、分类</p>
+<p>​        （1）静态代理</p>
+<p>​        （2）动态代理，动态代理又分Jdk动态代理和Cglib动态代理。</p>
+<p>​    2、Jdk动态代理原理</p>
+<p>​        （1）调用proxyInstance.sellTicket()，根据多肽会执行动态代理动态生成的$Proxy0的sellTicket()方法。</p>
+<p>​        （2）根据构造方法生成$Proxy0对象，会将自定义的new InvocationHandler(){}传递给父类Proxy的构造方法，复制给父类的成员变量InvocationHandler。</p>
+<p>​        （3）执行super.h.invoke(this, m3, (Object[])null)方法会调用自己的invoke方法。</p>
+<p>​        （4）invoke方法中会通过反射调用真实对象的Proxy0的sellTicket()方法。</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">TrainStation</span> station <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TrainStation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">SellTicket</span> proxyInstance <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">SellTicket</span><span class="token punctuation">)</span> <span class="token class-name">Proxy</span><span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>station<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 				        station<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">InvocationHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"增强"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>station<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+proxyInstance<span class="token punctuation">.</span><span class="token function">sellTicket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> $<span class="token class-name">Proxy0</span> <span class="token keyword">extends</span> <span class="token class-name">Proxy</span> <span class="token keyword">implements</span> <span class="token class-name">SellTicket</span> <span class="token punctuation">{</span>
+  
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Method</span> m3<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> $<span class="token class-name">Proxy0</span><span class="token punctuation">(</span><span class="token class-name">InvocationHandler</span> var1<span class="token punctuation">)</span> <span class="token keyword">throws</span>  <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">sellTicket</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span>  <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span>h<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> m3<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">{</span>
+        m3 <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"com.study.nty.design.proxy.SellTicket"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token string">"sellTicket"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+<p>​    3、Cglib动态代理原理</p>
+<p>​        （1）执行proxy.sellTicket()方法会执行MethodInterceptor对象的intercept方法。</p>
+<p>​        （2）Cglib底层采用ASM字节码生成框架，使用字节码技术生成代理类，Cglib不能对final修饰的类或方法进行代理，因为Cglib动态生产的类是目标对象的子类。</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">TrainStation</span> station <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TrainStation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+   <span class="token class-name">Enhancer</span> enhancer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Enhancer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   enhancer<span class="token punctuation">.</span><span class="token function">setSuperclass</span><span class="token punctuation">(</span><span class="token class-name">TrainStation</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   enhancer<span class="token punctuation">.</span><span class="token function">setCallback</span><span class="token punctuation">(</span>
+     	<span class="token keyword">new</span> <span class="token class-name">MethodInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   		<span class="token annotation punctuation">@Override</span>
+   		<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">intercept</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">,</span> <span class="token class-name">MethodProxy</span> proxy<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+          <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"动态增强"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>station<span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   		<span class="token punctuation">}</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">TrainStation</span> proxy <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TrainStation</span><span class="token punctuation">)</span> enhancer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   proxy<span class="token punctuation">.</span><span class="token function">sellTicket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+<p>​    4、两者区别</p>
+<p>​            动态代理会将接口或类中的方法集中在处理器的方法中执行，这样在目标对象的方法比较多的时候能灵活处理，不用像静态代理那样在每个方法都重写、处理。    </p>
+<p>​    5、优缺点</p>
+<p>​        （1）优点：代理模式中客户端和目标对象之间提供中介和保护作用，可以对象目标对象的功能进行增强，使客户端和目标对象分离，降低系统耦合度。</p>
+<p>​        （2）缺点：增加系统复杂度</p>
+<h5 id="2、适配器模式"><a href="#2、适配器模式" class="headerlink" title="2、适配器模式"></a>2、适配器模式</h5><pre class="language-java" data-language="java"><code class="language-java">定义：将一个类的接口转换成客户希望的另外的接口，使得原本不能兼容的东西变成兼容。分为类适配器和对象适配器，前者耦合度比较高，应用少
+结构：
+	· 目标接口（<span class="token class-name">Target</span>）：当前系统业务所期待的接口
+	· 适配者（<span class="token class-name">Adaptee</span>）：被访问和适配现存组件的接口
+	· 适配器（<span class="token class-name">Adapter</span>）：转换器，通过继承或引用适配者对象，把适配者接口转换成目标接口，让客户按目标接口的格式访问适配者
+</code></pre>
 
 <h5 id="3、装饰者模式"><a href="#3、装饰者模式" class="headerlink" title="3、装饰者模式"></a>3、装饰者模式</h5><h5 id="4、桥接模式"><a href="#4、桥接模式" class="headerlink" title="4、桥接模式"></a>4、桥接模式</h5><p>​    1、角色</p>
-<p>​        (1)抽象化角色：定义抽象类，并包含对实现化角色的引用</p>
-<p>​        (2)扩展抽象化角色：继承抽象化角色，重写父类方法，通过组合关系调用实现化角色的方法</p>
-<p>​        (3)实现化角色：定义接口，供扩展抽象化角色调用</p>
-<p>​        (4)具体实现化角色：给出实现化角色的接口的具体实现</p>
+<p>​        （1）抽象化角色：定义抽象类，并包含对实现化角色的引用。</p>
+<p>​        （2）扩展抽象化角色：继承抽象化角色，重写父类方法，通过组合关系调用实现化角色的方法</p>
+<p>​        （3）实现化角色：定义接口，供扩展抽象化角色调用。</p>
+<p>​        （4）具体实现化角色：给出实现化角色的接口的具体实现。</p>
 <h5 id="5、门面模式"><a href="#5、门面模式" class="headerlink" title="5、门面模式"></a>5、门面模式</h5><h5 id="6、组合模式"><a href="#6、组合模式" class="headerlink" title="6、组合模式"></a>6、组合模式</h5><p>​    1、角色</p>
-<p>​        (1)抽象根节点：定义系统各层次对象共有的方法和属性，可以预先定义一些默认方法和属性</p>
-<p>​        (2)树枝节点：定义树枝节点的行为，存储子节点，组合树枝节点和叶子节点形成一个树形结构</p>
-<p>​        (3)叶子节点：叶子节点对象，其下再无分支，是系统层次遍历的最小单位</p>
+<p>​        （1）抽象根节点：定义系统各层次对象共有的方法和属性，可以预先定义一些默认方法和属性。</p>
+<p>​        （2）树枝节点：定义树枝节点的行为，存储子节点，组合树枝节点和叶子节点形成一个树形结构。</p>
+<p>​        （3）叶子节点：叶子节点对象，其下再无分支，是系统层次遍历的最小单位。</p>
 <p>​    2、分类</p>
-<p>​        (1)透明模式</p>
-<p>​        (2)安全模式</p>
-<p>3、行为型模式</p>
-<p>（1）用于描述类或对象之间怎样相互协作共同完成单个对象无法单独完成的任务，以及怎样分配职责。</p>
+<p>​            透明模式、安全模式。</p>
+<p>​    3、行为型模式</p>
+<p>​            用于描述类或对象之间怎样相互协作共同完成单个对象无法单独完成的任务，以及怎样分配职责。</p>
 <h5 id="7、享元模式"><a href="#7、享元模式" class="headerlink" title="7、享元模式"></a>7、享元模式</h5><p>​    1、结构</p>
-<p>​        (1)内部状态：不会随环境改变而改变的可共享的部分</p>
-<p>​        (2)外部状态：指随环境的改变而改变的不可共享的部分</p>
+<p>​        （1）内部状态：不会随环境改变而改变的可共享的部分</p>
+<p>​        （2）外部状态：指随环境的改变而改变的不可共享的部分</p>
 <p>​    2、角色</p>
-<p>​        (1)抽象享元角色：通常是一个接口或抽象类，在抽象享元类中声明了具体享元类公共的方法，这些方法可以向外界提供享元对象的内部数据(内部状态)，同时也可以通过这些方法来设置外部数据(外部状态)。</p>
-<p>​        (2)具体享元角色：实现了抽象享元类，称为享元对象。在具体享元类中为内部状态提供了存储空间。通常我们可以结合单利模式来设计具体享元类，为每一个具体享元类提供唯一的享元对象。</p>
-<p>​        (3)非享元角色：并不是所有抽象享元类的子类需要被共享，不能被共享的子类可设计成非共享享元类。当需要非共享具体享元对象时候可以直接实例化创建。</p>
-<p>​        (4)享元工厂角色：负责创建和管理享元角色。当客户对象请求一个享元对象时候，享元工厂检查是否存在符合要求的享元对象，如果存在则提供，不存在则创建。</p>
+<p>​        （1）抽象享元角色：通常是一个接口或抽象类，在抽象享元类中声明了具体享元类公共的方法，这些方法可以向外界提供享元对象的内部数据(内部状态)，同时也可以通过这些方法来设置外部数据(外部状态)。</p>
+<p>​        （2）具体享元角色：实现了抽象享元类，称为享元对象。在具体享元类中为内部状态提供了存储空间。通常我们可以结合单利模式来设计具体享元类，为每一个具体享元类提供唯一的享元对象。</p>
+<p>​        （3）非享元角色：并不是所有抽象享元类的子类需要被共享，不能被共享的子类可设计成非共享享元类。当需要非共享具体享元对象时候可以直接实例化创建。</p>
+<p>​        （4）享元工厂角色：负责创建和管理享元角色。当客户对象请求一个享元对象时候，享元工厂检查是否存在符合要求的享元对象，如果存在则提供，不存在则创建。</p>
 <h4 id="3、行为型模式"><a href="#3、行为型模式" class="headerlink" title="3、行为型模式"></a>3、行为型模式</h4><h5 id="1、模板方法模式"><a href="#1、模板方法模式" class="headerlink" title="1、模板方法模式"></a>1、模板方法模式</h5><p>​    1、角色</p>
-<p>​        (1)抽象类：负责给出一个算法的轮廓和骨架。它由一个模板方法和若干个基本方法构成。</p>
-<p>​            · 模板方法：定义了算法的骨架，按某种顺序调用其包含的基本方法</p>
-<p>​            · 基本方法：是实现算法各个步骤的方法，是模板方法的组成部分。基本方法也可以分为三种：</p>
-<p>​                · · 抽象方法：一个抽象方法由抽象类声明、由其具体子类实现</p>
-<p>​                · · 具体方法：一个具体方法由一个抽象类或具体类声明实现，其子类可以覆盖也可以直接继承</p>
-<p>​                · · 钩子方法：在抽象类中已经实现，包括用于判断的逻辑方法和需要子类重写的空方法。一般钩子方法是用于判断的逻辑方法，                                     这种方法名一般为isXxx，返回值是boolean类型。</p>
-<p>​        (2)具体子类：实现抽象类中定义的抽象方法和钩子方法，它们是一个顶级逻辑的的组成步骤</p>
-<h5 id="2、策略模式"><a href="#2、策略模式" class="headerlink" title="2、策略模式"></a>2、策略模式</h5><h5 id="3、命令模式"><a href="#3、命令模式" class="headerlink" title="3、命令模式"></a>3、命令模式</h5><h5 id="4、责任链模式"><a href="#4、责任链模式" class="headerlink" title="4、责任链模式"></a>4、责任链模式</h5><h5 id="5、状态模式"><a href="#5、状态模式" class="headerlink" title="5、状态模式"></a>5、状态模式</h5><h5 id="6、观察者模式"><a href="#6、观察者模式" class="headerlink" title="6、观察者模式"></a>6、观察者模式</h5><h5 id="7、中介者模式"><a href="#7、中介者模式" class="headerlink" title="7、中介者模式"></a>7、中介者模式</h5><h5 id="8、迭代器模式"><a href="#8、迭代器模式" class="headerlink" title="8、迭代器模式"></a>8、迭代器模式</h5><h5 id="9、访问者模式"><a href="#9、访问者模式" class="headerlink" title="9、访问者模式"></a>9、访问者模式</h5><h5 id="10、备忘录模式"><a href="#10、备忘录模式" class="headerlink" title="10、备忘录模式"></a>10、备忘录模式</h5><h5 id="11、解释器模式"><a href="#11、解释器模式" class="headerlink" title="11、解释器模式"></a>11、解释器模式</h5>
+<p>​            抽象类和具体子类。</p>
+<p>​        （1）抽象类：负责给出一个算法的轮廓和骨架。它由一个模板方法和若干个基本方法构成。</p>
+<p>​        （2）具体子类：实现抽象类中定义的抽象方法和钩子方法，它们是一个顶级逻辑的的组成步骤。</p>
+<p>​    2、模版方法</p>
+<p>​            定义了算法的骨架，按某种顺序调用其包含的基本方法。</p>
+<p>​    3、基本方法</p>
+<p>​            是实现算法各个步骤的方法，是模板方法的组成部分。基本方法也可以分为三种：</p>
+<p>​        （1）抽象方法：一个抽象方法由抽象类声明、由其具体子类实现。</p>
+<p>​        （2）具体方法：一个具体方法由一个抽象类或具体类声明实现，其子类可以覆盖也可以直接继承</p>
+<p>​        （3）钩子方法：在抽象类中已经实现，包括用于判断的逻辑方法和需要子类重写的空方法。一般钩子方法是用于判断的逻辑方法，                                     这种方法名一般为isXxx，返回值是boolean类型。</p>
+<h5 id="2、策略模式"><a href="#2、策略模式" class="headerlink" title="2、策略模式"></a>2、策略模式</h5><h5 id="3、命令模式"><a href="#3、命令模式" class="headerlink" title="3、命令模式"></a>3、命令模式</h5><p>​    1、角色</p>
+<p>​        （1）抽象命令类角色：定义命令的接口，声明执行的方法。</p>
+<p>​        （2）具体命令类角色：具体的命令，实现命令接口。通常会持有接受者，并调用接受者功能来完成命令操作</p>
+<p>​        （3）实现者/接受者角色：真正执行命令的对象，任何类都可能成为一个接受者，只要实现命令要求的功能。</p>
+<p>​        （4）调用者/请求者角色：调用命令对象执行请求，通常持有命令对象，可以只有很多命令对象。相当于使用命令对象的入口</p>
+<p>​    2、重点</p>
+<p>​            Runnable是一个典型的命令模式，Runnable承担抽象命令角色，Thread担任调用者，Thread类的start方法是执行方法。</p>
+<h5 id="4、责任链模式"><a href="#4、责任链模式" class="headerlink" title="4、责任链模式"></a>4、责任链模式</h5><h5 id="5、状态模式"><a href="#5、状态模式" class="headerlink" title="5、状态模式"></a>5、状态模式</h5><h5 id="6、观察者模式"><a href="#6、观察者模式" class="headerlink" title="6、观察者模式"></a>6、观察者模式</h5><h5 id="7、中介者模式"><a href="#7、中介者模式" class="headerlink" title="7、中介者模式"></a>7、中介者模式</h5><h5 id="8、迭代器模式"><a href="#8、迭代器模式" class="headerlink" title="8、迭代器模式"></a>8、迭代器模式</h5><h5 id="9、访问者模式"><a href="#9、访问者模式" class="headerlink" title="9、访问者模式"></a>9、访问者模式</h5><p>1、分派技术</p>
+<p>​    1、概念</p>
+<p>​            变量被声明时的类型叫做变量的静态类型，而变量引用对象的真实类型又叫做变量的实际类型。如Map map = new HashMap();   map变量的静态类型是Map，动态类型是HashMap。根据变量的类型而对方法进行的选择，叫做分派。</p>
+<p>​    2、分类</p>
+<p>​        （1）静态分派：发生在编译时期，分派根据静态类型信息发生。方法重载就是静态分派。</p>
+<p>​        （2）动态分配：发生在运行时期，动态分派动态的置换某个方法。Java通过方法的重写支持动态分派。</p>
+<p>​        （3）双分派：指在选择一个方法的时候，不仅仅要根据消息接受者的运行时的区别，还要根据参数的运行时的区别。</p>
+<p>​    3、例子(双分派)</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"动物吃饭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"猫吃饭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"狗吃饭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+  	 <span class="token comment">/**
+     *  Animal a1 = new Animal(); 静态类型Animal，动态类型右边
+     *  调用printInfo方法，重载根据静态类型选择，所以都进入第一个方法。
+     *  调用animal.eat()方法，是真实对象调用，所以会执行真实类型的eat方法
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Animal</span> a1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Animal</span> a2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Animal</span> a3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+        <span class="token function">printInfo</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printInfo</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printInfo</span><span class="token punctuation">(</span>a3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token class-name">Animal</span> animal<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"animal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        animal<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token class-name">Cat</span> cat<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"cat"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cat<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token class-name">Dog</span> dog<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"dog"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dog<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+<h5 id="10、备忘录模式"><a href="#10、备忘录模式" class="headerlink" title="10、备忘录模式"></a>10、备忘录模式</h5><h5 id="11、解释器模式"><a href="#11、解释器模式" class="headerlink" title="11、解释器模式"></a>11、解释器模式</h5>
                 
             </div>
             <hr/>
@@ -505,7 +719,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://nty99.gitee.io/2022/08/23/design/">http://nty99.gitee.io/2022/08/23/design/</a>
+                    <a href="https://nty99.gitee.io/2022/08/23/design/">https://nty99.gitee.io/2022/08/23/design/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -890,31 +1104,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/23/myMac/">
+                <a href="/2022/09/11/mybatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Mac常用命令">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
                         
-                        <span class="card-title">Mac常用命令</span>
+                        <span class="card-title">Mybatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Mybatis相关知识点
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/shell/" class="post-category">
-                                    shell
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    数据库框架
                                 </a>
                             
                             
@@ -943,7 +1157,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Linux相关知识点
                         
                     </div>
                     <div class="publish-info">
@@ -954,21 +1168,13 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/shell/">
-                        <span class="chip bg-color">shell</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -980,10 +1186,50 @@
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 一路生花<br />'
+            + '文章作者: nty<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
 
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -992,8 +1238,6 @@
 
 
 <!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
@@ -1088,71 +1332,27 @@
 </main>
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">nty</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1160,7 +1360,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.4k</span>
+                        class="white-color">13.4k</span>
             
             
             
@@ -1181,6 +1381,60 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "09";
+                        var startDate = "09";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
@@ -1376,6 +1630,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->
