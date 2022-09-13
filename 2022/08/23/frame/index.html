@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="框架, 一路生花">
-    <meta name="description" content="整理日常开发中框架的知识">
+    <meta name="description" content="Spring相关知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-12
+                    2022-09-14
                 </div>
                 
 
@@ -449,31 +449,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、SpringBoot"><a href="#一、SpringBoot" class="headerlink" title="一、SpringBoot"></a>一、SpringBoot</h4><h5 id="1、bean的生命周期"><a href="#1、bean的生命周期" class="headerlink" title="1、bean的生命周期"></a>1、bean的生命周期</h5><p>​    1、Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化</p>
-<p>​    2、Bean实例化后对将Bean的引入和值注入到Bean的属性中</p>
-<p>​    3、如果Bean实现了BeanNameAware接口的话，Spring将Bean的Id传递给setBeanName()方法</p>
-<p>​    4、如果Bean实现了BeanFactoryAware接口的话，Spring将调用setBeanFactory()方法，将BeanFactory容器实例传入</p>
-<p>​    5、如果Bean实现了ApplicationContextAware接口的话，Spring将调用Bean的setApplicationContext()方法，将bean所在应用上下</p>
-<p>文引用传入进来。</p>
+                <h4 id="一、SpringBoot"><a href="#一、SpringBoot" class="headerlink" title="一、SpringBoot"></a>一、SpringBoot</h4><h5 id="1、bean的生命周期"><a href="#1、bean的生命周期" class="headerlink" title="1、bean的生命周期"></a>1、bean的生命周期</h5><p>​    1、Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化。</p>
+<p>​    2、Bean实例化后对将Bean的引入和值注入到Bean的属性中。</p>
+<p>​    3、如果Bean实现了BeanNameAware接口的话，Spring将Bean的Id传递给setBeanName()方法。</p>
+<p>​    4、如果Bean实现了BeanFactoryAware接口的话，Spring将调用setBeanFactory()方法，将BeanFactory容器实例传入。</p>
+<p>​    5、如果Bean实现了ApplicationContextAware接口的话，Spring将调用Bean的setApplicationContext()方法，将bean所在应用上下文引用传入进来。</p>
 <p>​    6、如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessBeforeInitialization()方法。</p>
-<p>​    7、如果Bean 实现了InitializingBean接口，Spring将调用他们的afterPropertiesSet()方法。类似的，如果bean使用init-method声明了</p>
-<p>初始化方法，该方法也会被调用</p>
+<p>​    7、如果Bean 实现了InitializingBean接口，Spring将调用他们的afterPropertiesSet()方法。类似的，如果bean使用init-method声明了初始化方法，该方法也会被调用。</p>
 <p>​    8、如果Bean 实现了BeanPostProcessor接口，Spring就将调用他们的postProcessAfterInitialization()方法。</p>
 <p>​    9、此时，Bean已经准备就绪，可以被应用程序使用了。他们将一直驻留在应用上下文中，直到应用上下文被销毁。</p>
-<p>​    10、如果bean实现了DisposableBean接口，Spring将调用它的destory()接口方法，同样，如果bean使用了destory-method 声明销</p>
-<p>毁方法，该方法也会被调用。</p>
-<h5 id="2、SpringMVC的执行流程"><a href="#2、SpringMVC的执行流程" class="headerlink" title="2、SpringMVC的执行流程"></a>2、SpringMVC的执行流程</h5><p>​    1、用户发送请求至前端控制器DispatcherServlet</p>
+<p>​    10、如果bean实现了DisposableBean接口，Spring将调用它的destory()接口方法，同样，如果bean使用了destory-method 声明销毁方法，该方法也会被调用。</p>
+<h5 id="2、SpringMVC的执行流程"><a href="#2、SpringMVC的执行流程" class="headerlink" title="2、SpringMVC的执行流程"></a>2、SpringMVC的执行流程</h5><p>​    1、用户发送请求至前端控制器DispatcherServlet。</p>
 <p>​    2、DispatcherServlet收到请求调用处理器映射器HandlerMapping。</p>
-<p>​    3、处理器映射器根据请求url找到具体的处理器，生成处理器执行链HandlerExecutionChain(包括处理器对象和处理器拦截器)一并返</p>
-<p>回给DispatcherServlet。</p>
-<p>​    4、DispatcherServlet根据处理器Handler获取处理器适配器HandlerAdapter执行HandlerAdapter处理一系列的操作，如：参数封</p>
-<p>装，数据格式转换，数据验证等操作</p>
+<p>​    3、处理器映射器根据请求url找到具体的处理器，生成处理器执行链HandlerExecutionChain(包括处理器对象和处理器拦截器)一并返回给DispatcherServlet。</p>
+<p>​    4、DispatcherServlet根据处理器Handler获取处理器适配器HandlerAdapter执行HandlerAdapter处理一系列的操作，如：参数封装，数据格式转换，数据验证等操作。</p>
 <p>​    5、执行处理器Handler(Controller，也叫页面控制器)。</p>
-<p>​    6、Handler执行完成返回ModelAndView</p>
-<p>​    7、HandlerAdapter将Handler执行结果ModelAndView返回到DispatcherServlet</p>
-<p>​    8、DispatcherServlet将ModelAndView传给ViewReslover视图解析器</p>
-<p>​    9、ViewReslover解析后返回具体View</p>
-<p>​    10、DispatcherServlet对View进行渲染视图（即将模型数据model填充至视图中）。</p>
+<p>​    6、Handler执行完成返回ModelAndView。</p>
+<p>​    7、HandlerAdapter将Handler执行结果ModelAndView返回到DispatcherServlet。</p>
+<p>​    8、DispatcherServlet将ModelAndView传给ViewReslover视图解析器。</p>
+<p>​    9、ViewReslover解析后返回具体View。</p>
+<p>​    10、DispatcherServlet对View进行渲染视图(即将模型数据model填充至视图中)。</p>
 <p>​    11、DispatcherServlet响应用户。</p>
 <h5 id="3、SpringBoot配置优先级"><a href="#3、SpringBoot配置优先级" class="headerlink" title="3、SpringBoot配置优先级"></a>3、SpringBoot配置优先级</h5><p>​    1、配置优先级</p>
 <p>​    （1）命令行参数</p>
@@ -521,19 +516,15 @@
 
 <h5 id="6、加载顺序"><a href="#6、加载顺序" class="headerlink" title="6、加载顺序"></a>6、加载顺序</h5><p>​    1、同一个类中加载顺序</p>
 <p>​            Constructor &gt;&gt; @Autowired &gt;&gt;@ PostConstruct&gt;&gt;@Bean，跟Bean生命周期有关。</p>
-<p>​    2、@Order注解并不能改变Bean加载<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BC%98%E5%85%88%E7%BA%A7&amp;spm=1001.2101.3001.7020">优先级</a>，@Order注解用于设置装载到list中Bean的顺序，用于比较多的是</p>
+<p>​    2、@Order注解并不能改变Bean加载<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BC%98%E5%85%88%E7%BA%A7&amp;spm=1001.2101.3001.7020">优先级</a>，@Order注解用于设置装载到list中Bean的顺序，用于比较多的是：</p>
 <p>​        （1）控制AOP的类的加载顺序，也就是被@Aspect标注的类</p>
 <p>​        （2）控制ApplicationListener实现类的加载顺序</p>
 <p>​        （3）控制CommandLineRunner实现类的加载顺序</p>
-<p>​    3、@AutoConfigureBefore、@AutoConfigureAfter、@AutoConfigureOrder这三个注解是给Springboot自动配置类排序使用的，注</p>
-<p>意是自动配置类(META_INF下的spring.factories配置文件)，并非是普通的配置类。</p>
-<p>​    4、@DependsOn注解可以用来控制bean的创建顺序，该注解用于声明当前bean依赖于另外一个bean。所依赖的bean会被容器确保</p>
-<p>在当前bean实例化之前被实例化。</p>
-<p>​    5、在@Bean标注的方法上，如果你传入了参数，springboot会自动会为这个参数在spring上下文里寻找这个类型的引用。并先初始化</p>
-<p>这个类的实例。利用此特性，我们也可以控制bean的加载顺序。</p>
+<p>​    3、@AutoConfigureBefore、@AutoConfigureAfter、@AutoConfigureOrder这三个注解是给Springboot自动配置类排序使用的，注意是自动配置类(META_INF下的spring.factories配置文件)，并非是普通的配置类。</p>
+<p>​    4、@DependsOn注解可以用来控制bean的创建顺序，该注解用于声明当前bean依赖于另外一个bean。所依赖的bean会被容器确保在当前bean实例化之前被实例化。</p>
+<p>​    5、在@Bean标注的方法上，如果你传入了参数，springboot会自动会为这个参数在spring上下文里寻找这个类型的引用。并先初始化这个类的实例。利用此特性，我们也可以控制bean的加载顺序。</p>
 <h5 id="7、约定大于配置"><a href="#7、约定大于配置" class="headerlink" title="7、约定大于配置"></a>7、约定大于配置</h5><p>​    1、开发人员仅需规定应用中不符合约定的部分</p>
-<p>​    2、在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特</p>
-<p>殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p>
+<p>​    2、在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p>
 <h5 id="8、校验"><a href="#8、校验" class="headerlink" title="8、校验"></a>8、校验</h5><p>​    1、官方提供：@NotBlank、@Size等。tips(除了@NotNull、@NotBlank外，其它的不会对null进行校验)</p>
 <p>​    2、自定义: 需在自定义注解上使用元注解@Constraint(validatedBy = xxx.class)，xxx.class实现ConstraintValidator接口进行处理</p>
 <h5 id="9、条件注解"><a href="#9、条件注解" class="headerlink" title="9、条件注解"></a>9、条件注解</h5><p>​    1、@ConditionalOnProperty两个属性matchIfMissing、havingValue</p>
@@ -1131,7 +1122,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h2, h3, h4, h5'
         });
 
         // Set scroll toc fixed.
@@ -1219,7 +1210,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.4k</span>
+                        class="white-color">14k</span>
             
             
             

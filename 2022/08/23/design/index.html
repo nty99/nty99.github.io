@@ -407,21 +407,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-12
+                    2022-09-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    14 分
                 </div>
                 
 
@@ -449,7 +449,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1、创建型模式"><a href="#1、创建型模式" class="headerlink" title="1、创建型模式"></a>1、创建型模式</h4><p>​        主要特点是将对象的创建和使用分离。</p>
+                <h4 id="一、创建型模式"><a href="#一、创建型模式" class="headerlink" title="一、创建型模式"></a>一、创建型模式</h4><p>​        主要特点是将对象的创建和使用分离。</p>
 <h5 id="1、单例模式"><a href="#1、单例模式" class="headerlink" title="1、单例模式"></a>1、单例模式</h5><p>​    1、分类</p>
 <p>​        （1）饿汉式：类加载就会导致该实例对象被创建</p>
 <p>​        （2）懒汉式：首次使用该对象才会创建</p>
@@ -458,8 +458,50 @@
 <p>​        （2）静态类部类方式</p>
 <p>​        （3）枚举方式，推荐</p>
 <p>​    3、破坏方法</p>
-<p>​        （1）序列化：解决方案:在序列化的类中新增readResolve()方法,ObjectInputStream会判断有无这个方法，有就执行</p>
-<p>​        （2）反射：解决方案：通过构造方法创建对象时候，添加判断(多线程环境加上同步代码块)</p>
+<p>​        （1）序列化：解决方案:在序列化的类中新增readResolve()方法,ObjectInputStream会判断有无这个方法，有就执行。</p>
+<p>​        （2）反射：解决方案：通过构造方法创建对象时候，添加判断(多线程环境加上同步代码块)。</p>
+<p>​    4、代码</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton1</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 防止反射破外单例模式
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">Singleton1</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"已经创建了对象"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 防止序列化破外单例模式
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">readResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Singleton1</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     *  多线程情况下，由于JVM实例化对象会进行优化和指令重排序,使用volatile保证可见性和有序性
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">Singleton1</span> instance<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton1</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//双重检查锁(DCL)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">Singleton1</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
 <h5 id="2、工厂方法模式"><a href="#2、工厂方法模式" class="headerlink" title="2、工厂方法模式"></a>2、工厂方法模式</h5><p>​    1、分类</p>
 <p>​        （1）简单工厂模式</p>
 <p>​        （2）抽象工厂模式</p>
@@ -468,7 +510,7 @@
 <p>​        （2）系统中有多个产品族，但每次只使用某一族产品。如穿不同品牌的衣服、鞋子。</p>
 <p>​        （3）系统中提供了产品的类库，且所有产品接口相同，客户端不依赖产品实例的创建细节和内部结构，如输入法皮肤更换等等。</p>
 <h5 id="3、原型模式"><a href="#3、原型模式" class="headerlink" title="3、原型模式"></a>3、原型模式</h5><p>​    1、介绍</p>
-<p>​            用一个已经创建的实例作原型，通过复制该原型对象来创建一个和原型对象相同的新对象</p>
+<p>​            用一个已经创建的实例作原型，通过复制该原型对象来创建一个和原型对象相同的新对象。</p>
 <p>​    2、角色</p>
 <p>​        （1）抽象原型类：规定了具体原型对象必须实现的clone()方法</p>
 <p>​        （2）具体原型类：实现抽象原型类的clone方法，它是可被复制的对象</p>
@@ -529,11 +571,12 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 
-<h5 id="5、模式对比"><a href="#5、模式对比" class="headerlink" title="5、模式对比"></a>5、模式对比</h5><p>​    1、工厂方法模式VS建造者模式<br>​            工厂方法模式注重于整体对象的创建，建造者模式注重于部件的构建过程，意在通过一步步的精确构建出一个复杂的对象。<br>​      2、抽象工厂模式VS建造者模式<br>​            抽象工厂模式实现对产品家族的创建，一个产品家族是这样一系列产品；具有不同分类维度的产品组合，采用抽象工厂模式不需要关心构建过程，只关心什么产品由什么工厂生产。建造者模式主要目的是通过组装零配件产生一个新产品。</p>
-<h4 id="2、结构型模式"><a href="#2、结构型模式" class="headerlink" title="2、结构型模式"></a>2、结构型模式</h4><p>​        用于描述如何将对象按照某种布局组成更大的结构，分为类结构模式和对象结构型模式，前者采用继承机制来组织接口和类，后者采用组合或聚合来组合对象。后者耦合度低，满足”合成复用原则”,所以对象型结构模式比类结构型模式更灵活。</p>
+<h5 id="5、模式对比"><a href="#5、模式对比" class="headerlink" title="5、模式对比"></a>5、模式对比</h5><p>​    1、工厂方法模式VS建造者模式<br>​            工厂方法模式注重于整体对象的创建，建造者模式注重于部件的构建过程，意在通过一步步的精确构建出一个复杂的对象。</p>
+<p>​    2、抽象工厂模式VS建造者模式<br>​            抽象工厂模式实现对产品家族的创建，一个产品家族是这样一系列产品；具有不同分类维度的产品组合，采用抽象工厂模式不需要关心构建过程，只关心什么产品由什么工厂生产。建造者模式主要目的是通过组装零配件产生一个新产品。</p>
+<h4 id="二、结构型模式"><a href="#二、结构型模式" class="headerlink" title="二、结构型模式"></a>二、结构型模式</h4><p>​        用于描述如何将对象按照某种布局组成更大的结构，分为类结构模式和对象结构型模式，前者采用继承机制来组织接口和类，后者采用组合或聚合来组合对象。后者耦合度低，满足”合成复用原则”,所以对象型结构模式比类结构型模式更灵活。</p>
 <h5 id="1、代理模式"><a href="#1、代理模式" class="headerlink" title="1、代理模式"></a>1、代理模式</h5><p>​    1、分类</p>
 <p>​        （1）静态代理</p>
-<p>​        （2）动态代理，动态代理又分Jdk动态代理和Cglib动态代理。</p>
+<p>​        （2）动态代理，动态代理又分Jdk动态代理和Cglib动态代理</p>
 <p>​    2、Jdk动态代理原理</p>
 <p>​        （1）调用proxyInstance.sellTicket()，根据多肽会执行动态代理动态生成的$Proxy0的sellTicket()方法。</p>
 <p>​        （2）根据构造方法生成$Proxy0对象，会将自定义的new InvocationHandler(){}传递给父类Proxy的构造方法，复制给父类的成员变量InvocationHandler。</p>
@@ -541,7 +584,10 @@
 <p>​        （4）invoke方法中会通过反射调用真实对象的Proxy0的sellTicket()方法。</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">TrainStation</span> station <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TrainStation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token class-name">SellTicket</span> proxyInstance <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">SellTicket</span><span class="token punctuation">)</span> <span class="token class-name">Proxy</span><span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>station<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 				        station<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">InvocationHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">SellTicket</span> proxyInstance <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">SellTicket</span><span class="token punctuation">)</span> <span class="token class-name">Proxy</span><span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>
+  station<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  station<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  <span class="token keyword">new</span> <span class="token class-name">InvocationHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token annotation punctuation">@Override</span>
             <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
                 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"增强"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -590,26 +636,27 @@ proxyInstance<span class="token punctuation">.</span><span class="token function
 <p>​    5、优缺点</p>
 <p>​        （1）优点：代理模式中客户端和目标对象之间提供中介和保护作用，可以对象目标对象的功能进行增强，使客户端和目标对象分离，降低系统耦合度。</p>
 <p>​        （2）缺点：增加系统复杂度</p>
-<h5 id="2、适配器模式"><a href="#2、适配器模式" class="headerlink" title="2、适配器模式"></a>2、适配器模式</h5><pre class="language-java" data-language="java"><code class="language-java">定义：将一个类的接口转换成客户希望的另外的接口，使得原本不能兼容的东西变成兼容。分为类适配器和对象适配器，前者耦合度比较高，应用少
-结构：
-	· 目标接口（<span class="token class-name">Target</span>）：当前系统业务所期待的接口
-	· 适配者（<span class="token class-name">Adaptee</span>）：被访问和适配现存组件的接口
-	· 适配器（<span class="token class-name">Adapter</span>）：转换器，通过继承或引用适配者对象，把适配者接口转换成目标接口，让客户按目标接口的格式访问适配者
-</code></pre>
-
-<h5 id="3、装饰者模式"><a href="#3、装饰者模式" class="headerlink" title="3、装饰者模式"></a>3、装饰者模式</h5><h5 id="4、桥接模式"><a href="#4、桥接模式" class="headerlink" title="4、桥接模式"></a>4、桥接模式</h5><p>​    1、角色</p>
+<h5 id="2、适配器模式"><a href="#2、适配器模式" class="headerlink" title="2、适配器模式"></a>2、适配器模式</h5><p>​        将一个类的接口转换成客户希望的另外的接口，使得原本不能兼容的东西变成兼容。分为类适配器和对象适配器，前者耦合度比较高，应用少。</p>
+<p>​    1、角色</p>
+<p>​        （1）目标接口(Target)：当前系统业务所期待的接口</p>
+<p>​        （2）适配者(Adaptee)：被访问和适配现存组件的接口</p>
+<p>​        （3）适配器(Adapter)：转换器，通过继承或引用适配者对象，把适配者接口转换成目标接口，让客户按目标接口的格式访问适配者。</p>
+<h5 id="3、装饰者模式"><a href="#3、装饰者模式" class="headerlink" title="3、装饰者模式"></a>3、装饰者模式</h5><p>​        暂不展开说明。</p>
+<h5 id="4、桥接模式"><a href="#4、桥接模式" class="headerlink" title="4、桥接模式"></a>4、桥接模式</h5><p>​    1、角色</p>
 <p>​        （1）抽象化角色：定义抽象类，并包含对实现化角色的引用。</p>
 <p>​        （2）扩展抽象化角色：继承抽象化角色，重写父类方法，通过组合关系调用实现化角色的方法</p>
 <p>​        （3）实现化角色：定义接口，供扩展抽象化角色调用。</p>
 <p>​        （4）具体实现化角色：给出实现化角色的接口的具体实现。</p>
-<h5 id="5、门面模式"><a href="#5、门面模式" class="headerlink" title="5、门面模式"></a>5、门面模式</h5><h5 id="6、组合模式"><a href="#6、组合模式" class="headerlink" title="6、组合模式"></a>6、组合模式</h5><p>​    1、角色</p>
+<h5 id="5、门面模式"><a href="#5、门面模式" class="headerlink" title="5、门面模式"></a>5、门面模式</h5><p>​    1、Web项目中的应用</p>
+<p>​        在Tomcat中，提供了RequestFacade作为门面模式的类。</p>
+<h5 id="6、组合模式"><a href="#6、组合模式" class="headerlink" title="6、组合模式"></a>6、组合模式</h5><p>​    1、角色</p>
 <p>​        （1）抽象根节点：定义系统各层次对象共有的方法和属性，可以预先定义一些默认方法和属性。</p>
 <p>​        （2）树枝节点：定义树枝节点的行为，存储子节点，组合树枝节点和叶子节点形成一个树形结构。</p>
 <p>​        （3）叶子节点：叶子节点对象，其下再无分支，是系统层次遍历的最小单位。</p>
 <p>​    2、分类</p>
 <p>​            透明模式、安全模式。</p>
-<p>​    3、行为型模式</p>
-<p>​            用于描述类或对象之间怎样相互协作共同完成单个对象无法单独完成的任务，以及怎样分配职责。</p>
+<p>​    3、应用场景</p>
+<p>​            如菜单模块，一级菜单下会有多个二级菜单，每个二级菜单下会有多个三级菜单。</p>
 <h5 id="7、享元模式"><a href="#7、享元模式" class="headerlink" title="7、享元模式"></a>7、享元模式</h5><p>​    1、结构</p>
 <p>​        （1）内部状态：不会随环境改变而改变的可共享的部分</p>
 <p>​        （2）外部状态：指随环境的改变而改变的不可共享的部分</p>
@@ -618,7 +665,8 @@ proxyInstance<span class="token punctuation">.</span><span class="token function
 <p>​        （2）具体享元角色：实现了抽象享元类，称为享元对象。在具体享元类中为内部状态提供了存储空间。通常我们可以结合单利模式来设计具体享元类，为每一个具体享元类提供唯一的享元对象。</p>
 <p>​        （3）非享元角色：并不是所有抽象享元类的子类需要被共享，不能被共享的子类可设计成非共享享元类。当需要非共享具体享元对象时候可以直接实例化创建。</p>
 <p>​        （4）享元工厂角色：负责创建和管理享元角色。当客户对象请求一个享元对象时候，享元工厂检查是否存在符合要求的享元对象，如果存在则提供，不存在则创建。</p>
-<h4 id="3、行为型模式"><a href="#3、行为型模式" class="headerlink" title="3、行为型模式"></a>3、行为型模式</h4><h5 id="1、模板方法模式"><a href="#1、模板方法模式" class="headerlink" title="1、模板方法模式"></a>1、模板方法模式</h5><p>​    1、角色</p>
+<h4 id="三、行为型模式"><a href="#三、行为型模式" class="headerlink" title="三、行为型模式"></a>三、行为型模式</h4><p>​        用于描述类或对象之间怎样相互协作共同完成单个对象无法单独完成的任务，以及怎样分配职责。</p>
+<h5 id="1、模板方法模式"><a href="#1、模板方法模式" class="headerlink" title="1、模板方法模式"></a>1、模板方法模式</h5><p>​    1、角色</p>
 <p>​            抽象类和具体子类。</p>
 <p>​        （1）抽象类：负责给出一个算法的轮廓和骨架。它由一个模板方法和若干个基本方法构成。</p>
 <p>​        （2）具体子类：实现抽象类中定义的抽象方法和钩子方法，它们是一个顶级逻辑的的组成步骤。</p>
@@ -629,14 +677,30 @@ proxyInstance<span class="token punctuation">.</span><span class="token function
 <p>​        （1）抽象方法：一个抽象方法由抽象类声明、由其具体子类实现。</p>
 <p>​        （2）具体方法：一个具体方法由一个抽象类或具体类声明实现，其子类可以覆盖也可以直接继承</p>
 <p>​        （3）钩子方法：在抽象类中已经实现，包括用于判断的逻辑方法和需要子类重写的空方法。一般钩子方法是用于判断的逻辑方法，                                     这种方法名一般为isXxx，返回值是boolean类型。</p>
-<h5 id="2、策略模式"><a href="#2、策略模式" class="headerlink" title="2、策略模式"></a>2、策略模式</h5><h5 id="3、命令模式"><a href="#3、命令模式" class="headerlink" title="3、命令模式"></a>3、命令模式</h5><p>​    1、角色</p>
+<h5 id="2、策略模式"><a href="#2、策略模式" class="headerlink" title="2、策略模式"></a>2、策略模式</h5><p>​    1、使用场景</p>
+<p>​        （1）一个类需要动态的在几种算法中选择一种时，可将每个算法封装到策略类中。</p>
+<p>​        （2）系统中各算法彼此完全独立，且要求对客户端隐藏其算法细节时。</p>
+<h5 id="3、命令模式"><a href="#3、命令模式" class="headerlink" title="3、命令模式"></a>3、命令模式</h5><p>​    1、角色</p>
 <p>​        （1）抽象命令类角色：定义命令的接口，声明执行的方法。</p>
 <p>​        （2）具体命令类角色：具体的命令，实现命令接口。通常会持有接受者，并调用接受者功能来完成命令操作</p>
 <p>​        （3）实现者/接受者角色：真正执行命令的对象，任何类都可能成为一个接受者，只要实现命令要求的功能。</p>
 <p>​        （4）调用者/请求者角色：调用命令对象执行请求，通常持有命令对象，可以只有很多命令对象。相当于使用命令对象的入口</p>
-<p>​    2、重点</p>
-<p>​            Runnable是一个典型的命令模式，Runnable承担抽象命令角色，Thread担任调用者，Thread类的start方法是执行方法。</p>
-<h5 id="4、责任链模式"><a href="#4、责任链模式" class="headerlink" title="4、责任链模式"></a>4、责任链模式</h5><h5 id="5、状态模式"><a href="#5、状态模式" class="headerlink" title="5、状态模式"></a>5、状态模式</h5><h5 id="6、观察者模式"><a href="#6、观察者模式" class="headerlink" title="6、观察者模式"></a>6、观察者模式</h5><h5 id="7、中介者模式"><a href="#7、中介者模式" class="headerlink" title="7、中介者模式"></a>7、中介者模式</h5><h5 id="8、迭代器模式"><a href="#8、迭代器模式" class="headerlink" title="8、迭代器模式"></a>8、迭代器模式</h5><h5 id="9、访问者模式"><a href="#9、访问者模式" class="headerlink" title="9、访问者模式"></a>9、访问者模式</h5><p>1、分派技术</p>
+<p>​    2、应用场景</p>
+<p>​            如去餐馆点餐，你(调用者)下命令给服务员(具体命令角色)，服务员传达给厨师(接受者角色)，厨师执行。</p>
+<p>​    3、Jdk中应用</p>
+<p>​            Runnable是一个典型的命令模式，Runnable承担抽象命令角色，Thread担任调用者，Thread类的start方法是执行方法(入口)。</p>
+<h5 id="4、责任链模式"><a href="#4、责任链模式" class="headerlink" title="4、责任链模式"></a>4、责任链模式</h5><p>​    1、应用场景</p>
+<p>​            例如公司假条审批，在我–&gt;负责人–&gt;主管–&gt;老板的层级审批的链路。</p>
+<p>​    2、Web项目中的应用</p>
+<p>​            FilterChain是责任链的典型应用，Filter子实现类通过FilterChain组成链路调用。</p>
+<h5 id="5、状态模式"><a href="#5、状态模式" class="headerlink" title="5、状态模式"></a>5、状态模式</h5><p>​        暂不展开说明。</p>
+<h5 id="6、观察者模式"><a href="#6、观察者模式" class="headerlink" title="6、观察者模式"></a>6、观察者模式</h5><p>​    1、Jdk中应用</p>
+<p>​        （1）Observable抽象目标类(发布者)，它有一个Vector集合成员变量，存储需要通知的观察者。当它的状态发生改变后(调用setChange方法)，然后去通知观察者(调用notifyObservers方法)。后添加到集合中的观察者会先收到通知。</p>
+<p>​        （2）Observer抽象观察者(消费者、订阅者)，它监视目标对象的变化，当收到通知后，会调用update方法工作。</p>
+<h5 id="7、中介者模式"><a href="#7、中介者模式" class="headerlink" title="7、中介者模式"></a>7、中介者模式</h5><p>​        暂不展开说明。    </p>
+<h5 id="8、迭代器模式"><a href="#8、迭代器模式" class="headerlink" title="8、迭代器模式"></a>8、迭代器模式</h5><p>​    1、Jdk中应用</p>
+<p>​            ArrayList的内部类Itr实现了Iterable接口，ArrayList中定义iterator方法，来获取具体迭代器。</p>
+<h5 id="9、访问者模式"><a href="#9、访问者模式" class="headerlink" title="9、访问者模式"></a>9、访问者模式</h5><p>1、分派技术</p>
 <p>​    1、概念</p>
 <p>​            变量被声明时的类型叫做变量的静态类型，而变量引用对象的真实类型又叫做变量的实际类型。如Map map = new HashMap();   map变量的静态类型是Map，动态类型是HashMap。根据变量的类型而对方法进行的选择，叫做分派。</p>
 <p>​    2、分类</p>
@@ -693,7 +757,9 @@ proxyInstance<span class="token punctuation">.</span><span class="token function
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 
-<h5 id="10、备忘录模式"><a href="#10、备忘录模式" class="headerlink" title="10、备忘录模式"></a>10、备忘录模式</h5><h5 id="11、解释器模式"><a href="#11、解释器模式" class="headerlink" title="11、解释器模式"></a>11、解释器模式</h5>
+<h5 id="10、备忘录模式"><a href="#10、备忘录模式" class="headerlink" title="10、备忘录模式"></a>10、备忘录模式</h5><p>​        暂不展开说明。</p>
+<h5 id="11、解释器模式"><a href="#11、解释器模式" class="headerlink" title="11、解释器模式"></a>11、解释器模式</h5><p>​        暂不展开说明。</p>
+
                 
             </div>
             <hr/>
@@ -1272,7 +1338,7 @@ proxyInstance<span class="token punctuation">.</span><span class="token function
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h2, h3, h4, h5'
         });
 
         // Set scroll toc fixed.
@@ -1360,7 +1426,7 @@ proxyInstance<span class="token punctuation">.</span><span class="token function
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.4k</span>
+                        class="white-color">14k</span>
             
             
             
