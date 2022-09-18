@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="部署, 一路生花">
-    <meta name="description" content="Docker相关知识点">
+    <meta name="keywords" content="Git, 一路生花">
+    <meta name="description" content="学习Git，这篇就够了！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>部署 | 一路生花</title>
+    <title>Git | 一路生花</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg">
     
 
@@ -350,12 +350,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">部署</h1>
+                    <h1 class="description center-align post-title">Git</h1>
                 </div>
             </div>
         </div>
@@ -387,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                云原生
+                            <a href="/categories/Git/" class="post-category">
+                                Git
                             </a>
                         
                     </div>
@@ -400,28 +400,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-23
+                    2022-09-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-12
+                    2022-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    291
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    16 分
                 </div>
                 
 
@@ -449,25 +449,411 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、docker常用命令"><a href="#1、docker常用命令" class="headerlink" title="1、docker常用命令"></a>1、docker常用命令</h3><pre class="language-docker" data-language="docker"><code class="language-docker">docker pull 服务:tag  服务:版本（拉取服务，不加tag则默认最新版）
-docker  images 查看镜像
-docker save -o nginx.tar nginx:lastest  将nginx:latest镜像打包
-docker load -i nginx.tar  加载镜像
-docker rmi  删除镜像
-docker rm  删除容器 -f 删除运行的容器
-docker ps 查看运行容器状态 -a 则查看所有容器状态
-docker run --name  取名字  -p 80:80 -d  镜像  运行镜像，-p端口映射，-d后台运行
-docker logs mn 查看mn容器的日志 -f 动态查看
-docker exec -it mn bash  以bash命令进入mn容器
-docker stop mn  停止mn容器
-docker (un)pause （恢复）暂停镜像
-docker restart mn 重启mn容器</code></pre>
+                <h4 id="一、Git"><a href="#一、Git" class="headerlink" title="一、Git"></a>一、Git</h4><h5 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h5><p>​        Git是一款开源的分布式版本控制系统，用于敏捷高效的处理任何大或小的项目。</p>
+<h5 id="2、Git环境配置"><a href="#2、Git环境配置" class="headerlink" title="2、Git环境配置"></a>2、Git环境配置</h5><p>​        git config控制git的行为，来定义环境变量，它提供三个环境参数，system、global、local。当使用如下命令配置时，不同的参数会写到不同的配置文件中。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --system xxx.xxx
 
-<h3 id="2、docker镜像结构"><a href="#2、docker镜像结构" class="headerlink" title="2、docker镜像结构"></a>2、docker镜像结构</h3><p>1、镜像是将应用程序及其需要的系统函数库、环境、配置、依赖打包而成。</p>
-<p>2、镜像是分成结构、每一层称为一个Layer</p>
-<p>​    （1）BaseImage层:包含基本的系统函数库、环境变量、文件系统</p>
-<p>​    （2）Entrypoint：入口，是镜像中应用启动的命令</p>
-<p>​    （3）其它：在BaseImage基础上添加依赖、安装程序、完成整改个应用的安装和配置</p>
+--system <span class="token comment">#针对任意登录该linux系统的用户都生效，git的配置信息，写入到/etc/gitconfig</span>
+
+--global <span class="token comment">#全局，只针对当前登录的用户生效，git配置信息，写入到~/.gitconfig(使用最多)</span>
+
+--local <span class="token comment">#本地，只对某个git管理的项目生效，git配置信息，写入到/管理的文件/.git/config</span></code></pre>
+
+<h5 id="3、用户git信息配置"><a href="#3、用户git信息配置" class="headerlink" title="3、用户git信息配置"></a>3、用户git信息配置</h5><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --system --list  <span class="token comment">#查看系统所有linux用户的通用配置，此命令检查安装目录下的/etc/gitconfig</span>
+
+<span class="token function">git</span> config --global --list	<span class="token comment">#查看当前linux用户的配置，此命令检查~/.gitconfig</span>
+
+<span class="token function">git</span> config --local --list		<span class="token comment">#查看git目录中仓库配置文件，此命令检查.git/config</span>
+
+<span class="token function">git</span> config --global user.name <span class="token string">""</span>  <span class="token comment">#配置当前linux用户全局用户名，这台机器所有仓库都使用该配置</span>
+
+<span class="token function">git</span> config --global user.email <span class="token string">""</span>  <span class="token comment">#配置当前linux用户全局邮箱</span>
+
+<span class="token function">git</span> config --global color.ui <span class="token boolean">true</span>  <span class="token comment">#配置git语法高亮</span>
+
+<span class="token function">git</span> config --global --unset user.name  <span class="token comment">#删除某个配置</span>
+
+<span class="token function">git</span> config --list  <span class="token comment">#列出git能找到的所有配置，从不同的文件中读取所有结果</span>
+
+<span class="token function">git</span> config user.name  <span class="token comment">#列出git的某项配置</span>
+
+<span class="token function">git</span> config --global credential.helper store  <span class="token comment">#解决git每次提交和拉取代码需要输入用户名和密码问题</span>
+
+<span class="token function">git</span> config --global alias.ci commit   <span class="token comment">#别名ci是commit的别名,然后git ci等价于git commit</span>
+
+core.editor  <span class="token comment">#文本编辑器  </span>
+merge.tool  <span class="token comment">#差异分析工具  </span>
+core.paper <span class="token string">"less -N"</span>  <span class="token comment">#配置显示方式  </span>
+color.diff <span class="token boolean">true</span>  <span class="token comment">#diff颜色配置  </span>
+<span class="token function">git</span> config core.filemode <span class="token boolean">false</span>  <span class="token comment">#忽略修改权限的文件  </span></code></pre>
+
+<h5 id="4、Git的工作区域"><a href="#4、Git的工作区域" class="headerlink" title="4、Git的工作区域"></a>4、Git的工作区域</h5><p>​        git分为4个工作区域，工作区、暂存区、本地仓库、远程仓库。git命令实质就是用于记录文件在不同区域的改动。</p>
+<h5 id="5、本地仓库结构"><a href="#5、本地仓库结构" class="headerlink" title="5、本地仓库结构"></a>5、本地仓库结构</h5><p>​        git init或者git clone克隆项目后，会生成.git的隐藏文件，也就是本地仓库，其目录结构如下：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">.</span>
+├── HEAD			<span class="token comment">#git的文件指针，映射到refs引用</span>
+├── config		<span class="token comment">#该git项目独有的配置</span>
+├── description		<span class="token comment">#仓库的描述信息，主要给gitweb等git托管系统使用</span>
+├── COMMIT_EDITMSG		<span class="token comment">#最新提交的一次Commit Message，git系统不会用到，给用户一个参考	</span>
+└── logs		<span class="token comment">#保存所有更新的引用记录</span>
+    ├── HEAD		<span class="token comment">#记录所有分支的版本的变动信息</span>
+    └── refs		
+    		└── heads		<span class="token comment">#记录各个分支的版本变动记录</span>
+    		└── remotes <span class="token comment">#记录对远程的操作</span>
+├── FETCH_HEAD		<span class="token comment">#是一个版本链接，指向着目前已经从远程仓库取下来的分支的末端版本</span>
+├── ORIG_HEAD		<span class="token comment">#HEAD指针的前一个状态，在logs/HEAD中，最后一条提交记录，当前hash值</span>
+├── hooks		<span class="token comment">#存放一些shell脚本 </span>
+├── index		<span class="token comment">#保存暂存区的信息，二进制文件</span>
+├── packed-refs		<span class="token comment">#当更新一个引用时，git不会packed-refs，而是会在refs/heads下写入一个新文件。当查找一个引用时，git首先在refs目录下查找，如果未找到则到packed-refs文件中去查找</span>
+├── info		
+│   └── exclude		<span class="token comment">#存放仓库的一些信息</span>
+├── objects		<span class="token comment">#存放所有的git对象，例如git log里面的commit_id可以在里面找到</span>
+└── refs
+    ├── heads		<span class="token comment">#保存各个分支最新的一次提交的哈希值</span>
+    ├── remotes
+    		└── origin		<span class="token comment">#远程分支的名称</span>
+    				├── HEAD	<span class="token comment">#存放下面分支的引用</span>
+    				└── master <span class="token comment">#记录最新的hash值</span>
+    └── tags		<span class="token comment">#记录当前分支所拥有的标签</span>
+    		└── v1.0  <span class="token comment">#存放标签的hash值</span></code></pre>
+
+<h5 id="6、注意事项"><a href="#6、注意事项" class="headerlink" title="6、注意事项"></a>6、注意事项</h5><p>​        git仓库里面一定要使用git自带命令。如更改文件名称，如果使用mv test.sh test1.sh，则实质会删除test.sh然后重新创建test1.sh，并且没有被git跟踪。使用git mv test.sh test1.sh则没问题。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">nty@work git_repo % <span class="token function">git</span> status           
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file&gt;..."</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file&gt;..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+	deleted:    test.sh
+
+Untracked files:
+  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file&gt;..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+	test1.sh
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span>
+nty@work git_repo % </code></pre>
+
+<h5 id="7、基本流程操作"><a href="#7、基本流程操作" class="headerlink" title="7、基本流程操作"></a>7、基本流程操作</h5><h6 id="1、初始化仓库"><a href="#1、初始化仓库" class="headerlink" title="1、初始化仓库"></a>1、初始化仓库</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#在当前分支初始化git仓库</span>
+<span class="token function">git</span> init
+
+<span class="token comment">#创建名称为blog的git仓库</span>
+<span class="token function">git</span> init blog
+
+<span class="token comment">#以https的方式从远程克隆仓库</span>
+<span class="token function">git</span> clone https://gitee.com/nty99/nty99.git
+
+<span class="token comment">#以ssh的方式从远程克隆仓库</span>
+<span class="token function">git</span> clone git@gitee.com:nty99/nty99.git</code></pre>
+
+<h6 id="2、添加变动至暂存区"><a href="#2、添加变动至暂存区" class="headerlink" title="2、添加变动至暂存区"></a>2、添加变动至暂存区</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看工作区文件状态</span>
+<span class="token function">git</span> status
+
+<span class="token comment">#添加所有变动的文件至git管理，即将工作区的未跟踪文件、修改的文件、删除的文件全部添加到暂存区</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+
+<span class="token comment">#添加具体的一个或多个文件至暂存区</span>
+<span class="token function">git</span> <span class="token function">add</span> 具体文件<span class="token punctuation">..</span>.</code></pre>
+
+<h6 id="3、提交至本地仓库"><a href="#3、提交至本地仓库" class="headerlink" title="3、提交至本地仓库"></a>3、提交至本地仓库</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#提交暂存区的文件至本地仓库，推荐加上-m，不然需自己在vim编辑器里面添加注释</span>
+<span class="token function">git</span> commit -m <span class="token string">"注释"</span>
+
+<span class="token comment">#相当于git add .加git commit -m "注释" </span>
+<span class="token function">git</span> commit -am <span class="token string">"注释"</span>
+
+<span class="token comment">#修改最新提交的注释信息，注意此时的commit_id会变化，可通过git reflog查看变化记录</span>
+<span class="token function">git</span> commit --amend -m <span class="token string">"修改"</span></code></pre>
+
+<h6 id="4、提交至代码托管平台"><a href="#4、提交至代码托管平台" class="headerlink" title="4、提交至代码托管平台"></a>4、提交至代码托管平台</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#将本地仓库master分支文件添加到远程仓库origin，更多提交参数请调至14小节查看</span>
+<span class="token function">git</span> push origin master</code></pre>
+
+<h5 id="8、Git删除操作"><a href="#8、Git删除操作" class="headerlink" title="8、Git删除操作"></a>8、Git删除操作</h5><h6 id="1、rm直接删除"><a href="#1、rm直接删除" class="headerlink" title="1、rm直接删除"></a>1、rm直接删除</h6><p>​        （1）未被git管理：和平常使用的文件一样，rm删除就行了。</p>
+<p>​        （2）被git管理：rm效果是删除工作区的文件，如果想把删除提交到本地仓库，还需要git add和git commit。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">nty@work git_repo % <span class="token function">rm</span> test.sh 
+
+nty@work git_repo % <span class="token function">git</span> status
+On branch master
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file&gt;..."</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file&gt;..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+	deleted:    test.sh
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span>
+
+nty@work git_repo % <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+
+nty@work git_repo % <span class="token function">git</span> status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file&gt;..."</span> to unstage<span class="token punctuation">)</span>
+	deleted:    test.sh</code></pre>
+
+<h6 id="2、git-rm"><a href="#2、git-rm" class="headerlink" title="2、git rm"></a>2、git rm</h6><p>​            注意：以下三种都是针对被git管理的文件。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#注意 git rm删除的文件必须是和版本库的内容是一致的</span>
+
+<span class="token comment">#git rm会删除工作区的文件，同时将删除的文件添加到暂存区，相当于rm + git add</span>
+
+<span class="token function">git</span> <span class="token function">rm</span> test.sh  <span class="token comment">#将文件从暂存区和工作区中删除</span>
+
+nty@work git_repo % <span class="token function">git</span> <span class="token function">rm</span> test.sh 
+<span class="token function">rm</span> <span class="token string">'test.sh'</span>
+
+nty@work git_repo % <span class="token function">git</span> status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file&gt;..."</span> to unstage<span class="token punctuation">)</span>
+	deleted:    test.sh</code></pre>
+
+<h6 id="3、git-rm-f"><a href="#3、git-rm-f" class="headerlink" title="3、git rm -f"></a>3、git rm -f</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#当工作区的内容改动后，再想使用git rm命令时，必须添加-f</span>
+
+nty@work git_repo % <span class="token builtin class-name">echo</span> <span class="token string">"echo add file"</span> <span class="token operator">&gt;&gt;</span> test.sh
+
+nty@work git_repo % <span class="token function">git</span> <span class="token function">rm</span> test.sh
+error: the following <span class="token function">file</span> has <span class="token builtin class-name">local</span> modifications:
+    test.sh
+<span class="token punctuation">(</span>use --cached to keep the file, or -f to force removal<span class="token punctuation">)</span>
+
+nty@work git_repo % <span class="token function">git</span> <span class="token function">rm</span> -f test.sh 
+<span class="token function">rm</span> <span class="token string">'test.sh'</span>
+nty@work git_repo % <span class="token function">git</span> status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file&gt;..."</span> to unstage<span class="token punctuation">)</span>
+	deleted:    test.sh</code></pre>
+
+<h6 id="4、git-rm-–cached"><a href="#4、git-rm-–cached" class="headerlink" title="4、git rm –cached"></a>4、git rm –cached</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#会删除暂存区中的文件，但是会保留工作区中的文件(工作区取消了git跟踪)，并将此次删除提交到暂存区</span>
+
+<span class="token function">git</span> <span class="token function">rm</span> --cached test.sh
+
+nty@work git_repo % <span class="token function">git</span> <span class="token function">rm</span> --cached test.sh
+<span class="token function">rm</span> <span class="token string">'test.sh'</span>
+
+nty@work git_repo % <span class="token function">git</span> status
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file&gt;..."</span> to unstage<span class="token punctuation">)</span>
+	deleted:    test.sh
+
+Untracked files:
+  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file&gt;..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+	test.sh</code></pre>
+
+<h5 id="9、Git查看版本信息"><a href="#9、Git查看版本信息" class="headerlink" title="9、Git查看版本信息"></a>9、Git查看版本信息</h5><h6 id="1、git-log"><a href="#1、git-log" class="headerlink" title="1、git log"></a>1、git log</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#等价于git log --all,查看全部版本信息</span>
+
+nty@work git_repo % <span class="token function">git</span> log
+commit 271783295f98eaf41a63c8d9d9ae23c5c8206074 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: <span class="token number">123</span> <span class="token operator">&lt;</span><span class="token number">1115195406</span>@qq.com<span class="token operator">&gt;</span>
+Date:   Thu Sep <span class="token number">15</span> <span class="token number">10</span>:56:29 <span class="token number">2022</span> +0800
+
+    second commit
+
+commit 2d7c6a5ed6c30372d4936258b4f7ee5acb0011b6
+Author: nty <span class="token operator">&lt;</span><span class="token number">1115195406</span>@qq.com<span class="token operator">&gt;</span>
+Date:   Wed Sep <span class="token number">14</span> <span class="token number">23</span>:39:55 <span class="token number">2022</span> +0800
+
+    first commit</code></pre>
+
+<h6 id="2、git-log-–onlie"><a href="#2、git-log-–onlie" class="headerlink" title="2、git log –onlie"></a>2、git log –onlie</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#一行显示,简略的显示git版本信息</span>
+
+nty@work git_repo % <span class="token function">git</span> log --oneline
+<span class="token number">2717832</span> <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span> second commit
+2d7c6a5 first commit</code></pre>
+
+<h6 id="3、git-log-–all-–graph"><a href="#3、git-log-–all-–graph" class="headerlink" title="3、git log –all –graph"></a>3、git log –all –graph</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用字符图形化显示git版本信息</span>
+
+nty@work git_repo % <span class="token function">git</span> log --graph  
+* commit 271783295f98eaf41a63c8d9d9ae23c5c8206074 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+<span class="token operator">|</span> Author: <span class="token number">123</span> <span class="token operator">&lt;</span><span class="token number">1115195406</span>@qq.com<span class="token operator">&gt;</span>
+<span class="token operator">|</span> Date:   Thu Sep <span class="token number">15</span> <span class="token number">10</span>:56:29 <span class="token number">2022</span> +0800
+<span class="token operator">|</span> 
+<span class="token operator">|</span>     second commit
+<span class="token operator">|</span> 
+* commit 2d7c6a5ed6c30372d4936258b4f7ee5acb0011b6
+  Author: nty <span class="token operator">&lt;</span><span class="token number">1115195406</span>@qq.com<span class="token operator">&gt;</span>
+  Date:   Wed Sep <span class="token number">14</span> <span class="token number">23</span>:39:55 <span class="token number">2022</span> +0800
+  
+      first commit</code></pre>
+
+<h6 id="4、git-log-n"><a href="#4、git-log-n" class="headerlink" title="4、git log -n"></a>4、git log -n</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#显示最新的n条记录</span>
+
+nty@work git_repo % <span class="token function">git</span> log -1
+commit 271783295f98eaf41a63c8d9d9ae23c5c8206074 <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span>
+Author: <span class="token number">123</span> <span class="token operator">&lt;</span><span class="token number">1115195406</span>@qq.com<span class="token operator">&gt;</span>
+Date:   Thu Sep <span class="token number">15</span> <span class="token number">10</span>:56:29 <span class="token number">2022</span> +0800
+
+    second commit
+
+commit 2d7c6a5ed6c30372d4936258b4f7ee5acb0011b6
+Author: nty <span class="token operator">&lt;</span><span class="token number">1115195406</span>@qq.com<span class="token operator">&gt;</span>
+Date:   Wed Sep <span class="token number">14</span> <span class="token number">23</span>:39:55 <span class="token number">2022</span> +0800
+
+    first commit</code></pre>
+
+<h5 id="10、Git撤销操作"><a href="#10、Git撤销操作" class="headerlink" title="10、Git撤销操作"></a>10、Git撤销操作</h5><p>​        当我们写完代码，add、commit后，此时想撤销commit或者add时候，怎么办？首先我们要了解，git是通过指针进行版本管理，那个指针就是HEAD，HEAD表示当前的版本，HEAD^表示上个版本，HEAD^^表示上上个版本。此时可以使用reset来完成版本变更。git reset有三种方式：</p>
+<p>​    （1）–mixed：不删除工作空间改动代码，撤销commit，并且撤销git add操作。该参数为默认参数。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#回退到上个版本</span>
+<span class="token function">git</span> reset --mixed HEAD^
+
+<span class="token comment">#回退到指定版本</span>
+<span class="token function">git</span> reset --mixed 4e107ff</code></pre>
+
+<p>​    （2）–soft：不删除工作空间改动代码，撤销commit，不撤销git add。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --soft HEAD^</code></pre>
+
+<p>​    （3）–hard：删除工作空间改动代码，撤销commit，撤销git add。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD^</code></pre>
+
+<h6 id="1、git-reset"><a href="#1、git-reset" class="headerlink" title="1、git reset"></a>1、git reset</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#git reset --hard HEAD^ 回退到上个版本</span>
+
+nty@work git_repo % <span class="token function">git</span> reset --hard HEAD^^^
+HEAD is now at bcae92e third delete
+
+<span class="token comment">#git reset --hard 版本号ID 回退到指定版本</span>
+
+nty@work git_repo % <span class="token function">git</span> reset --hard 4e107ff
+HEAD is now at 4e107ff <span class="token function">git</span> <span class="token function">rm</span> -f <span class="token builtin class-name">test</span></code></pre>
+
+<h6 id="2、git-reflog"><a href="#2、git-reflog" class="headerlink" title="2、git reflog"></a>2、git reflog</h6><p>​            查看git所有版本变动记录。</p>
+<h6 id="3、git-checkout"><a href="#3、git-checkout" class="headerlink" title="3、git checkout"></a>3、git checkout</h6><p>​            checkout除了常用的切换分支功能外，还有还原操作。有如下场景，我们修改了一个文件Test.java，但是想用git还原，此时怎么办?此时需要考虑三种情况:</p>
+<p>​        （1）还在工作区</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -- Test.java</code></pre>
+
+<p>​        （2）提交到暂存区</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#回退到当前版本，撤销add，然后checkout还原</span>
+<span class="token function">git</span> reset HEAD
+
+<span class="token function">git</span> checkout -- Test.java</code></pre>
+
+<p>​        （3）提交到本地仓库</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#撤销commit，撤销add，checkout还原。也可以直接git reset --hard HEAD^直接撤销操作并且将改动的记录删除。</span>
+<span class="token function">git</span> reset HEAD^
+
+<span class="token function">git</span> checkout -- Test.java</code></pre>
+
+<h5 id="11、Git文件暂存"><a href="#11、Git文件暂存" class="headerlink" title="11、Git文件暂存"></a>11、Git文件暂存</h5><p>​        git stash就是把暂存区中还没提交的文件临时存放到一个区域，以便于其它操作。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash save <span class="token string">"存储"</span> <span class="token comment">#不自定义注释的话可以简写成git stash,临时保存暂存区的数据</span>
+
+<span class="token function">git</span> stash list <span class="token comment">#查看stash保存的列表及id</span>
+
+<span class="token function">git</span> stash pop <span class="token comment">#恢复最新的stash记录</span>
+
+<span class="token function">git</span> stash pop <span class="token function">id</span> <span class="token comment">#恢复指定的stash记录</span>
+
+<span class="token function">git</span> stash <span class="token function">clear</span> <span class="token comment">#清空所有stash记录</span>
+
+<span class="token function">git</span> stash drop <span class="token function">id</span> <span class="token comment">#删除某个stash记录</span></code></pre>
+
+<h5 id="12、Git分支"><a href="#12、Git分支" class="headerlink" title="12、Git分支"></a>12、Git分支</h5><h6 id="1、注意："><a href="#1、注意：" class="headerlink" title="1、注意："></a>1、注意：</h6><p>​        （1）git branch nty或者git checkout -b nty创建的新分支都是以当前分支的最新状态创建的。</p>
+<p>​        （2）只要文件没有在某个分支commit过，则可以在任何分支看到此文件。</p>
+<p>​        （3）在某个分支修改、删除一个提交过的文件，此时必须在当前分支提交后才能切换到其它分支。</p>
+<h6 id="2、分支信息查看"><a href="#2、分支信息查看" class="headerlink" title="2、分支信息查看"></a>2、分支信息查看</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch <span class="token comment">#查看本地所有分支,并以星号标识当前所在的分支</span>
+
+<span class="token function">git</span> branch -r <span class="token comment">#显示远程分支信息</span>
+
+<span class="token function">git</span> branch -a <span class="token comment">#显示本地、远程所有分支</span>
+
+<span class="token function">git</span> branch -vv <span class="token comment">#查看当前分支与远程分支的跟踪关系</span></code></pre>
+
+<h6 id="3、分支创建、跟踪、修改"><a href="#3、分支创建、跟踪、修改" class="headerlink" title="3、分支创建、跟踪、修改"></a>3、分支创建、跟踪、修改</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#创建新分支</span>
+<span class="token function">git</span> branch nty
+
+<span class="token comment">#切换分支</span>
+<span class="token function">git</span> checkout nty
+
+<span class="token comment">#创建新分支并且立即切换</span>
+<span class="token function">git</span> checkout -b nty
+
+<span class="token comment">#创建nty分支并追踪origin/nty，前提是本地没有该分支且远程必须有此分支</span>
+<span class="token function">git</span> checkout -b nty origin/nty
+
+<span class="token comment">#创建nty分支并追踪origin/nty，前提是本地没有该分支且远程必须有此分支</span>
+<span class="token function">git</span> branch --track nty origin/nty
+
+<span class="token comment">#设置nty分支跟踪远程nty分支,如果nty不写分支则默认设置当前分支跟踪，分支必须存在</span>
+<span class="token function">git</span> branch --set-upstream-to origin/nty nty
+
+<span class="token comment">#设置nty分支跟踪远程分支，如果nty不写则默认设置当前分支，分支必须存在</span>
+<span class="token function">git</span> branch -u origin/nty nty
+
+<span class="token comment">#将本地nty分支修改成nty1分支</span>
+<span class="token function">git</span> branch -m nty nty1</code></pre>
+
+<h6 id="4、分支删除"><a href="#4、分支删除" class="headerlink" title="4、分支删除"></a>4、分支删除</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch -d nty <span class="token comment">#删除分支，只有当前分支和目标分支完全合并后才能删除</span>
+
+<span class="token function">git</span> branch -D nty <span class="token comment">#强制删除分支</span>
+
+<span class="token function">git</span> branch -d -r nty <span class="token comment">#删除远程分支，删除后还需git push</span></code></pre>
+
+<h6 id="5、分支合并"><a href="#5、分支合并" class="headerlink" title="5、分支合并"></a>5、分支合并</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge nty <span class="token comment">#合并分支</span>
+
+<span class="token comment">#git merge 冲突后，需手动查看冲突文件，修改后，git add file解决冲突</span></code></pre>
+
+<h5 id="13、Git标签"><a href="#13、Git标签" class="headerlink" title="13、Git标签"></a>13、Git标签</h5><p>​        给提交的版本记录打上一个标记，更好的记录版本信息。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag <span class="token comment">#查看所有标签</span>
+
+<span class="token function">git</span> show 标签名称 <span class="token comment">#显示标签信息以及关联的版本记录信息</span>
+
+<span class="token function">git</span> tag -a v1.0 -m <span class="token string">"第一个版本"</span> <span class="token comment">#给最新版本记录新建标签并说明标签注释</span>
+
+<span class="token function">git</span> tag -a v0.9 commit_id -m <span class="token string">"注释"</span> <span class="token comment">#给指定版本打上标签并说明标签注释</span>
+
+<span class="token function">git</span> log --oneline --decorate <span class="token comment">#显示简略日志版本号和对应标签信息</span>
+
+<span class="token function">git</span> tag -d 标签名称 <span class="token comment">#删除标签</span></code></pre>
+
+<h5 id="14、Git远程"><a href="#14、Git远程" class="headerlink" title="14、Git远程"></a>14、Git远程</h5><p>​        将本地仓库与远程代码托管平台进行关联，如Gitee、GitHub、GitLab。</p>
+<h6 id="1、查看、关联"><a href="#1、查看、关联" class="headerlink" title="1、查看、关联"></a>1、查看、关联</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看远程仓库的名字</span>
+<span class="token function">git</span> remote
+
+<span class="token comment">#修改远程仓库的名字</span>
+<span class="token function">git</span> remote <span class="token function">rename</span> origin origin1
+
+<span class="token comment">#查看关联的远程仓库地址</span>
+<span class="token function">git</span> remote -v
+
+<span class="token comment">#与远程仓库(可多个)建立连接，origin是给远程仓库起的名称，后面是远程仓库地址</span>
+<span class="token function">git</span> remote <span class="token function">add</span> o rigin https://xxx
+
+<span class="token comment">#显示远程的配置信息</span>
+<span class="token function">git</span> show-ref</code></pre>
+
+<h6 id="2、拉取"><a href="#2、拉取" class="headerlink" title="2、拉取"></a>2、拉取</h6><p>​        （1）fetch</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#这个命令将某个远程主机的更新全部取回本地</span>
+<span class="token function">git</span> fetch <span class="token operator">&lt;</span>远程主机名<span class="token operator">&gt;</span>
+
+<span class="token comment">#如果只想取回特定分支的更新，可以指定分支名</span>
+<span class="token function">git</span> fetch <span class="token operator">&lt;</span>远程主机名<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>分支名<span class="token operator">&gt;</span>
+
+<span class="token comment">#将远程的分支内容拉取到本地dev分支</span>
+<span class="token function">git</span> fetch <span class="token operator">&lt;</span>远程主机名<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>分支名<span class="token operator">&gt;</span>:dev
+
+<span class="token comment">#取回更新后，会返回一个FETCH_HEAD ，指的是某个branch在服务器上的最新状态，我们可以在本地通过它查看刚取回的更新信息</span>
+<span class="token function">git</span> log -p FETCH_HEAD</code></pre>
+
+<p>​        （2）pull</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#git pull等价于git fetch + git merge FETCH_HEAD</span>
+
+<span class="token comment">#将远程主机的某个分支的更新取回，并与本地指定的分支合并，完整格式可表示为</span>
+<span class="token function">git</span> pull <span class="token operator">&lt;</span>远程主机名<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>远程分支名<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>本地分支名<span class="token operator">&gt;</span>
+
+<span class="token comment">#如果远程分支是与当前分支合并，则冒号后面的部分可以省略</span>
+<span class="token function">git</span> pull origin master</code></pre>
+
+<h6 id="3、推送"><a href="#3、推送" class="headerlink" title="3、推送"></a>3、推送</h6><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#将本地master分支代码推送到远程origin仓库master分支</span>
+<span class="token function">git</span> push origin master:refs/for/master
+
+<span class="token comment">#如果远程分支被省略，则表示将本地分支推送到与之存在追踪关系的远程分支(通常两者同名)，如果该远程分支不存在，则会被新建</span>
+<span class="token function">git</span> push origin master
+
+<span class="token comment">#如你创建分支但是没有设置跟踪，提交时候加上-u，这样提交后就会设置跟踪了，下次提交可简写成git push</span>
+<span class="token function">git</span> push -u origin master
+
+<span class="token comment">#如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于git push origin --delete master</span>
+<span class="token function">git</span> push origin:refs/for/master
+
+<span class="token comment">#如果当前分支与远程分支存在追踪关系，则本地分支和远程分支都可以省略，将当前分支推送到origin主机的对应分支</span>
+<span class="token function">git</span> push origin
+
+<span class="token comment">#如果当前分支只有一个远程分支，那么主机名都可以省略</span>
+<span class="token function">git</span> push</code></pre>
+
 
                 
             </div>
@@ -494,7 +880,7 @@ docker restart mn 重启mn容器</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://nty99.gitee.io/2022/08/23/deploy/">https://nty99.gitee.io/2022/08/23/deploy/</a>
+                    <a href="https://nty99.gitee.io/2022/09/14/git/">https://nty99.gitee.io/2022/09/14/git/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -875,41 +1261,43 @@ docker restart mn 重启mn容器</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/23/mq/">
+                <a href="/2022/09/14/git/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="RabbitMQ">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Git">
                         
-                        <span class="card-title">RabbitMQ</span>
+                        <span class="card-title">Git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录RabbitMQ相关知识点
+                            学习Git，这篇就够了！
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="post-category">
-                                    消息队列
+                            <a href="/categories/Git/" class="post-category">
+                                    Git
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -920,31 +1308,31 @@ docker restart mn 重启mn容器</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/23/database/">
+                <a href="/2022/09/11/log/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Logback">
                         
-                        <span class="card-title">数据库</span>
+                        <span class="card-title">Logback</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用数据库相关知识点
+                            日志相关知识点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/%E6%97%A5%E5%BF%97/" class="post-category">
+                                    日志
                                 </a>
                             
                             

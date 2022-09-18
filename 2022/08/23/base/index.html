@@ -18,7 +18,7 @@
 
 
     <title>基础 | 一路生花</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/jpeg" href="/favicon.jpeg">
     
 
 
@@ -407,14 +407,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-12
+                    2022-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.3k
                 </div>
                 
 
@@ -549,7 +549,7 @@
 
 <p>​    8、boolean：Java虚拟机规范给出4个字节，1个字节、4个字节都是有可能的。这其实是运算效率和存储空间之间的博弈，两者都⾮常的重要。</p>
 <p>2、引用类型</p>
-<h4 id="十七、多肽"><a href="#十七、多肽" class="headerlink" title="十七、多肽"></a>十七、多肽</h4><h5 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h5><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dad</span><span class="token punctuation">{</span>
+<h4 id="十七、多肽"><a href="#十七、多肽" class="headerlink" title="十七、多肽"></a>十七、多肽</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dad</span><span class="token punctuation">{</span>
   
   <span class="token keyword">public</span> <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"父"</span><span class="token punctuation">;</span>
   
@@ -610,7 +610,48 @@ d<span class="token punctuation">.</span><span class="token function">printName<
 <p>​    2、子类成员变量和父类相同时，d.name输出父类定义的名称，d.getName()优先输出子类的名称，因为getName()方法重写了</p>
 <p>​    3、d.ownName()输出名称子，方法中的name优先选择自己类中的变量</p>
 <p>​    4、d.getNum()输出30，先调用父类getNum()，然后调用子类getI()</p>
-
+<h4 id="十八、修饰符代表的数字"><a href="#十八、修饰符代表的数字" class="headerlink" title="十八、修饰符代表的数字"></a>十八、修饰符代表的数字</h4><table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th align="center">public</th>
+<th align="center">private</th>
+<th align="center">protected</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">synchronized</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">值</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">16</td>
+<td align="center">32</td>
+</tr>
+<tr>
+<td align="center"><strong>修饰符</strong></td>
+<td align="center"><strong>volatile</strong></td>
+<td align="center"><strong>transient</strong></td>
+<td align="center"><strong>native</strong></td>
+<td align="center"><strong>interface</strong></td>
+<td align="center"><strong>abstract</strong></td>
+<td align="center"><strong>strict</strong></td>
+</tr>
+<tr>
+<td align="center">值</td>
+<td align="center">64</td>
+<td align="center">128</td>
+<td align="center">256</td>
+<td align="center">512</td>
+<td align="center">1024</td>
+<td align="center">2048</td>
+</tr>
+</tbody></table>
+<p>​        通过反射获取的单个变量、方法、构造器，可以调用getModifiers()返回修饰符表示的值，针对单个修饰符可以通过 &amp; 来判断修饰符类型，如果存在多个修饰符则值表示各个修饰符相加。</p>
+<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4>
                 
             </div>
             <hr/>
@@ -1185,7 +1226,7 @@ d<span class="token punctuation">.</span><span class="token function">printName<
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4, h5'
+            headingSelector: 'h2, h3, h4, h5, h6'
         });
 
         // Set scroll toc fixed.
@@ -1273,7 +1314,7 @@ d<span class="token punctuation">.</span><span class="token function">printName<
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14k</span>
+                        class="white-color">18k</span>
             
             
             

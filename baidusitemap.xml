@@ -2,7 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nty99.gitee.io/2022/08/22/blogRecord/</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-18</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/14/git/</loc>
+    <lastmod>2022-09-18</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/08/23/base/</loc>
+    <lastmod>2022-09-15</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/11/mybatis/</loc>
+    <lastmod>2022-09-15</lastmod>
   </url>
   <url>
     <loc>https://nty99.gitee.io/2022/08/23/frame/</loc>
@@ -15,14 +27,6 @@
   <url>
     <loc>https://nty99.gitee.io/2022/08/23/database/</loc>
     <lastmod>2022-09-13</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/11/mybatis/</loc>
-    <lastmod>2022-09-13</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/08/23/base/</loc>
-    <lastmod>2022-09-12</lastmod>
   </url>
   <url>
     <loc>https://nty99.gitee.io/2022/08/23/deploy/</loc>
