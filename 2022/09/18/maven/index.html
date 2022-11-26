@@ -297,6 +297,13 @@ class="themespring" -->
       </li>
       
       <li>
+        <a href="/essay">
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/books">
           
           <span>书单</span>
@@ -511,6 +518,14 @@ class="themespring" -->
                   <a href="/gallery " style="margin-left:75px">
 				  
 		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/essay " style="margin-left:75px">
+				  
+		          <span>随笔</span>
                   </a>
                 </li>
               
@@ -808,7 +823,7 @@ class="themespring" -->
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1130,21 +1145,21 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-05
+                    2022-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    12 分
                 </div>
                 
 
@@ -1185,6 +1200,9 @@ h3:hover {
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre>
 
+<h5 id="3、依赖冲突"><a href="#3、依赖冲突" class="headerlink" title="3、依赖冲突"></a>3、依赖冲突</h5><p>​    （1）路径优先：当依赖中出现相同的资源时，层级越浅，优先级越高。</p>
+<p>​    （2）声明优先：资源在相同层级被依赖时，配置顺序靠前的覆盖配置顺序靠后的。</p>
+<p>​    （3）特殊优先：同一个配置文件中相同资源的不同版本，后配置优先于先配置。</p>
 <h4 id="二、聚合与继承"><a href="#二、聚合与继承" class="headerlink" title="二、聚合与继承"></a>二、聚合与继承</h4><h5 id="1、聚合"><a href="#1、聚合" class="headerlink" title="1、聚合"></a>1、聚合</h5><p>​        聚合是指通过一个父工程来管理若干个子工程。在父工程的pom中添加packaging，值设置为pom(不设置默认为jar)，然后添加modules、module标签，写上子模块名称。子模块顺序没影响，打包的顺序是根据各个模块的依赖决定的。</p>
 <pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">&gt;</span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">&gt;</span></span>
 
@@ -1318,7 +1336,85 @@ h3:hover {
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">&gt;</span></span></code></pre>
 
 <p>​    （3）通过mvn命令执行，例如mvn package -D skipTests</p>
-<h4 id="六、私服"><a href="#六、私服" class="headerlink" title="六、私服"></a>六、私服</h4><p>​        所谓私服也就是搭建自己的中央仓库。</p>
+<h4 id="六、扩展知识点"><a href="#六、扩展知识点" class="headerlink" title="六、扩展知识点"></a>六、扩展知识点</h4><h5 id="1、mirror镜像"><a href="#1、mirror镜像" class="headerlink" title="1、mirror镜像"></a>1、mirror镜像</h5><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-mirror则相当于一个代理，它会拦截去指定的远程repository下载构件的请求，然后从自己这里找出构件回送给客户端-</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://maven.aliyun.com/repository/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-mirrorOf填central还是*都是可以的。central表示覆盖maven中央仓库的默认url，*表示所有的请求都到这个仓库-</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-当一个镜像配*,一个配central,下载依赖会走central的url，精确匹配大于通配符匹配-</span><span class="token punctuation">&gt;</span></span>
+  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-</span>
+<span class="token attr-name"><span class="token namespace">注意:</span></span>	<span class="token attr-name">配置多个mirror，并不是在第一个仓库找不到镜像再去第二个找，而是当前一个mirror无法连接的时候，才会去找后一个，类似于备份和容灾。还有，mirror也不是按settings.xml中写的那样的顺序来查询的。</span>                                                                           
+<span class="token attr-name">-</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-匹配所有远程仓库。这样所有pom中定义的仓库都不生效-</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-匹配所有不在本机上的远程仓库-</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>external:*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">&gt;</span></span> 
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-匹配仓库repo1和repo2，使用逗号分隔多个远程仓库-</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>repo1,repo2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">&gt;</span></span> 
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-匹配所有远程仓库，repo1除外，使用感叹号将仓库从匹配中排除-</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>*,!repo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>miiroOf</span><span class="token punctuation">&gt;</span></span> </code></pre>
+
+<h5 id="2、respository仓库"><a href="#2、respository仓库" class="headerlink" title="2、respository仓库"></a>2、respository仓库</h5><p>​    （1）IDEA配置,可简化成下面这配置，也可以和settings.xml一样配置，pluginRepository仓库配置类似。</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repositories</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repository</span><span class="token punctuation">&gt;</span></span>
+    		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>spring-snapshots<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Spring Snapshots<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://repo.spring.io/snapshot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>releases</span><span class="token punctuation">&gt;</span></span>
+          	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-允许下载release组件-</span><span class="token punctuation">&gt;</span></span>
+        		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>releases</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>snapshots</span><span class="token punctuation">&gt;</span></span>
+          	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-禁止下载snapshot组件-</span><span class="token punctuation">&gt;</span></span>
+        		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-更新策略,never,always,interval,daily,daily默认值-</span><span class="token punctuation">&gt;</span></span>
+          	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>updatePolicy</span><span class="token punctuation">&gt;</span></span>always<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>updatePolicy</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>-表示maven检查和检验文件的策略，warn为默认值-</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>checksumPolicy</span><span class="token punctuation">&gt;</span></span>warn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>checksumPolicy</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>snapshots</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layout</span><span class="token punctuation">&gt;</span></span>default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layout</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repository</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repositories</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<p>​    （2）settings.xml</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>profile</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>repository<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repositories</span><span class="token punctuation">&gt;</span></span>
+    		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repository</span><span class="token punctuation">&gt;</span></span>
+     				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Central Repository<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layout</span><span class="token punctuation">&gt;</span></span>default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layout</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://maven.aliyun.com/repository/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>snapshots</span><span class="token punctuation">&gt;</span></span>
+        				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>snapshots</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>releases</span><span class="token punctuation">&gt;</span></span>
+        				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">&gt;</span></span>
+      			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>releases</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repository</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repositories</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>profile</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-激活配置-</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfiles</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfile</span><span class="token punctuation">&gt;</span></span>repository<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activeProfile</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activeProfiles</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<h5 id="3、maven构建解析原理"><a href="#3、maven构建解析原理" class="headerlink" title="3、maven构建解析原理"></a>3、maven构建解析原理</h5><p>​    （1）system：Maven直接从本地文件系统解析构件。</p>
+<p>​    （2）release：首先从本地查找，如果有，则使用本地，否则从远程服务器下载。</p>
+<p>​    （3）snapshot：从Maven服务器上下载maven-metadata.xml，重命名为maven-metadata-<repositoryid>.xml，并保存到本地仓库相。比较本地仓库中每个坐标maven-metadata-local.xml与maven-metadata-<repositoryid>.xml中的lastUpdated时间戳的值。如果maven-metadata-local.xml中的时间戳比较大，则终止。如果maven-metadata-<repositoryid>.xml中的时间戳较大，则从服务器上下载最新版本。下载这个过程分两步，一是下载对应的jar到本地Maven仓库。二是将下载的jar复制一份，覆盖掉原先的jar包。</repositoryid></repositoryid></repositoryid></p>
+<p>​    （4）latest：最新版本，则是发布版和快照中，最新的版本，所以，如果version配置为latest，则版本也不是稳定的。</p>
+<h4 id="七、私服"><a href="#七、私服" class="headerlink" title="七、私服"></a>七、私服</h4><p>​        所谓私服也就是搭建自己的中央仓库。</p>
 <h5 id="1、仓库分类"><a href="#1、仓库分类" class="headerlink" title="1、仓库分类"></a>1、仓库分类</h5><table>
 <thead>
 <tr>
@@ -1381,6 +1477,10 @@ h3:hover {
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>xxx<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>snapshotRepository</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>distributionManagement</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>（1）如何将本地jar包安装到本地maven仓库？</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup">#添加jar包路径、groupId，artifactId，version，就会安装到settings.xml里面配置的localRepository仓库地址
+mvn install:install-file -Dfile= -DgroupId= -DartifactId= -Dversion= -Dpackaging=jar</code></pre>
 
 
             </div>
@@ -1987,7 +2087,7 @@ h3:hover {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/7.jpg" class="responsive-img" alt="数据结构与算法">
+                        <img src="/medias/banner/4.jpg" class="responsive-img" alt="数据结构与算法">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2046,7 +2146,7 @@ h3:hover {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/3.jpg" class="responsive-img" alt="Git">
+                        <img src="/medias/banner/7.jpg" class="responsive-img" alt="Git">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2293,8 +2393,8 @@ h3:hover {
       <br>
 
       
-      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp;<span
-        class="white-color">25.7k</span>&nbsp;
+      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;文章总字数: &nbsp;<span
+        class="white-color">29.5k</span>&nbsp;
       
       
       
@@ -2302,12 +2402,12 @@ h3:hover {
       
       
       <span id="busuanzi_container_site_pv">
-        <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
+        <i class="far"></i>访问次数: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
       </span>
       
       
       <span id="busuanzi_container_site_uv">
-        <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
+        <i class="fas"></i>访问人数: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
       </span>
       
       <br>

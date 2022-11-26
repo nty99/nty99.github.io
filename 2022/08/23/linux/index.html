@@ -297,6 +297,13 @@ class="themespring" -->
       </li>
       
       <li>
+        <a href="/essay">
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/books">
           
           <span>书单</span>
@@ -511,6 +518,14 @@ class="themespring" -->
                   <a href="/gallery " style="margin-left:75px">
 				  
 		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/essay " style="margin-left:75px">
+				  
+		          <span>随笔</span>
                   </a>
                 </li>
               
@@ -808,7 +823,7 @@ class="themespring" -->
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1130,14 +1145,14 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-05
+                    2022-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    5.4k
                 </div>
                 
 
@@ -1168,13 +1183,13 @@ h3:hover {
 <p>​        （2）&amp;&amp; 表示前一条命令执行成功时，才执行后一条命令。</p>
 <h5 id="2、-和"><a href="#2、-和" class="headerlink" title="2、| 和 ||"></a>2、| 和 ||</h5><p>​        （1）| 表示管道，上一条命令的输出，作为下一条命令参数(输入)。</p>
 <p>​        （2）|| 表示上一条命令执行失败后，才执行下一条命令。</p>
-<h5 id="3、-gt-和-gt-gt"><a href="#3、-gt-和-gt-gt" class="headerlink" title="3、> 和 >>"></a>3、&gt; 和 &gt;&gt;</h5><p>​        （1）&gt; 表示stdout标准输出信息重定向输出，覆盖写。</p>
+<h5 id="3、-gt-、-gt-gt-、-lt"><a href="#3、-gt-、-gt-gt-、-lt" class="headerlink" title="3、> 、 >>、<"></a>3、&gt; 、 &gt;&gt;、&lt;</h5><p>​        （1）&gt; 表示stdout标准输出信息重定向输出，覆盖写。</p>
 <p>​        （2）&gt;&gt; 表示内容追加写。</p>
+<p>​        （3）&lt; 表示输入重定向，把&lt;的文件取代键盘作为新的输入设备。</p>
 <h5 id="4、-amp-gt-、2-gt-amp-1-和-2-gt-1"><a href="#4、-amp-gt-、2-gt-amp-1-和-2-gt-1" class="headerlink" title="4、&amp;> 、2>&amp;1 和  2>1"></a>4、&amp;&gt; 、2&gt;&amp;1 和  2&gt;1</h5><p>​        （1）&amp;&gt; 表示stdout标准输出和stderr错误输出信息，重定向输出，覆盖写。</p>
 <p>​        （2）2&gt;&amp;1 表示把标准错误的输出重定向到标准输出1，&amp;指示不要把1当做普通文件，而是fd=1即标准输出处理。</p>
 <p>​        （3）2&gt;1 表示把标准错误的输出重定向到1，但这个1不是标准输出，而是一个名为1的文件。</p>
-<p>​    5、重定向设备代码</p>
-<p>​        （1）空设备文件/dev/null，表示把所有写入的东西通通扔掉。</p>
+<h5 id="5、重定向设备代码"><a href="#5、重定向设备代码" class="headerlink" title="5、重定向设备代码"></a>5、重定向设备代码</h5><p>​        （1）空设备文件/dev/null，表示把所有写入的东西通通扔掉。</p>
 <p>​        （2）标准输入(stdin) 代码为0，实际映射关系：/dev/stdin -&gt; /proc/self/fd/0。</p>
 <p>​        （3）标准输出(stdout)代码为1，实际映射关系：/dev/stdout -&gt; /proc/self/fd/1。</p>
 <p>​        （4）标准错误输出(stderr)代码为2，实际映射关系：/dev/stderr -&gt;/pro/self/fd/2。</p>
@@ -1301,7 +1316,13 @@ java -jar test.jar <span class="token operator">&gt;</span> log.txt <span class=
 -n <span class="token builtin class-name">:</span> 显示文件的尾部 n 行内容</code></pre>
 
 <p>​    2、适用场景</p>
-<p>​            tail -f用来动态监听Java日志，开发联调经常使用到，它一般跟grep 一起搭档使用。</p>
+<p>​            tail -f用来动态监听Java日志，开发联调经常使用到，它一般跟grep一起搭档使用。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看Test.java文件末尾10行，不添加其他命令参数可直接写数字，否则数字前要加-n</span>
+<span class="token function">tail</span> -10 Test.java
+
+<span class="token comment">#每次10行动态的查看Test.java文件</span>
+<span class="token function">tail</span> -f -n10 Test.java</code></pre>
+
 <h5 id="5、more"><a href="#5、more" class="headerlink" title="5、more"></a>5、more</h5><p>​            一页一页地显示文件内容，每页显示条数根据当前窗口决定。</p>
 <p>​    1、参数说明</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">-num      <span class="token builtin class-name">:</span> 一次显示的行数，如 -10 表示每页显示10行
@@ -2218,7 +2239,7 @@ firewall-cmd --zone<span class="token operator">=</span>public --add-port<span c
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/2.jpg" class="responsive-img" alt="Mybatis相关知识点">
+                        <img src="/medias/banner/1.jpg" class="responsive-img" alt="Mybatis相关知识点">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2277,7 +2298,7 @@ firewall-cmd --zone<span class="token operator">=</span>public --add-port<span c
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/8.jpg" class="responsive-img" alt="RabbitMQ">
+                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="RabbitMQ">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2524,8 +2545,8 @@ firewall-cmd --zone<span class="token operator">=</span>public --add-port<span c
       <br>
 
       
-      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp;<span
-        class="white-color">25.7k</span>&nbsp;
+      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;文章总字数: &nbsp;<span
+        class="white-color">29.5k</span>&nbsp;
       
       
       
@@ -2533,12 +2554,12 @@ firewall-cmd --zone<span class="token operator">=</span>public --add-port<span c
       
       
       <span id="busuanzi_container_site_pv">
-        <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
+        <i class="far"></i>访问次数: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
       </span>
       
       
       <span id="busuanzi_container_site_uv">
-        <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
+        <i class="fas"></i>访问人数: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
       </span>
       
       <br>

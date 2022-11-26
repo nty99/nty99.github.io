@@ -297,6 +297,13 @@ class="themespring" -->
       </li>
       
       <li>
+        <a href="/essay">
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/books">
           
           <span>书单</span>
@@ -511,6 +518,14 @@ class="themespring" -->
                   <a href="/gallery " style="margin-left:75px">
 				  
 		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/essay " style="margin-left:75px">
+				  
+		          <span>随笔</span>
                   </a>
                 </li>
               
@@ -808,7 +823,7 @@ class="themespring" -->
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1130,21 +1145,21 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-05
+                    2022-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    291
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -1164,12 +1179,50 @@ h3:hover {
                 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、Docker常用命令"><a href="#一、Docker常用命令" class="headerlink" title="一、Docker常用命令"></a>一、Docker常用命令</h3><pre class="language-docker" data-language="docker"><code class="language-docker">docker pull 服务:tag  服务:版本（拉取服务，不加tag则默认最新版）
-docker  images 查看镜像
-docker save -o nginx.tar nginx:lastest  将nginx:latest镜像打包
-docker load -i nginx.tar  加载镜像
-docker rmi  删除镜像
-docker rm  删除容器 -f 删除运行的容器
+                <h4 id="一、镜像操作"><a href="#一、镜像操作" class="headerlink" title="一、镜像操作"></a>一、镜像操作</h4><pre class="language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#拉取镜像，不加tag则默认拉取最新版</span>
+docker pull server:tag
+
+<span class="token comment">#查看镜像</span>
+docker images nginx:latest
+
+-a         列出本地所有的镜像含中间映像层
+--digests  显示镜像的摘要信息；
+-f         显示满足条件的镜像；
+--format   指定返回值的模板文件；
+--no-trunc 显示完整的镜像信息；
+-q         只显示镜像ID。
+
+<span class="token comment">#查看镜像信息</span>
+docker inspect nginx:latest
+
+<span class="token comment">#查看镜像的某个具体信息</span>
+docker inspect -f {{".Size"}} nginx:latest
+
+<span class="token comment">#查看镜像各个层 layer 的创建信息</span>
+docker history nginx:latest
+
+<span class="token comment">#查看镜像创建的具体信息</span>
+docker history --no-trunc nginx:latest
+
+<span class="token comment">#导入镜像，-i 指定导入的文件</span>
+docker load -i nginx.tar
+docker load &lt; nginx.tar
+
+<span class="token comment">#导出镜像,将 nginx:v1 镜像输出到nginx.tar</span>
+docker save -o /root/nginx.tar nginx:v1
+
+<span class="token comment">#删除镜像</span>
+docker rmi 名称:版本
+
+<span class="token comment">#none镜像</span>
+好的:镜像是由于镜像分层的中间镜像。它们也不会造成占用磁盘空间问题。
+坏的:镜像会占用空间，主要是由于新加镜像替换原来相对标签的镜像，原来镜像就变成了:而不会被删除。
+docker rmi $(docker images -f "dangling=true" -q)
+
+<span class="token comment">#构建镜像，通过当前目录的Dockerfile文件构建镜像</span>
+docker build -t nginx:v1 .</code></pre>
+
+<h4 id="二、容器操作"><a href="#二、容器操作" class="headerlink" title="二、容器操作"></a>二、容器操作</h4><pre class="language-docker" data-language="docker"><code class="language-docker">docker rm  删除容器 -f 删除运行的容器
 docker ps 查看运行容器状态 -a 则查看所有容器状态
 docker run --name  取名字  -p 80:80 -d  镜像  运行镜像，-p端口映射，-d后台运行
 docker logs mn 查看mn容器的日志 -f 动态查看
@@ -1178,11 +1231,55 @@ docker stop mn  停止mn容器
 docker (un)pause （恢复）暂停镜像
 docker restart mn 重启mn容器</code></pre>
 
+<h4 id="三、镜像构建"><a href="#三、镜像构建" class="headerlink" title="三、镜像构建"></a>三、镜像构建</h4><h5 id="1、命令"><a href="#1、命令" class="headerlink" title="1、命令"></a>1、命令</h5><pre class="language-docker" data-language="docker"><code class="language-docker">docker build -t -f Dockerfile路径 Context路径
+
+-f 指定Dockerfile的路径
+
+<span class="token comment">#简写，根据当前目录的 Dockerfile 文件，将当前目录的文件打包成镜像，但不是将文件都加入镜像</span>
+docker build -t nginx:v1 .
+
+<span class="token comment">#搞清楚两个概念，一是Dockerfile的路径，二是Context的路径</span></code></pre>
+
+<h5 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h5><p>​        首先要理解  docker build  的工作原理，Docker 在运行时分为 Docker 引擎(也就是服务端守护进程，本机上就有该引擎)和客户端工具。Docker 的引擎提供了一组 REST API，被称为 Docker Remote API，而如  docker  命令这样的客户端工具，则是通过这组 API 与 Docker 引擎交互，从而完成各种功能。因此，虽然表面上我们好像是在本机执行各种  docker  功能，但实际上，一切都是使用的调用形式在服务端(Docker 引擎)完成。</p>
+<p>​         docker build 命令构建镜像，其实并非在本地客户端构建，而是在服务端，也就是 Docker 引擎中构建的。那么在这种客户端/服务端的架构中，如何才能让服务端获得本地文件呢？这就引入了 Context 的概念。当构建的时候，用户会指定构建镜像的 Context 路径，如 . 或者 data ，docker 会将该路径下的所有内容打包，然后上传给 Docker 引擎。这样 Docker 引擎收到这个包后，就会获得构建镜像所需的一切文件。注意：此时会将 ContextPath 下的所有文件上传到 Docker 引擎，但是不意味着把所有文件加入镜像，将引擎中 Context 中的所需文件加入镜像需要 Dockerfile 中的 COPY、ADD 等指令。配置 .dockerignore 文件，用于剔除不需要作为 Context 传递给 Docker 引擎文件，注意要放在上面指定的 Context 目录下。默认情况，不通过 -f 指定 Dockerfile 的话，会将 ContextPath 目录下的名为 Dockerfile 的文件作为 Dockerfile。实际上 Dockerfile 的文件名并不要求必须为 Dockerfile，且并不要求必须位于ContextPath中，比如可以用  -f ../test.txt  参数指定某个文件作为 Dockerfile。</p>
+<h5 id="3、Dockerfile"><a href="#3、Dockerfile" class="headerlink" title="3、Dockerfile"></a>3、Dockerfile</h5><pre class="language-docker" data-language="docker"><code class="language-docker"><span class="token instruction"><span class="token keyword">FROM</span> nginx:lastest</span>
+
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /root</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> &lt;src&gt; &lt;dest&gt;</span>
+将 Context 路径下的内容拷贝到镜像中，容器路径不存在则会创建
+
+1、拷贝文件
+<span class="token instruction"><span class="token keyword">copy</span> 1.log /test/data</span>
+<span class="token comment">#1、data存在且是文件夹，则是将文件拷贝到data文件夹里面，容器中有同名文件则覆盖</span>
+<span class="token comment">#2、data存在且是文件，则是覆盖文件，c.log重命名为data</span>
+<span class="token comment">#3、data不存在，则拷贝过去重命名为data文件</span>
+<span class="token comment">#4、若这样写/test/data/，则是将文件拷贝到data目录下，容器中有同名文件则覆盖</span>
+
+2、拷贝文件夹
+<span class="token instruction"><span class="token keyword">copy</span> demo /test/data</span>
+<span class="token comment">#1、data存在且是文件夹，则是将demo文件夹里面的内容拷贝到data下，容器中有同名文件则覆盖</span>
+<span class="token comment">#2、data存在且是文件，报错</span>
+<span class="token comment">#3、data不存在，创建目录并将文件拷贝到其下</span>
+
+
+<span class="token comment"># 压缩文件,自动解压</span>
+<span class="token instruction"><span class="token keyword">COPY</span> jmeter.log.zip /data/</span>
+
+<span class="token comment"># 多个文件</span>
+<span class="token instruction"><span class="token keyword">COPY</span> test1.txt test2.txt /mydir/</span>
+
+<span class="token comment"># 通配符,dest 不存在自动创建</span>
+<span class="token instruction"><span class="token keyword">COPY</span> test*.txt /mydir/test/</span>
+
+<span class="token comment"># 特殊字符串</span>
+<span class="token instruction"><span class="token keyword">COPY</span> COPY[[]0].txt /mydir/.</span></code></pre>
+
 <h3 id="二、Docker镜像结构"><a href="#二、Docker镜像结构" class="headerlink" title="二、Docker镜像结构"></a>二、Docker镜像结构</h3><p>1、镜像是将应用程序及其需要的系统函数库、环境、配置、依赖打包而成。</p>
 <p>2、镜像是分成结构、每一层称为一个Layer。</p>
 <p>​    （1）BaseImage层:包含基本的系统函数库、环境变量、文件系统</p>
 <p>​    （2）Entrypoint：入口，是镜像中应用启动的命令</p>
-<p>​    （3）其它：在BaseImage基础上添加依赖、安装程序、完成整改个应用的安装和配置</p>
+<p>​    （3）其它：在BaseImage基础上添加依赖、安装程序、完成整改个应用的安装和配</p>
 
             </div>
             <hr/>
@@ -1788,7 +1885,7 @@ docker restart mn 重启mn容器</code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/8.jpg" class="responsive-img" alt="RabbitMQ">
+                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="RabbitMQ">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -1846,7 +1943,8 @@ docker restart mn 重启mn容器</code></pre>
                 <a href="/2022/08/23/database/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/9.jpg" class="responsive-img" alt="数据库">
+                        
+                        <img src="/medias/banner/3.jpg" class="responsive-img" alt="数据库">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2093,8 +2191,8 @@ docker restart mn 重启mn容器</code></pre>
       <br>
 
       
-      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp;<span
-        class="white-color">25.7k</span>&nbsp;
+      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;文章总字数: &nbsp;<span
+        class="white-color">29.5k</span>&nbsp;
       
       
       
@@ -2102,12 +2200,12 @@ docker restart mn 重启mn容器</code></pre>
       
       
       <span id="busuanzi_container_site_pv">
-        <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
+        <i class="far"></i>访问次数: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
       </span>
       
       
       <span id="busuanzi_container_site_uv">
-        <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
+        <i class="fas"></i>访问人数: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
       </span>
       
       <br>

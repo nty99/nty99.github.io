@@ -1,67 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nty99.gitee.io/2022/10/12/blogRecord/</loc>
-    <lastmod>2022-10-14</lastmod>
+    <loc>https://nty99.gitee.io/2022/11/26/blogRecord/</loc>
+    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
-    <loc>https://nty99.gitee.io/2022/09/23/algorithm/</loc>
-    <lastmod>2022-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/08/23/database/</loc>
-    <lastmod>2022-10-12</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/08/23/frame/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/11/ribbon/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <loc>https://nty99.gitee.io/2022/10/06/life/</loc>
+    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
     <loc>https://nty99.gitee.io/2022/08/23/mq/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
-    <loc>https://nty99.gitee.io/2022/09/11/nginx/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/11/mybatis/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/11/nacos/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/18/maven/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/11/log/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/08/23/linux/</loc>
-    <lastmod>2022-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://nty99.gitee.io/2022/09/14/git/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <loc>https://nty99.gitee.io/2022/09/23/algorithm/</loc>
+    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
     <loc>https://nty99.gitee.io/2022/08/23/deploy/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
-    <loc>https://nty99.gitee.io/2022/09/13/design/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <loc>https://nty99.gitee.io/2022/09/11/log/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/18/maven/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/11/mybatis/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/11/nacos/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/11/nginx/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/08/23/frame/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/11/ribbon/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/14/git/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/08/23/linux/</loc>
+    <lastmod>2022-11-26</lastmod>
   </url>
   <url>
     <loc>https://nty99.gitee.io/2022/08/23/base/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/09/13/design/</loc>
+    <lastmod>2022-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nty99.gitee.io/2022/08/23/database/</loc>
+    <lastmod>2022-11-26</lastmod>
   </url>
 </urlset> 

@@ -297,6 +297,13 @@ class="themespring" -->
       </li>
       
       <li>
+        <a href="/essay">
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/books">
           
           <span>书单</span>
@@ -511,6 +518,14 @@ class="themespring" -->
                   <a href="/gallery " style="margin-left:75px">
 				  
 		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/essay " style="margin-left:75px">
+				  
+		          <span>随笔</span>
                   </a>
                 </li>
               
@@ -808,7 +823,7 @@ class="themespring" -->
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1130,21 +1145,21 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-05
+                    2022-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    19 分
                 </div>
                 
 
@@ -1365,7 +1380,7 @@ Date:   Wed Sep <span class="token number">14</span> <span class="token number">
 
     first commit</code></pre>
 
-<h5 id="2、git-log-–onlie"><a href="#2、git-log-–onlie" class="headerlink" title="2、git log –onlie"></a>2、git log –onlie</h5><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#一行显示,简略的显示git版本信息</span>
+<h5 id="2、git-log-–oneline"><a href="#2、git-log-–oneline" class="headerlink" title="2、git log –oneline"></a>2、git log –oneline</h5><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#一行显示,简略的显示git版本信息</span>
 
 nty@work git_repo % <span class="token function">git</span> log --oneline
 <span class="token number">2717832</span> <span class="token punctuation">(</span>HEAD -<span class="token operator">&gt;</span> master<span class="token punctuation">)</span> second commit
@@ -1493,17 +1508,29 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
 <span class="token function">git</span> checkout -- Test.java</code></pre>
 
 <h4 id="十一、Git文件暂存"><a href="#十一、Git文件暂存" class="headerlink" title="十一、Git文件暂存"></a>十一、Git文件暂存</h4><p>​        git stash就是把暂存区中还没提交的文件临时存放到一个区域，以便于其它操作。</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash save <span class="token string">"存储"</span> <span class="token comment">#不自定义注释的话可以简写成git stash,临时保存暂存区的数据</span>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#不自定义注释的话可以简写成git stash,临时保存暂存区的数据</span>
+<span class="token function">git</span> stash save <span class="token string">"存储"</span>
 
-<span class="token function">git</span> stash list <span class="token comment">#查看stash保存的列表及id</span>
+<span class="token comment">#查看stash保存的列表及id</span>
+<span class="token function">git</span> stash list
 
-<span class="token function">git</span> stash pop <span class="token comment">#恢复最新的stash记录</span>
+<span class="token comment">#恢复最新或指定的stash记录，会把记录删除</span>
+<span class="token function">git</span> stash pop <span class="token punctuation">(</span>id<span class="token punctuation">)</span>
 
-<span class="token function">git</span> stash pop <span class="token function">id</span> <span class="token comment">#恢复指定的stash记录</span>
+<span class="token comment">#恢复最新或指定的stash记录，不会把记录删除</span>
+<span class="token function">git</span> stash apply <span class="token punctuation">(</span>id<span class="token punctuation">)</span>
 
-<span class="token function">git</span> stash <span class="token function">clear</span> <span class="token comment">#清空所有stash记录</span>
+<span class="token comment">#显示最新或指定的stash记录与当前分支的差异，-p,详细差异</span>
+<span class="token function">git</span> stash show <span class="token punctuation">(</span>id<span class="token punctuation">)</span> -p
 
-<span class="token function">git</span> stash drop <span class="token function">id</span> <span class="token comment">#删除某个stash记录</span></code></pre>
+<span class="token comment">#根据指定或最新缓存创建分支</span>
+<span class="token function">git</span> stash branch dev <span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+
+<span class="token comment">#清空所有stash记录</span>
+<span class="token function">git</span> stash <span class="token function">clear</span>
+
+<span class="token comment">#删除最新或指定的stash记录</span>
+<span class="token function">git</span> stash drop <span class="token punctuation">(</span>id<span class="token punctuation">)</span></code></pre>
 
 <h4 id="十二、Git分支"><a href="#十二、Git分支" class="headerlink" title="十二、Git分支"></a>十二、Git分支</h4><h5 id="1、注意："><a href="#1、注意：" class="headerlink" title="1、注意："></a>1、注意：</h5><p>​        （1）git branch nty或者git checkout -b nty创建的新分支都是以当前分支的最新状态创建的。</p>
 <p>​        （2）只要文件没有在某个分支commit过，则可以在任何分支看到此文件。</p>
@@ -1514,7 +1541,13 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
 
 <span class="token function">git</span> branch -a <span class="token comment">#显示本地、远程所有分支</span>
 
-<span class="token function">git</span> branch -vv <span class="token comment">#查看当前分支与远程分支的跟踪关系</span></code></pre>
+<span class="token function">git</span> branch -v <span class="token comment">#查看本地每个分支的最后提交记录</span>
+
+<span class="token function">git</span> branch -vv <span class="token comment">#查看本地分支与远程分支的跟踪关系</span>
+
+<span class="token function">git</span> branch --merged	<span class="token comment">#查看哪些分支已经合并到当前分支 </span>
+
+<span class="token function">git</span> branch --no-merged <span class="token comment">#查看所有未合并的分支</span></code></pre>
 
 <h5 id="3、分支创建、切换、跟踪"><a href="#3、分支创建、切换、跟踪" class="headerlink" title="3、分支创建、切换、跟踪"></a>3、分支创建、切换、跟踪</h5><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#创建新分支</span>
 <span class="token function">git</span> branch nty
@@ -1625,6 +1658,14 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
 <span class="token comment">#如果当前分支只有一个远程分支，那么主机名都可以省略</span>
 <span class="token function">git</span> push</code></pre>
 
+<p>1、解决授权安全配置审核的详情页面当交互协议为OGG时弹窗显示错误100%  （吴锦乾）</p>
+<p>2、取消网元数字证书管理列表网元状态为空默认展示停用100% （吴锦乾）</p>
+<p>3、按基地要求检测数据安全系统按钮权限100%（吴锦乾）</p>
+<p>4、数据变动分析和变动记录管理页面的调整100%（吴锦乾）</p>
+<p>5、编写采集2.0交互共享详细设计数据变动监测模块数模、数据安全资源清单 100% （倪天宇)</p>
+<p>6、解决网元配置表、网元账户表数据重复插入问题100%（倪天宇）</p>
+<p>7、修改数据库备案Oracle数据库类型校验规则100%（倪天宇）</p>
+<p>四、实施事务工作<br>1、暂无</p>
 
             </div>
             <hr/>
@@ -2230,7 +2271,7 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/10.jpg" class="responsive-img" alt="Maven进阶知识点">
+                        <img src="/medias/banner/7.jpg" class="responsive-img" alt="Maven进阶知识点">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2289,7 +2330,7 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/10.jpg" class="responsive-img" alt="设计模式知识点">
+                        <img src="/medias/banner/8.jpg" class="responsive-img" alt="设计模式知识点">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2536,8 +2577,8 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
       <br>
 
       
-      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp;<span
-        class="white-color">25.7k</span>&nbsp;
+      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;文章总字数: &nbsp;<span
+        class="white-color">29.5k</span>&nbsp;
       
       
       
@@ -2545,12 +2586,12 @@ HEAD is now at 4e107ff <span class="token function">git</span> <span class="toke
       
       
       <span id="busuanzi_container_site_pv">
-        <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
+        <i class="far"></i>访问次数: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
       </span>
       
       
       <span id="busuanzi_container_site_uv">
-        <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
+        <i class="fas"></i>访问人数: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
       </span>
       
       <br>

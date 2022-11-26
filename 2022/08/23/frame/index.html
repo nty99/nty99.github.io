@@ -297,6 +297,13 @@ class="themespring" -->
       </li>
       
       <li>
+        <a href="/essay">
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/books">
           
           <span>书单</span>
@@ -511,6 +518,14 @@ class="themespring" -->
                   <a href="/gallery " style="margin-left:75px">
 				  
 		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/essay " style="margin-left:75px">
+				  
+		          <span>随笔</span>
                   </a>
                 </li>
               
@@ -808,7 +823,7 @@ class="themespring" -->
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1130,21 +1145,21 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-05
+                    2022-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -1195,7 +1210,21 @@ h3:hover {
 <p>​    （7）@Configuration 注解类上的 @PropertySource 指定的配置文件</p>
 <p>​    （8）通过SpringApplication.setDefaultProperties 指定的默认属性</p>
 <p>​    2、配置文件优先级</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><img src="/medias/typora/springboot_config_load_order.png"></h1><h5 id="4、Gateway"><a href="#4、Gateway" class="headerlink" title="4、Gateway"></a>4、Gateway</h5><p>​        GatewayFilter Factories中有30种过滤器，spring  gateway网关中过滤器执行顺序按照order的值执行，值越小，优先级越高globalFilter的order值由我们自己指定，defaultFilter和路由filter由spring声明式指定，如果值一样，则执行defaultFilter、路由filter、globalFilter。defaultFilter和路由filter类型是GatewayFilter，globalFilter经过GatewayFilterAdapter转换成GatewayFilter。</p>
+<p>​    （1）远程优先于本地。</p>
+<p>​    （2）Jar包外面配置优先于jar包里面。</p>
+<p>​    （3）对于application</p>
+<ul>
+<li>外部：config目录下的子目录下的配置优先最高，其次是config目录下，最后是jar包同级目录下。</li>
+<li>内部：Resource下config目录下的子目录下的配置优先最高，其次是Resource下。</li>
+</ul>
+<p>​    （4）对于bootstrap</p>
+<ul>
+<li>外部：外部config目录下的配置优先最高，然后是jar包同级目录下。</li>
+<li>内部：Resource下config目录下的配置优先最高，其次是Resource下。</li>
+</ul>
+<p>​    （5）只要配置文件(bootstrap、application)配置spring.profiles.dev后，所有地方的同类配置都是dev优先。</p>
+<p>​    （6）application优先于bootstrap的配置内容，因为先加载bootstrap的配置，后加载application的配置导致覆盖。</p>
+<h5 id="4、Gateway"><a href="#4、Gateway" class="headerlink" title="4、Gateway"></a>4、Gateway</h5><p>​        GatewayFilter Factories中有30种过滤器，spring  gateway网关中过滤器执行顺序按照order的值执行，值越小，优先级越高globalFilter的order值由我们自己指定，defaultFilter和路由filter由spring声明式指定，如果值一样，则执行defaultFilter、路由filter、globalFilter。defaultFilter和路由filter类型是GatewayFilter，globalFilter经过GatewayFilterAdapter转换成GatewayFilter。</p>
 <h5 id="5、AOP"><a href="#5、AOP" class="headerlink" title="5、AOP"></a>5、AOP</h5><p>​    1、不存在环绕通知执行顺序：</p>
 <p>​            before执行、目标方法执行、AfterThrow执行、After执行。</p>
 <p>​    2、存在环绕通知@Around执行顺序：</p>
@@ -1245,13 +1274,24 @@ h3:hover {
 <h5 id="9、条件注解"><a href="#9、条件注解" class="headerlink" title="9、条件注解"></a>9、条件注解</h5><p>​    1、@ConditionalOnProperty两个属性matchIfMissing、havingValue</p>
 <p>​        （1）没有havingValue属性时候，matchIfMissing为true时，配置文件缺少字段也会注入成功，为false时有配置信息则可以注入，没有则不会注入。</p>
 <p>​        （2）有havingValue时候，havingValue值必须和配置值相同才会注入成功，不管matchIfMissing的值。</p>
+<h5 id="10、请求注解"><a href="#10、请求注解" class="headerlink" title="10、请求注解"></a>10、请求注解</h5><p>1、**@RequestParam：**支持application/json，也同样支持multipart/form-data请求。</p>
+<p>2、**@RequestPart：**用在multipart/form-data表单提交请求的方法上。当请求为multipart/form-data时，@RequestParam只能接收String类型的name-value值，@RequestPart可以接收复杂的请求域(像json、xml)。</p>
+<p>3、**@RequestBody：**接受json类型数据转换成对象。</p>
+<p>4、@RequestParam 依赖Converter or PropertyEditor进行数据解析， @RequestPart参考’Content-Type’ header，依赖HttpMessageConverters进行数据解析</p>
 <h5 id="10、依赖注入"><a href="#10、依赖注入" class="headerlink" title="10、依赖注入"></a>10、依赖注入</h5><p>​    1、通过构造方法注入</p>
 <p>​        （1）采用构造方法上带有@Autowired注解注入。</p>
 <p>​        （2）无@Autowired时候，若有无参构造则采用无参构造，无则采用其它构造方法。</p>
 <p>​    2、Setter注入</p>
 <p>​        （1）在需要注入的setter方法上加@Autored、@Resource注解。</p>
 <p>​        （2）只要setter方法上有@Autored、@Resource注解则一定会执行此注入方式，不管有无构造注入、字段注入。</p>
-<h5 id="11、热部署"><a href="#11、热部署" class="headerlink" title="11、热部署"></a>11、热部署</h5><p>​        JRebel &amp; XRebel</p>
+<h5 id="11、热部署"><a href="#11、热部署" class="headerlink" title="11、热部署"></a>11、热部署</h5><p>​        Jrebel是一个基于JVM类加载机制的插件，能自动重新加载修改后的java字节码文件。因为我们在IDEA中开启了自动编译功能，所以当java文件发生改动时，会被自动编译成字节码文件，此时jrebel监听到字节码文件发生了改变，就自动的把改动的字节码文件加载进JVM中，所以我们几乎可以实时的看到修改后的效果。</p>
+<p>​        服务更新策略：On Update action(当代码发生改变时，IDEA执行什么操作)、On Frame deactivation(当失去焦点，不停留在IDEA里面，IDEA执行什么操作)</p>
+<ul>
+<li>Update resource：如果有更新，且更新资源为（xx.jsp，xx.xml，不包括Java文件），就会立即生效。</li>
+<li>Update classes and resources：如果有更新，且更新资源为（资源文件或Java文件），就会立即生效。在正常运行模式下，修改Java文件也不会立即生效；但是在Debug模式下，就会立即生效。这两种模式下，修改resource资源文件都是可以立即生效的。</li>
+</ul>
+<p>12、Spring定时任务</p>
+<p>​        @Scheduled注解是spring boot提供的用于定时任务控制的注解,主要用于控制任务在某个指定时间执行,或者每隔一段时间执行.注意需要配合@EnableScheduling使用,配置@Scheduled主要有三种配置执行时间的方式,cron,fixedRate,fixedDelay。它的配置一共有8个参数。</p>
 <h4 id="二、Spring"><a href="#二、Spring" class="headerlink" title="二、Spring"></a>二、Spring</h4><h5 id="1、容器接口"><a href="#1、容器接口" class="headerlink" title="1、容器接口"></a>1、容器接口</h5><p>​    （1）容器顶级父接口：BeanFactory规范容器中的对象是延时加载的。</p>
 <p>​    （2）ApplicationContext接口：规范容器中的bean对象时非延时加载的，即创建容器对象的时候就对bean对象进行初始化，并存到容器中。</p>
 <h5 id="2、核心对象"><a href="#2、核心对象" class="headerlink" title="2、核心对象"></a>2、核心对象</h5><p>​    1、BeanDefinition：封装bean对象。</p>
@@ -1862,7 +1902,8 @@ h3:hover {
                 <a href="/2022/08/23/database/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/9.jpg" class="responsive-img" alt="数据库">
+                        
+                        <img src="/medias/banner/3.jpg" class="responsive-img" alt="数据库">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -1921,7 +1962,7 @@ h3:hover {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/banner/3.jpg" class="responsive-img" alt="Java知识点和面试题">
+                        <img src="/medias/banner/0.jpg" class="responsive-img" alt="Java知识点和面试题">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -2168,8 +2209,8 @@ h3:hover {
       <br>
 
       
-      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp;<span
-        class="white-color">25.7k</span>&nbsp;
+      &nbsp;<i class="fas fa-chart-area"></i>&nbsp;文章总字数: &nbsp;<span
+        class="white-color">29.5k</span>&nbsp;
       
       
       
@@ -2177,12 +2218,12 @@ h3:hover {
       
       
       <span id="busuanzi_container_site_pv">
-        <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
+        <i class="far"></i>访问次数: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;
       </span>
       
       
       <span id="busuanzi_container_site_uv">
-        <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
+        <i class="fas"></i>访问人数: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;
       </span>
       
       <br>
